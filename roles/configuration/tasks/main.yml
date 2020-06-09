@@ -6,16 +6,27 @@
     group: "{{ user }}"
 
 - name: Set NeoVim configuration file 
-  template:
-    src: 'nvim.j2'
+  file:
+    src: "{{ playbook_dir }}/roles/configuration/files/nvim"
     dest: "/home/{{ user }}/.config/nvim/init"
     owner: "{{ user }}"
     group: "{{ user }}"
+    state: link
 
 - name: Set TMUX configuration file 
-  template:
-    src: 'tmux.j2'
+  file:
+    src: "{{ playbook_dir }}/roles/configuration/files/tmux.conf"
     dest: "/home/{{ user }}/.tmux.conf"
     owner: "{{ user }}"
     group: "{{ user }}"
+    state: link
+
+- name: Set VSCode settings file 
+  file:
+    src: "{{ playbook_dir }}/roles/configuration/files/code-settings.json"
+    dest: "/home/{{ user }}/.config/Code/User/settings.json"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+
 

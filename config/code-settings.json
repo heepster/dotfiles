@@ -1,0 +1,4 @@
+{
+    "vscode-neovim.neovimPath": "/usr/bin/nvim",
+    "editor.minimap.enabled": false
+}

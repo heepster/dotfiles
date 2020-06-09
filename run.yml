@@ -1,10 +1,10 @@
 - hosts: all
-  become: yes
+  become: no
   vars:
     user: 'kevin'
   roles:
-  - { role: always }
-  - { role: developer }
-  - { role: fun }
-  - { role: configuration }
+   #- { role: always, become: yes }
+   #- { role: developer, become: yes }
+   #- { role: fun, become: yes }
+    - { role: configuration, become: no }
 
