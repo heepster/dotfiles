@@ -7,7 +7,7 @@
 
 - name: Set NeoVim configuration file 
   file:
-    src: "{{ playbook_dir }}/roles/configuration/files/nvim"
+    src: "{{ playbook_dir }}/configs/nvim"
     dest: "/home/{{ user }}/.config/nvim/init"
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -15,7 +15,7 @@
 
 - name: Set TMUX configuration file 
   file:
-    src: "{{ playbook_dir }}/roles/configuration/files/tmux.conf"
+    src: "{{ playbook_dir }}/configs/tmux.conf"
     dest: "/home/{{ user }}/.tmux.conf"
     owner: "{{ user }}"
     group: "{{ user }}"
@@ -23,10 +23,19 @@
 
 - name: Set VSCode settings file 
   file:
-    src: "{{ playbook_dir }}/roles/configuration/files/code-settings.json"
+    src: "{{ playbook_dir }}/configs/code-settings.json"
     dest: "/home/{{ user }}/.config/Code/User/settings.json"
     owner: "{{ user }}"
     group: "{{ user }}"
     state: link
+
+- name: Set VSCode key bindings file 
+  file:
+    src: "{{ playbook_dir }}/configs/code-keybindings.json"
+    dest: "/home/{{ user }}/.config/Code/User/keybindings.json"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+
 
 
