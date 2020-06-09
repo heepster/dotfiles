@@ -37,5 +37,13 @@
     group: "{{ user }}"
     state: link
 
+- name: Set GTK CSS  
+  file:
+    src: "{{ playbook_dir }}/configs/gtk.css"
+    dest: "/home/{{ user }}/.config/gtk-3.0/gtk.css"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+
 
 
