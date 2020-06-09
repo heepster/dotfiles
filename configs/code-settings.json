@@ -3,5 +3,6 @@
     "editor.minimap.enabled": false,
     "editor.fontFamily": "'Noto Mono'",
     "editor.tabSize": 2,
-    "editor.lineHeight": 25
+    "editor.lineHeight": 22,
+    "editor.fontSize": 15
 }
