@@ -13,6 +13,14 @@
     group: "{{ user }}"
     state: link
 
+- name: Set ZSH configuration file 
+  file:
+    src: "{{ playbook_dir }}/configs/zshrc"
+    dest: "/home/{{ user }}/.zshrc"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+    state: link
+
 - name: Set TMUX configuration file 
   file:
     src: "{{ playbook_dir }}/configs/tmux.conf"

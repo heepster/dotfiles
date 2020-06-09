@@ -16,5 +16,6 @@
       "tab.inactiveBackground": "#34314d",
       "titleBar.activeBackground": "#34314d"
     },
-  }
+  },
+  "terminal.integrated.lineHeight": 1.3
 }
