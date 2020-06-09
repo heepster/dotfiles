@@ -1,4 +1,7 @@
 {
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
-    "editor.minimap.enabled": false
+    "editor.minimap.enabled": false,
+    "editor.fontFamily": "'Noto Mono'",
+    "editor.tabSize": 2,
+    "editor.lineHeight": 25
 }
