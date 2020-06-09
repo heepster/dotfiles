@@ -1,8 +1,10 @@
 {
     "vscode-neovim.neovimPath": "/usr/bin/nvim",
     "editor.minimap.enabled": false,
-    "editor.fontFamily": "'Noto Mono'",
+    "editor.fontFamily": "'Fira Mono'",
     "editor.tabSize": 2,
     "editor.lineHeight": 22,
-    "editor.fontSize": 15
+    "workbench.colorTheme": "DuoTone Dark Forest",
+    "window.menuBarVisibility": "toggle",
+    "workbench.activityBar.visible": true
 }
