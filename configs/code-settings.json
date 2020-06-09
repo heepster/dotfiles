@@ -1,10 +1,20 @@
 {
-    "vscode-neovim.neovimPath": "/usr/bin/nvim",
-    "editor.minimap.enabled": false,
-    "editor.fontFamily": "'Fira Mono'",
-    "editor.tabSize": 2,
-    "editor.lineHeight": 22,
-    "workbench.colorTheme": "DuoTone Dark Forest",
-    "window.menuBarVisibility": "toggle",
-    "workbench.activityBar.visible": true
+  "vscode-neovim.neovimPath": "/usr/bin/nvim",
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "'Fira Mono'",
+  "editor.tabSize": 2,
+  "editor.lineHeight": 22,
+  "workbench.colorTheme": "DuoTone Dark Sky",
+  "window.menuBarVisibility": "toggle",
+  "workbench.activityBar.visible": true,
+  "window.titleBarStyle": "custom",
+  "workbench.colorCustomizations": {
+    "[DuoTone Dark Sky]": {
+      "activityBar.background": "#221f3b",
+      "statusBar.background": "#2f2b4f",
+      "sideBar.background": "#34314d",
+      "tab.inactiveBackground": "#34314d",
+      "titleBar.activeBackground": "#34314d"
+    },
+  }
 }
