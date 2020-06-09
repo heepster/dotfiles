@@ -1,0 +1,10 @@
+- hosts: all
+  become: yes
+  vars:
+    user: 'kevin'
+  roles:
+  - { role: always }
+  - { role: developer }
+  - { role: fun }
+  - { role: configuration }
+

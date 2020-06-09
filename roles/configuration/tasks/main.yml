@@ -1,0 +1,21 @@
+- name: Create NeoVim configuration directory
+  file: 
+    path: "/home/{{ user }}/.config/nvim"
+    state: directory
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Set NeoVim configuration file 
+  template:
+    src: 'nvim.j2'
+    dest: "/home/{{ user }}/.config/nvim/init"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
+- name: Set TMUX configuration file 
+  template:
+    src: 'tmux.j2'
+    dest: "/home/{{ user }}/.tmux.conf"
+    owner: "{{ user }}"
+    group: "{{ user }}"
+
