@@ -10,11 +10,6 @@
   args:
     creates: "/home/{{ user }}/.oh-my-zsh"
 
-- name: Install NeoVim
-  package:
-    name: "neovim"
-    state: "present"
-
 - name: Install Gnome Tweaks
   package:
     name: "gnome-tweaks"
@@ -59,4 +54,8 @@
     name: "htop"
     state: "present"
 
+- name: Install Docker
+  include_tasks: docker.yml
 
+- name: Install Neovim
+  include_tasks: neovim.yml

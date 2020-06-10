@@ -7,8 +7,8 @@
 
 - name: Set NeoVim configuration file 
   file:
-    src: "{{ playbook_dir }}/configs/nvim"
-    dest: "/home/{{ user }}/.config/nvim/init"
+    src: "{{ playbook_dir }}/configs/nvim.vim"
+    dest: "/home/{{ user }}/.config/nvim/init.vim"
     owner: "{{ user }}"
     group: "{{ user }}"
     state: link

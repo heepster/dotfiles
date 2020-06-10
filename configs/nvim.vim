@@ -60,7 +60,7 @@ autocmd VimResized * wincmd =
 " Trigger refresh file on (& if) disk change whenever cursor stops moving
 au CursorHold,CursorHoldI * checktime
 
-call plug#begin('~/.local/share/nvim/plugged')
+call plug#begin(stdpath('data') . '/plugged')
   Plug 'scrooloose/nerdTree'
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-fugitive'
