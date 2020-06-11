@@ -59,3 +59,17 @@
 
 - name: Install Neovim
   include_tasks: neovim.yml
+
+# Snap Packages
+- name: Install Snap
+  package:
+    name: "snapd"
+    state: "present"
+
+- name: Install Postman
+  snap:
+    name: "postman"
+    classic: yes
+    state: "present"
+
+
