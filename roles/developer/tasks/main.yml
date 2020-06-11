@@ -39,11 +39,6 @@
     name: "code"
     state: "present"
 
-- name: Install Tmux
-  package:
-    name: "tmux"
-    state: "present"
-
 - name: Install IO Top
   package:
     name: "iotop"
@@ -64,6 +59,9 @@
 
 - name: Install Neovim
   include_tasks: neovim.yml
+
+- name: Install Tmux
+  include_tasks: tmux.yml
 
 # Snap Packages
 - name: Install Snap

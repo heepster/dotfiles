@@ -1,0 +1,11 @@
+- name: Install Tmux
+  package:
+    name: "tmux"
+    state: "present"
+
+- name: Install Tmux Plugin Manager
+  become: no
+  shell: |
+    git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  args:
+    creates: "/home/{{ user }}/.tmux/plugins/tpm"
