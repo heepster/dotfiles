@@ -77,4 +77,7 @@
     classic: yes
     state: "present"
 
-
+- name: Install Vivaldi
+  apt: 
+    deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
+    state: "present"
