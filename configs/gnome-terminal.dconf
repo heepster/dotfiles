@@ -1,0 +1,43 @@
+[legacy]
+theme-variant='system'
+
+[legacy/keybindings]
+find-previous='disabled'
+next-tab='<Primary><Shift>l'
+prev-tab='<Primary><Shift>h'
+
+[legacy/profiles:]
+default='2f43804a-b5b6-48fe-86ee-57fc8a732b98'
+list=['2f43804a-b5b6-48fe-86ee-57fc8a732b98']
+
+[legacy/profiles:/:2f43804a-b5b6-48fe-86ee-57fc8a732b98]
+allow-bold=true
+background-color='#2D2D2D2D2D2D'
+background-transparency-percent=1
+bold-color='#D4D4D4D4D4D4'
+bold-color-same-as-fg=true
+cell-height-scale=1.3500000000000003
+default-size-columns=200
+default-size-rows=40
+font='Noto Mono 11'
+foreground-color='#D4D4D4D4D4D4'
+highlight-background-color='#'
+highlight-colors-set=true
+highlight-foreground-color='#'
+login-shell=true
+palette=['#646464646464', '#F5F58E8E8E8E', '#A9A9D3D3ABAB', '#FEFED3D37E7E', '#7A7AABABD4D4', '#D6D6ADADD5D5', '#7979D4D4D5D5', '#D4D4D4D4D4D4', '#646464646464', '#F5F58E8E8E8E', '#A9A9D3D3ABAB', '#FEFED3D37E7E', '#7A7AABABD4D4', '#D6D6ADADD5D5', '#7979D4D4D5D5', '#D4D4D4D4D4D4']
+scrollback-unlimited=true
+scrollbar-policy='never'
+use-theme-background=false
+use-theme-colors=false
+use-theme-transparency=false
+use-transparent-background=true
+visible-name='Chalk'
+
+[legacy/profiles:/:b1dcc9dd-5262-4d8d-a863-c897e6d979b9]
+cell-height-scale=1.3000000000000003
+cell-width-scale=1.0
+font='Noto Mono 11'
+login-shell=true
+scrollback-unlimited=true
+scrollbar-policy='never'
