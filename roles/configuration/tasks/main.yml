@@ -20,6 +20,7 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     state: link
+    force: yes # initial install of zsh includes .zshrc, so must remove it
 
 - name: Set TMUX configuration file 
   file:
@@ -28,6 +29,11 @@
     owner: "{{ user }}"
     group: "{{ user }}"
     state: link
+
+- name: Create VS Code config dir
+  file:
+    path: "/home/{{ user }}/.config/Code/User"
+    state: directory
 
 - name: Set VSCode settings file 
   file:

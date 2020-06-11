@@ -4,7 +4,6 @@
     chmod +x n
     sudo mv n /usr/bin/n
     bash /usr/bin/n lts
-    sudo rm n
   args:
     creates: /usr/bin/n
 
