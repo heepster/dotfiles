@@ -1,3 +1,8 @@
+- name: Install SSH Server
+  package: 
+    name: "openssh-server"
+    state: "present"
+  
 - name: Install ZSH
   package:
     name: "zsh"
