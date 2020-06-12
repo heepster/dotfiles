@@ -1,0 +1,21 @@
+#!/bin/bash
+
+NAME=$1
+VERSION=4.2
+HOST_DATA_DIR=~/.local/share/docker-mongo/$VERSION/$NAME/
+CONTAINER_DATA_DIR=/data/db
+
+if [ -z "$1" ]; then
+  echo "Must supply name. Example Usage:"
+  echo "$ ./bin/mongo-docker myMongo"
+  exit 1
+fi
+
+mkdir -p $HOST_DATA_DIR
+
+sudo docker run \
+  -p 27017:27017 \
+  --rm \
+  --name mongo$VERSION \
+  -v $HOST_DATA_DIR:$CONTAINER_DATA_DIR \
+  mongo:$VERSION
