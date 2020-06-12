@@ -20,6 +20,11 @@
     name: "gnome-tweaks"
     state: "present"
 
+- name: Install DConf Editor
+  package: 
+    name: "dconf-editor"
+    state: "present"
+
 - name: Install Apt Transport HTTPS
   package:
     name: "apt-transport-https"
