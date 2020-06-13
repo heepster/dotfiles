@@ -1,3 +1,6 @@
+# TODO Must run:
+# sudo dpkg-reconfigure libdvd-pkg
+# After installation of libdvdcss2
 - name: "Install Libdvdcss"
   package:
     name: "libdvdcss2"
