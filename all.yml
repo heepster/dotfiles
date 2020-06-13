@@ -4,9 +4,10 @@
     user: 'kevin'
   roles:
     - { role: always, become: yes }
+    - { role: basics, become: yes }
     - { role: developer, become: yes }
     - { role: languages, become: yes }
-    - { role: fun, become: yes }
     - { role: sound, become: yes }
+    - { role: movies, become: yes }
     - { role: configuration, become: no }
 

@@ -1,0 +1,15 @@
+- name: "Install Libdvdcss"
+  package:
+    name: "libdvdcss2"
+    state: "present"
+
+- name: "Install Handbrake"
+  package:
+    name: "handbrake"
+    state: "present"
+
+- name: "Install MakeMKV"
+  snap:
+    name: "makemkv"
+    classic: yes
+    state: "present"
