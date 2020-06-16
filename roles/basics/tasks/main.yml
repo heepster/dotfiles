@@ -3,6 +3,11 @@
     name: "openssh-server"
     state: "present"
 
+- name: Install Mosh
+  package:
+    name: "mosh"
+    state: "present"
+
 - name: Install Gnome Tweaks
   package:
     name: "gnome-tweaks"
