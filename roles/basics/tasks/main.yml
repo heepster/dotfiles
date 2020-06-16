@@ -40,3 +40,8 @@
   apt: 
     deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
     state: "present"
+
+- name: Install Zoom
+  apt:
+    deb: "https://zoom.us/client/latest/zoom_amd64.deb"
+    state: "present"
