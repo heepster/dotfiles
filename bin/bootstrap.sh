@@ -27,3 +27,5 @@ else
   # which 'breaks' apt updates, so just remove it
   sudo add-apt-repository --remove ppa:ansible/ansible
 fi
+
+ansible-galaxy install -r requirements.yml

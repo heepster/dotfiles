@@ -1,0 +1,8 @@
+---
+dependencies:
+  - role: rvm.ruby
+    vars:
+      rvm1_rubies: 
+        - 'ruby-2.5'
+      rvm1_user: "{{ ansible_user_id }}"
+      rvm1_bundler_install: true

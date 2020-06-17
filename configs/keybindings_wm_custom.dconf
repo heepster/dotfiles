@@ -1,7 +1,7 @@
 [custom0]
 binding='F2'
-command='firefox --new-window'
-name='Open Firefox'
+command='vivaldi --new-window'
+name='Open Browser'
 
 [custom1]
 binding='F1'
