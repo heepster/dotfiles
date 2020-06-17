@@ -45,3 +45,8 @@
   apt:
     deb: "https://zoom.us/client/latest/zoom_amd64.deb"
     state: "present"
+
+- name: Install Pidgin
+  package:
+    name: "pidgin"
+    state: "present"
