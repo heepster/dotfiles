@@ -1,0 +1,4 @@
+[/]
+focus-active-notification=@as []
+toggle-application-view=@as []
+toggle-overview=['<Primary><Super>e']
