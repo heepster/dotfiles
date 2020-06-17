@@ -1,0 +1,14 @@
+[custom0]
+binding='F2'
+command='firefox --new-window'
+name='Open Firefox'
+
+[custom1]
+binding='F1'
+command='gnome-terminal'
+name='Open Terminal'
+
+[custom2]
+binding='F3'
+command='code -n'
+name='Open VSCode'
