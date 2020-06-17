@@ -1,6 +1,6 @@
 #!/bin/bash
 
-if ! [ "$1" = "dump" ] || [ "$1" = "load" ]; then 
+if ! [[ "$1" == "dump" || "$1" == "load" ]]; then 
   echo "Must pass either 'dump' or 'load'"
   exit 1
 fi
