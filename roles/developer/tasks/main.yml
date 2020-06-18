@@ -52,6 +52,9 @@
 - name: Install Docker
   include_tasks: docker.yml
 
+- name: Install Google Cloud SDK Tools
+  include_tasks: gcp_sdk.yml
+
 - name: Install Neovim
   include_tasks: neovim.yml
 
