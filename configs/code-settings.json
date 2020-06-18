@@ -4,7 +4,7 @@
   "editor.fontFamily": "'Fira Mono'",
   "editor.tabSize": 2,
   "editor.lineHeight": 22,
-  "workbench.colorTheme": "DuoTone Dark Sky",
+  "workbench.colorTheme": "DuoTone Dark Forest",
   "window.menuBarVisibility": "toggle",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
@@ -16,5 +16,6 @@
       "titleBar.activeBackground": "#34314d"
     },
   },
-  "terminal.integrated.lineHeight": 1.3
+  "terminal.integrated.lineHeight": 1.3,
+  "window.zoomLevel": 0
 }
