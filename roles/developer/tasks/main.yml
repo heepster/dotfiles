@@ -61,6 +61,9 @@
 - name: Install Tmux
   include_tasks: tmux.yml
 
+- name: Install Terraform 
+  include_tasks: terraform.yml
+
 - name: Install Postman
   snap:
     name: "postman"
