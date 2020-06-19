@@ -50,3 +50,6 @@
   package:
     name: "pidgin"
     state: "present"
+
+- name: Clean Up Application launchers
+  include_tasks: applications_menu.yml

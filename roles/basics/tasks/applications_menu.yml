@@ -1,0 +1,10 @@
+- name: Remove Unwanted Application Launchers from /usr/share/applications
+  file:
+    path: /usr/share/applications/{{ item }}.desktop
+    state: absent
+  loop:  
+    - openjdk-8-java
+    - openjdk-8-policytool.desktop
+    - vim
+    - nvim
+    - htop

@@ -1,9 +1,9 @@
 - hosts: all
   roles:
-    - { role: always, become: yes }
+    #- { role: always, become: yes }
     - { role: basics, become: yes }
     - { role: developer, become: yes }
-    - { role: languages, become: yes }
-    - { role: sound, become: yes }
-    - { role: configuration, become: no }
+      #- { role: languages, become: yes }
+      #- { role: sound, become: yes }
+      #- { role: configuration, become: no }
 
