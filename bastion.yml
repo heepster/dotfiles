@@ -6,5 +6,6 @@
     - { role: languages, become: yes }
     - { role: sound, become: yes }
     - { role: movies, become: yes }
+    - { role: art, become: yes }
     - { role: configuration, become: no }
 
