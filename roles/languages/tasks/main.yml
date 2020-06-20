@@ -7,29 +7,3 @@
   args:
     creates: /usr/bin/n
 
-- name: Install RVM PPA
-  shell: |
-    sudo apt-add-repository -y ppa:rael-gc/rvm
-  args:
-    creates: /etc/apt/sources.list.d/rael-gc-ubuntu-rvm-focal.list
-
-- name: Install RVM
-  package:
-    name: "rvm"
-    state: "present"
-
-## TODO -- Doesn't work
-#- name: Install Ruby 2.5.7
-#  shell: |
-#    source /etc/profile.d/rvm.sh
-#    rvm install 2.5.7
-#  args:
-#    creates: /usr/share/rvm/rubies/ruby-2.5.7/
-#    
-#- name: Install Ruby 2.5.7 Bundler
-#  shell: |
-#    source /etc/profile.d/rvm.sh
-#    rvm use 2.5.7
-#    gem install bundler
-#  args:
-#    executable: /bin/bash

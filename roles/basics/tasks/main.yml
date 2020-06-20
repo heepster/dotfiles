@@ -51,5 +51,11 @@
     name: "pidgin"
     state: "present"
 
+- name: Install Okular
+  package:
+    name: "okular"
+    state: "present"
+
 - name: Clean Up Application launchers
   include_tasks: applications_menu.yml
+
