@@ -10,7 +10,6 @@
   args:
     creates: /home/{{ ansible_user_id }}/.oh-my-zsh
 
-
 - name: Install ZSH Auto Suggestions
   become: no
   shell: |
