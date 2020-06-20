@@ -1,61 +1,61 @@
 - name: Create NeoVim configuration directory
   file: 
-    path: "/home/{{ ansible_user_id }}/.config/nvim"
+    path: "/home/{{ lookup('env', 'USER') }}/.config/nvim"
     state: directory
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
 
 - name: Set NeoVim configuration file 
   file:
     src: "{{ playbook_dir }}/configs/nvim.vim"
-    dest: "/home/{{ ansible_user_id }}/.config/nvim/init.vim"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.config/nvim/init.vim"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set ZSH configuration file 
   file:
     src: "{{ playbook_dir }}/configs/zshrc"
-    dest: "/home/{{ ansible_user_id }}/.zshrc"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.zshrc"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
     force: yes # initial install of zsh includes .zshrc, so must remove it
 
 - name: Set TMUX configuration file 
   file:
     src: "{{ playbook_dir }}/configs/tmux.conf"
-    dest: "/home/{{ ansible_user_id }}/.tmux.conf"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.tmux.conf"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Create VS Code config dir
   file:
-    path: "/home/{{ ansible_user_id }}/.config/Code/User"
+    path: "/home/{{ lookup('env', 'USER') }}/.config/Code/User"
     state: directory
 
 - name: Set VSCode settings file 
   file:
     src: "{{ playbook_dir }}/configs/code-settings.json"
-    dest: "/home/{{ ansible_user_id }}/.config/Code/User/settings.json"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.config/Code/User/settings.json"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set VSCode key bindings file 
   file:
     src: "{{ playbook_dir }}/configs/code-keybindings.json"
-    dest: "/home/{{ ansible_user_id }}/.config/Code/User/keybindings.json"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.config/Code/User/keybindings.json"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set GTK CSS  
   file:
     src: "{{ playbook_dir }}/configs/gtk.css"
-    dest: "/home/{{ ansible_user_id }}/.config/gtk-3.0/gtk.css"
-    owner: "{{ ansible_user_id }}"
-    group: "{{ ansible_user_id }}"
+    dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
     state: link
 

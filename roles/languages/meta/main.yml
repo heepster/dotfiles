@@ -4,5 +4,5 @@ dependencies:
     vars:
       rvm1_rubies: 
         - 'ruby-2.5'
-      rvm1_user: "{{ ansible_user_id }}"
+      rvm1_user: "{{ lookup('env', 'USER') }}"
       rvm1_bundler_install: true

@@ -1,13 +1,13 @@
 - name: Install Terraform Manager
   become: no
   shell: |
-    git clone https://github.com/tfutils/tfenv.git /home/{{ ansible_user_id }}/.tfenv
+    git clone https://github.com/tfutils/tfenv.git /home/{{ lookup('env', 'USER') }}/.tfenv
   args:
-    creates: /home/{{ ansible_user_id }}/.tfenv
+    creates: /home/{{ lookup('env', 'USER') }}/.tfenv
 
 - name: Symlink Terraform Manager to /usr/local/bin
   file: 
-    src: /home/{{ ansible_user_id }}/.tfenv/bin/{{ item.src }}
+    src: /home/{{ lookup('env', 'USER') }}/.tfenv/bin/{{ item.src }}
     dest: /usr/local/bin/{{ item.dest }}
     state: link
   loop:
@@ -17,6 +17,6 @@
 - name: Install latest version of terraform
   become: no
   shell: |
-    /home/{{ ansible_user_id}}/.tfenv/bin/tfenv install
+    /home/{{ lookup('env', 'USER')}}/.tfenv/bin/tfenv install
   args:
-    creates: /home/{{ ansible_user_id}}/.tfenv/versions/
+    creates: /home/{{ lookup('env', 'USER')}}/.tfenv/versions/

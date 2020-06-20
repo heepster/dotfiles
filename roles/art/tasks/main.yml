@@ -4,3 +4,11 @@
     name:  https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
     state: present
     method: user
+
+- apt_repository: 
+    repo: ppa:inkscape.dev/stable
+
+- name: Install Inkscape
+  package:
+    name: 'inkscape'
+    state: present

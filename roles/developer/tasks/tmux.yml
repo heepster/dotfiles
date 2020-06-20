@@ -8,4 +8,4 @@
   shell: |
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   args:
-    creates: "/home/{{ ansible_user_id }}/.tmux/plugins/tpm"
+    creates: "/home/{{ lookup('env', 'USER') }}/.tmux/plugins/tpm"
