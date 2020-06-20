@@ -4,7 +4,15 @@
     state: absent
   loop:  
     - openjdk-8-java
-    - openjdk-8-policytool.desktop
+    - openjdk-8-policytool
     - vim
     - nvim
     - htop
+    - org.kde.kdeconnect.app
+    - org.kde.kdeconnect.daemon
+    - org.kde.kdeconnect.kcm
+    - org.kde.kdeconnect.nonplasma
+    - org.kde.kdeconnect_open
+    - org.kde.kdeconnect.sms
+    - org.kde.kdeconnect.smshandler
+    - org.kde.kdeconnect.telhandler
