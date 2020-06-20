@@ -1,0 +1,6 @@
+- name: Install the Gimp flatpak
+  become: no
+  flatpak:
+    name:  https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
+    state: present
+    method: user
