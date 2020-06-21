@@ -60,3 +60,13 @@
   package:
     name: "torbrowser-launcher"
     state: "present"
+
+- apt_repository:
+    repo: ppa:transmissionbt/ppa
+
+- name: Install Transmission
+  package:
+    name: "transmission"
+    state: "present"
+
+- include_tasks: vpn.yml

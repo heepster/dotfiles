@@ -1,0 +1,15 @@
+- name: Install OpenVPN
+  package:
+    name: "openvpn"
+    state: "present"
+
+- name: Install OpenVPN Gnome GUI
+  package:
+    name: "network-manager-openvpn-gnome"
+    state: "present"
+
+# Helps with DNS
+- name: Install Resolvconf
+  package:
+    name: "resolvconf"
+    state: "present"
