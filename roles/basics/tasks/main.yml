@@ -55,3 +55,8 @@
   package:
     name: "okular"
     state: "present"
+  
+- name: Install Tor
+  package:
+    name: "torbrowser-launcher"
+    state: "present"
