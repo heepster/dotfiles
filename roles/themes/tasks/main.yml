@@ -11,4 +11,11 @@
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Zafiro-Icons
 
+- name: Symlink Wallpaper
+  file:
+    src: "{{ playbook_dir }}/media/wallpaper.png"
+    dest: "/home/{{ lookup('env', 'USER') }}/.wallpaper.png"
+    owner: "{{ lookup('env', 'USER') }}"
+    group: "{{ lookup('env', 'USER') }}"
+    state: link
 

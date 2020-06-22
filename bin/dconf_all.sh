@@ -34,3 +34,13 @@ echo "$1 Gnome Interface"
 CONF_FILE=configs/gnome_interface.dconf
 DIR=/org/gnome/desktop/interface/
 bin/dconf.sh $1 $CONF_FILE $DIR
+
+echo "$1 Gnome Desktop Background"
+CONF_FILE=configs/gnome_desktop_background.dconf
+DIR=/org/gnome/desktop/background/
+bin/dconf.sh $1 $CONF_FILE $DIR
+
+echo "$1 Gnome Desktop Screensaver"
+CONF_FILE=configs/gnome_desktop_screensaver.dconf
+DIR=/org/gnome/desktop/screensaver/
+bin/dconf.sh $1 $CONF_FILE $DIR
