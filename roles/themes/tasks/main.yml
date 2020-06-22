@@ -1,0 +1,14 @@
+- name: Install Zafiro Icons
+  become: no
+  shell: |
+    export VERSION=1.1
+    wget --quiet -O /tmp/zafiro-icons.tar.gz https://github.com/zayronxio/Zafiro-icons/archive/$VERSION.tar.gz
+    cd /tmp
+    tar xf zafiro-icons.tar.gz
+    mkdir -p ~/.local/share/icons/Zafiro-Icons
+    cp -r Zafiro-icons-$VERSION/* ~/.local/share/icons/Zafiro-Icons/
+    rm -rf zafiro-icons.tar.gz Zafiro-icons-$VERSION
+  args:
+    creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Zafiro-Icons
+
+

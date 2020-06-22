@@ -1,0 +1,4 @@
+[/]
+enable-hot-corners=true
+gtk-im-module='gtk-im-context-simple'
+icon-theme='Zafiro-Icons'

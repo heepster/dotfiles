@@ -9,5 +9,6 @@
     - { role: movies }
     - { role: art }
     - { role: configuration }
+    - { role: themes }
     - { role: post_run }
 

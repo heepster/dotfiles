@@ -29,3 +29,8 @@ echo "$1 Media Keybindings"
 CONF_FILE=configs/keybindings_media_keys.dconf
 DIR=/org/gnome/settings-daemon/plugins/media-keys/
 ./bin/dconf.sh $1 $CONF_FILE $DIR
+
+echo "$1 Gnome Interface"
+CONF_FILE=configs/gnome_interface.dconf
+DIR=/org/gnome/desktop/interface/
+bin/dconf.sh $1 $CONF_FILE $DIR
