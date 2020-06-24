@@ -1,0 +1,12 @@
+- name: Install Wireshark  
+  package:
+    name: wireshark
+    state: present
+
+- name: adding existing user to group wireshark
+  user:
+    name: "{{ lookup('env', 'USER') }}"
+    groups: wireshark
+    append: yes
+
+
