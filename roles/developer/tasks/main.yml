@@ -37,12 +37,6 @@
     name: "tig"
     state: "present"
 
-- name: Install Postman
-  snap:
-    name: "postman"
-    classic: yes
-    state: "present"
-
 - name: Install Docker
   include_tasks: docker.yml
 
@@ -63,3 +57,5 @@
 
 - name: Install AWS CLI
   include_tasks: aws.yml
+
+- include_tasks: postman.yml

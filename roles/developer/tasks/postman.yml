@@ -1,0 +1,18 @@
+- name: Install Postman
+  snap:
+    name: "postman"
+    classic: yes
+    state: "present"
+
+- name: Change Postman Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/postman_postman.desktop
+    regexp: '^Icon='
+    line: Icon=postman
+
+- name: Change Postman Exec
+  lineinfile:
+   path: /var/lib/snapd/desktop/applications/postman_postman.desktop
+   regexp: '^Exec='
+   line: Exec=/snap/bin/postman %U
+

@@ -1,0 +1,11 @@
+- name: Install VLC
+  snap:
+    name: "vlc"
+    classic: yes
+    state: "present"
+
+- name: Change VLC Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/vlc_vlc.desktop
+    regexp: '^Icon='
+    line: Icon=vlc

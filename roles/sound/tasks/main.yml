@@ -6,8 +6,4 @@
     name: "audacity"
     state: "present"
 
-- name: Install Musescore
-  snap:
-    name: musescore
-    state: present
-
+- include_tasks: musescore.yml

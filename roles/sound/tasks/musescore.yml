@@ -1,0 +1,18 @@
+- name: Install Musescore
+  snap:
+    name: musescore
+    state: present
+
+    # Need a better icon first
+    #- name: Change Musescore Icon
+    #  lineinfile:
+    #    path: /var/lib/snapd/desktop/applications/musescore_musescore.desktop
+    #    regexp: '^Icon='
+    #    line: Icon=music
+
+    #- name: Change Musescore Exec
+    #  lineinfile:
+    #   path: /var/lib/snapd/desktop/applications/musescore_musescore.desktop
+    #   regexp: '^Exec='
+    #   line: Exec=/snap/bin/musescore.mscore %F
+

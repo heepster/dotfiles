@@ -30,12 +30,6 @@
     name: "spotify-client"
     state: "present"
 
-- name: Install VLC
-  snap:
-    name: "vlc"
-    classic: yes
-    state: "present"
-
 - name: Install Vivaldi
   apt: 
     deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
@@ -72,3 +66,4 @@
 - include_tasks: vpn.yml
 - include_tasks: syncthing.yml
 - include_tasks: wireshark.yml
+- include_tasks: vlc.yml

@@ -6,7 +6,7 @@
     - { role: developer }
     # - { role: languages }
     - { role: sound }
-    - { role: art }
+    #- { role: art }
     - { role: configuration }
-    - { role: themes }
+      #- { role: themes }
     - { role: post_run }
