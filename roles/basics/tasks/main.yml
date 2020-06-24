@@ -69,4 +69,10 @@
     name: "transmission"
     state: "present"
 
+- name: Install Wireshark  
+  package:
+    name: wireshark
+    state: present
+
 - include_tasks: vpn.yml
+- include_tasks: syncthing.yml
