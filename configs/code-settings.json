@@ -17,6 +17,8 @@
     },
   },
   "terminal.integrated.lineHeight": 1.3,
-  "window.zoomLevel": 1,
-  "window.titleBarStyle": "custom"
+  "window.zoomLevel": 0,
+  "window.titleBarStyle": "custom",
+  "workbench.editor.enablePreviewFromQuickOpen": false,
+  "files.trimTrailingWhitespace": true
 }
