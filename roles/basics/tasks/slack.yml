@@ -1,0 +1,11 @@
+- name: Install Slack
+  snap:
+    name: slack
+    classic: yes
+    state: present
+
+- name: Change Slack Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/slack_slack.desktop
+    regexp: '^Icon='
+    line: Icon=slack
