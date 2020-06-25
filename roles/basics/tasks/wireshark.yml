@@ -3,6 +3,14 @@
     name: wireshark
     state: present
 
+- debug:
+    msg: "Remember to run sudo dpkg-reconfigure wireshark-common if wireshark was installed"
+
+- name: Make Wireshark group
+  group: 
+    name: wireshark
+    state: present
+
 - name: adding existing user to group wireshark
   user:
     name: "{{ lookup('env', 'USER') }}"
