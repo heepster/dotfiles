@@ -37,6 +37,11 @@
     name: "tig"
     state: "present"
 
+- name: Install Postgresql Client
+  package:
+    name: postgresql-client
+    state: present
+
 - name: Install Docker
   include_tasks: docker.yml
 
