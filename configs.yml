@@ -1,7 +1,0 @@
-- hosts: all
-  become: no
-  vars:
-    user: 'kevin'
-  roles:
-    - { role: configuration, become: no }
-
