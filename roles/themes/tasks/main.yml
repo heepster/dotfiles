@@ -13,7 +13,7 @@
 
 - name: Symlink Wallpaper
   file:
-    src: "{{ playbook_dir }}/media/wallpaper.png"
+    src: "{{ playbook_dir }}/../media/wallpaper.png"
     dest: "/home/{{ lookup('env', 'USER') }}/.wallpaper.png"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"

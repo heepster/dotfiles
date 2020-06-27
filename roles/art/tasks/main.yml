@@ -10,5 +10,13 @@
 
 - name: Install Inkscape
   package:
-    name: 'inkscape'
+    name: inkscape
+    state: present
+
+- apt_repository: 
+    repo: ppa:kritalime/ppa
+
+- name: Install Krita
+  package: 
+    name: krita
     state: present
