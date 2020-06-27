@@ -7,7 +7,7 @@
 
 - name: Copy AWS config 
   copy:
-    src: "{{ playbook_dir }}/configs/aws/config"
+    src: "{{ playbook_dir }}/../configs/aws/config"
     dest: "/home/{{ lookup('env', 'USER') }}/.aws/config"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
@@ -15,7 +15,7 @@
 
 - name: Copy AWS credentials 
   copy:
-    src: "{{ playbook_dir }}/configs/aws/credentials"
+    src: "{{ playbook_dir }}/../configs/aws/credentials"
     dest: "/home/{{ lookup('env', 'USER') }}/.aws/credentials"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
