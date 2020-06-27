@@ -20,3 +20,9 @@
   package: 
     name: krita
     state: present
+    
+- name: Install Blender
+  snap:
+    name: blender
+    classic: yes
+    state: present
