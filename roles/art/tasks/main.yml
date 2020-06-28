@@ -26,3 +26,9 @@
     name: blender
     classic: yes
     state: present
+
+- name: Change Blender Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/blender_blender.desktop
+    regexp: '^Icon='
+    line: Icon=blender
