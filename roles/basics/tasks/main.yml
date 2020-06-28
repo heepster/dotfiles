@@ -60,8 +60,13 @@
 
 - name: Install Transmission
   package:
-    name: "transmission"
-    state: "present"
+    name: transmission
+    state: present
+
+- name: Install Rhythmbox
+  package:
+    name: rhythmbox
+    state: present
 
 - include_tasks: vpn.yml
 - include_tasks: syncthing.yml
