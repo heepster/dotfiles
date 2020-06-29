@@ -1,13 +1,13 @@
 - hosts: all
   become: yes
   roles:
-    #- { role: always }
-    #- { role: basics }
-    #- { role: developer }
-    #- { role: virtualization }
-    # - { role: languages }
-    # - { role: sound }
-    #- { role: art }
+    - { role: always }
+    - { role: basics }
+    - { role: developer }
+    - { role: virtualization }
+    #- { role: languages }
+    - { role: sound }
+    - { role: art }
     - { role: configuration }
-    #- { role: themes }
+    - { role: themes }
     - { role: post_run }
