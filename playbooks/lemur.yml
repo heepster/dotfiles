@@ -1,13 +1,18 @@
 - hosts: all
   become: yes
+  vars:
+    nfs:
+      server: false
+      client: true
   roles:
     - { role: always }
+    - { role: nfs }
     - { role: basics }
     - { role: developer }
     - { role: virtualization }
     #- { role: languages }
-    - { role: sound }
-    - { role: art }
-    - { role: configuration }
-    - { role: themes }
-    - { role: post_run }
+    #- { role: sound }
+    #- { role: art }
+    #- { role: configuration }
+    #- { role: themes }
+    #- { role: post_run }

@@ -1,0 +1,21 @@
+- name: Install NFS Server
+  package:
+    name: nfs-kernel-server
+    state: present
+
+- name: Setup Share Folder
+  file:
+    path: /mnt/share
+    owner: nobody
+    group: nogroup
+    mode: '0777'
+    state: directory
+
+- name: Setup Exports
+  file:
+    src: exports
+    dest: /etc/exports
+    owner: root
+    group: root
+    mode: '0644'
+
