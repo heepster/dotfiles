@@ -11,8 +11,8 @@
     - { role: developer }
     - { role: virtualization }
     #- { role: languages }
-    #- { role: sound }
-    #- { role: art }
-    #- { role: configuration }
-    #- { role: themes }
-    #- { role: post_run }
+    - { role: sound }
+    - { role: art }
+    - { role: configuration }
+    - { role: themes }
+    - { role: post_run }
