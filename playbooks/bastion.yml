@@ -8,12 +8,12 @@
     - { role: always }
     - { role: basics }
     - { role: nfs }
-      #- { role: developer }
-      #- { role: languages }
-      #- { role: sound }
-      #- { role: movies }
-      #- { role: art }
-      #- { role: configuration }
-      #- { role: themes }
-      #- { role: post_run }
+    - { role: developer }
+    - { role: languages }
+    - { role: sound }
+    - { role: movies }
+    - { role: art }
+    - { role: configuration }
+    - { role: themes }
+    - { role: post_run }
 
