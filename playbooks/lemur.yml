@@ -10,7 +10,7 @@
     - { role: basics }
     - { role: developer }
     - { role: virtualization }
-    #- { role: languages }
+    - { role: languages }
     - { role: sound }
     - { role: art }
     - { role: configuration }

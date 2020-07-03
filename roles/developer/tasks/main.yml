@@ -42,6 +42,16 @@
     name: postgresql-client
     state: present
 
+- name: Install NGINX
+  package:
+    name: nginx
+    state: present
+
+- name: Install Siege
+  package:
+    name: siege
+    state: present
+
 - name: Install Docker
   include_tasks: docker.yml
 

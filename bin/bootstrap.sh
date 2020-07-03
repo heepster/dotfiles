@@ -28,4 +28,5 @@ else
   sudo add-apt-repository --remove ppa:ansible/ansible
 fi
 
-ansible-galaxy install -r requirements.yml
+mkdir -p galaxy
+ansible-galaxy install --roles-path galaxy -r requirements.yml
