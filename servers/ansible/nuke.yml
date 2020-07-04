@@ -1,0 +1,6 @@
+- hosts: nuke
+  become: yes
+  roles:
+    - { role: basics }
+    - { role: dns }
+

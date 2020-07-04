@@ -69,6 +69,11 @@
     name: rhythmbox
     state: present
 
+- name: Install SSHPass
+  package:
+    name: sshpass
+    state: present
+
 - include_tasks: vpn.yml
 - include_tasks: syncthing.yml
 - include_tasks: wireshark.yml

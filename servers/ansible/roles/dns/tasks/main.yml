@@ -1,0 +1,41 @@
+- name: Install Bind
+  package:
+    name: bind9
+    state: present
+
+- name: Install DNS Utils
+  package:
+    name: dnsutils
+    state: present
+
+- name: Named Conf Options
+  copy:
+    src: named.conf.options
+    dest: /etc/bind/named.conf.options
+    owner: root
+    group: bind
+    mode: '0644'
+
+- name: Named Conf Local
+  copy:
+    src: named.conf.local
+    dest: /etc/bind/named.conf.local
+    owner: root
+    group: bind
+    mode: '0644'
+
+- name: Create Zone Folder
+  file:
+    dest: /etc/bind/zones
+    owner: root
+    group: bind
+    mode: '0755'
+    state: directory
+
+- name: Local.com Zone
+  copy:
+    src: zones/db.local.com
+    dest: /etc/bind/zones/db.local.com
+    owner: root
+    group: bind
+    mode: '0644'
