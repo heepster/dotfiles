@@ -2,12 +2,12 @@
   apt:
     update_cache: yes
     cache_valid_time: 3600
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - name: Install Snap
   package:
     name: "snapd"
     state: "present"
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 

@@ -1,11 +1,11 @@
 - name: Create NeoVim configuration directory
-  file: 
+  file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: directory
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
 
-- name: Set NeoVim configuration file 
+- name: Set NeoVim configuration file
   file:
     src: "{{ playbook_dir}}/../configs/nvim.vim"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
@@ -13,7 +13,7 @@
     group: "{{ lookup('env', 'USER') }}"
     state: link
 
-- name: Set ZSH configuration file 
+- name: Set ZSH configuration file
   file:
     src: "{{ playbook_dir }}/../configs/zshrc"
     dest: "{{ lookup('env', 'HOME') }}/.zshrc"
@@ -22,7 +22,7 @@
     state: link
     force: yes # initial install of zsh includes .zshrc, so must remove it
 
-- name: Set TMUX configuration file 
+- name: Set TMUX configuration file
   file:
     src: "{{ playbook_dir }}/../configs/tmux.conf"
     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
@@ -35,7 +35,7 @@
     path: "/home/{{ lookup('env', 'USER') }}/.config/Code/User"
     state: directory
 
-- name: Set VSCode settings file 
+- name: Set VSCode settings file
   file:
     src: "{{ playbook_dir }}/../configs/code-settings.json"
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/settings.json"
@@ -43,7 +43,7 @@
     group: "{{ lookup('env', 'USER') }}"
     state: link
 
-- name: Set VSCode key bindings file 
+- name: Set VSCode key bindings file
   file:
     src: "{{ playbook_dir }}/../configs/code-keybindings.json"
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/keybindings.json"
@@ -51,14 +51,14 @@
     group: "{{ lookup('env', 'USER') }}"
     state: link
 
-- name: Set GTK CSS  
+- name: Set GTK CSS
   file:
     src: "{{ playbook_dir }}/../configs/gtk.css"
     dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
     owner: "{{ lookup('env', 'USER') }}"
     group: "{{ lookup('env', 'USER') }}"
     state: link
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - include_tasks: aws.yml
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'

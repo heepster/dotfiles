@@ -2,7 +2,7 @@
   package:
     name: "neovim"
     state: "present"
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - name: Install Neovim (OSX)
   homebrew:

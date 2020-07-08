@@ -7,16 +7,16 @@
   package:
     name: sshpass
     state: present
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - name: Install Mosh
   package:
     name: "mosh"
     state: "present"
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - include_tasks: linux_packages.yml
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
 
 - include_tasks: syncthing.yml
-  when: ansible_os_family == 'Debian'
+  when: ansible_os_family == 'Pop!_OS'
