@@ -26,26 +26,6 @@
     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
     state: link
 
-- name: Create VS Code config dir
-  become: no
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.config/Code/User"
-    state: directory
-
-- name: Set VSCode settings file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/code-settings.json"
-    dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/settings.json"
-    state: link
-
-- name: Set VSCode key bindings file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/code-keybindings.json"
-    dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/keybindings.json"
-    state: link
-
 - name: Set GTK CSS
   become: no
   file:
@@ -53,6 +33,8 @@
     dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
     state: link
   when: ansible_os_family == 'Pop!_OS'
+
+- include_tasks: vscode.yml
 
 - include_tasks: aws.yml
   when: ansible_os_family == 'Pop!_OS'

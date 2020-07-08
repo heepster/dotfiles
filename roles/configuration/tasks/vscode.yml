@@ -1,0 +1,41 @@
+- name: Create VS Code config dir
+  become: no
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/Code/User"
+    state: directory
+  when: ansible_os_family == 'Pop!_OS'
+
+- name: Set VSCode settings file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/code-settings.json"
+    dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/settings.json"
+    state: link
+  when: ansible_os_family == 'Pop!_OS'
+
+- name: Set VSCode key bindings file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/code-keybindings.json"
+    dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/keybindings.json"
+    state: link
+  when: ansible_os_family == 'Pop!_OS'
+
+- name: Set VSCode settings file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/code-settings.json"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/Code/User/settings.json"
+    state: link
+  when: ansible_os_family == 'Darwin'
+
+- name: Set VSCode key bindings file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/code-keybindings.json"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/Code/User/keybindings.json"
+    state: link
+    force: yes
+  when: ansible_os_family == 'Darwin'
+
+
