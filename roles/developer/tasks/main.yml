@@ -50,6 +50,9 @@
 
 
 - include_tasks: linux_only.yml
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
+
+- include_tasks: osx_only.yml
+  when: os.type == 'osx'
 
 

@@ -2,21 +2,20 @@
 - include_tasks: vivaldi.yml
 - include_tasks: slack.yml
 - include_tasks: zoom.yml
+- include_tasks: syncthing.yml
 
 - name: Install SSHPass
   package:
     name: sshpass
     state: present
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
 - name: Install Mosh
   package:
     name: "mosh"
     state: "present"
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
 - include_tasks: linux_packages.yml
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
-- include_tasks: syncthing.yml
-  when: ansible_os_family == 'Pop!_OS'
