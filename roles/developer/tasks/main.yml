@@ -4,6 +4,8 @@
 
 - include_tasks: tmux.yml
 
+- include_tasks: zsh.yml
+
 - include_tasks: linux_only.yml
   when: ansible_os_family == 'Pop!_OS'
 

@@ -47,9 +47,6 @@
 - name: Install Terraform 
   include_tasks: terraform.yml
 
-- name: Install zsh
-  include_tasks: zsh.yml
-
 - name: Install AWS CLI
   include_tasks: aws.yml
 

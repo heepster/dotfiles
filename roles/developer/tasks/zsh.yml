@@ -2,17 +2,18 @@
   package:
     name: "zsh"
     state: "present"
+  when: ansible_os_family == 'Pop!_OS'
 
 - name: Install Oh My ZSH
   become: no
   shell: |
     sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   args:
-    creates: /home/{{ lookup('env', 'USER') }}/.oh-my-zsh
+    creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh"
 
 - name: Install ZSH Auto Suggestions
   become: no
   shell: |
     sh -c "git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions"
   args:
-    creates: /home/{{ lookup('env', 'USER') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    creates: "{{ lookup('env', 'HOME') }}/.oh-my-zsh/custom/plugins/zsh-autosuggestions"

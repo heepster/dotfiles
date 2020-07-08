@@ -1,62 +1,56 @@
 - name: Create NeoVim configuration directory
+  become: no
   file:
     path: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: directory
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
 
 - name: Set NeoVim configuration file
+  become: no
   file:
     src: "{{ playbook_dir}}/../configs/nvim.vim"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set ZSH configuration file
+  become: no
   file:
     src: "{{ playbook_dir }}/../configs/zshrc"
     dest: "{{ lookup('env', 'HOME') }}/.zshrc"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
     force: yes # initial install of zsh includes .zshrc, so must remove it
 
 - name: Set TMUX configuration file
+  become: no
   file:
     src: "{{ playbook_dir }}/../configs/tmux.conf"
     dest: "{{ lookup('env', 'HOME') }}/.tmux.conf"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Create VS Code config dir
+  become: no
   file:
-    path: "/home/{{ lookup('env', 'USER') }}/.config/Code/User"
+    path: "{{ lookup('env', 'HOME') }}/.config/Code/User"
     state: directory
 
 - name: Set VSCode settings file
+  become: no
   file:
     src: "{{ playbook_dir }}/../configs/code-settings.json"
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/settings.json"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set VSCode key bindings file
+  become: no
   file:
     src: "{{ playbook_dir }}/../configs/code-keybindings.json"
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/keybindings.json"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
 
 - name: Set GTK CSS
+  become: no
   file:
     src: "{{ playbook_dir }}/../configs/gtk.css"
     dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
-    owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: link
   when: ansible_os_family == 'Pop!_OS'
 
