@@ -1,0 +1,56 @@
+- name: Install Apt Transport HTTPS
+  package:
+    name: "apt-transport-https"
+    state: "present"
+
+- name: Install IO Top
+  package:
+    name: "iotop"
+    state: "present"
+
+- name: Install Rip Grep
+  package:
+    name: "ripgrep"
+    state: "present"
+
+- name: Install HTop
+  package:
+    name: "htop"
+    state: "present"
+
+- name: Install TIG
+  package:
+    name: "tig"
+    state: "present"
+
+- name: Install Postgresql Client
+  package:
+    name: postgresql-client
+    state: present
+
+- name: Install NGINX
+  package:
+    name: nginx
+    state: present
+
+- name: Install Siege
+  package:
+    name: siege
+    state: present
+
+- name: Install Docker
+  include_tasks: docker.yml
+
+- name: Install Google Cloud SDK Tools
+  include_tasks: gcp_sdk.yml
+
+- name: Install Terraform 
+  include_tasks: terraform.yml
+
+- name: Install zsh
+  include_tasks: zsh.yml
+
+- name: Install AWS CLI
+  include_tasks: aws.yml
+
+- include_tasks: postman.yml

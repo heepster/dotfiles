@@ -1,0 +1,13 @@
+- name: Install Gnome Tweaks
+  package:
+    name: "gnome-tweaks"
+    state: "present"
+  when: ansible_os_family == 'Debian'
+
+- name: Install DConf Editor
+  package: 
+    name: "dconf-editor"
+    state: "present"
+  when: ansible_os_family == 'Debian'
+
+

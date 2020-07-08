@@ -1,0 +1,12 @@
+- name: Install Vivaldi (Linux)
+  apt: 
+    deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
+    state: "present"
+  ignore_errors: yes
+  when: ansible_os_family == 'Debian'
+
+- name: Install Vivaldi (OSX) 
+  homebrew_cask:
+    name: vivaldi
+    state: present
+  when: ansible_os_family == 'Darwin'

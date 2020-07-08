@@ -1,11 +1,19 @@
-- name: Install Slack
+- name: Install Slack (Linux)
   snap:
     name: slack
     classic: yes
     state: present
+  when: ansible_os_family == 'Debian'
 
 - name: Change Slack Icon
   lineinfile:
     path: /var/lib/snapd/desktop/applications/slack_slack.desktop
     regexp: '^Icon='
     line: Icon=slack
+  when: ansible_os_family == 'Debian'
+
+- name: Install Slack (OSX) 
+  homebrew_cask:
+    name: slack
+    state: present
+  when: ansible_os_family == 'Darwin'

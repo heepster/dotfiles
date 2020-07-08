@@ -1,0 +1,19 @@
+- name: Installs Spotify PPA
+  shell: |
+    curl -sS https://download.spotify.com/debian/pubkey.gpg | sudo apt-key add - 
+    echo "deb http://repository.spotify.com stable non-free" | sudo tee /etc/apt/sources.list.d/spotify.list
+  args:
+    creates: /etc/apt/sources.list.d/spotify.list
+  when: ansible_os_family == 'Debian'
+
+- name: Install Spotify (Linux)
+  package:
+    name: "spotify-client"
+    state: "present"
+  when: ansible_os_family == 'Debian'
+
+- name: Install Spotify (OSX) 
+  homebrew_cask:
+    name: spotify
+    state: present
+  when: ansible_os_family == 'Darwin'

@@ -1,7 +1,14 @@
-- name: Install NeoVim
+- name: Install Neovim (Linux)
   package:
     name: "neovim"
     state: "present"
+  when: ansible_os_family == 'Debian'
+
+- name: Install Neovim (OSX)
+  homebrew:
+    name: neovim
+    state: present
+  when: ansible_os_family == 'Darwin'
 
 - name: Install Vim Plug
   become: no
@@ -9,4 +16,4 @@
     sh -c 'curl -fLo "$HOME/.local/share"/nvim/site/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
   args:
-    creates: "/home/{{ lookup('env', 'USER') }}/.local/share/nvim/site/autoload/plug.vim"
+    creates: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"

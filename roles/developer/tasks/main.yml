@@ -1,76 +1,9 @@
-- name: Install Apt Transport HTTPS
-  package:
-    name: "apt-transport-https"
-    state: "present"
+- include_tasks: vscode.yml
 
-- name: Install Microsoft PPA
-  shell: |
-    curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > packages.microsoft.gpg
-    sudo install -o root -g root -m 644 packages.microsoft.gpg /usr/share/keyrings/
-    sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microsoft.gpg] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
-    rm packages.microsoft.gpg
-  args:
-    creates: /etc/apt/sources.list.d/vscode.list
+- include_tasks: neovim.yml
 
-- name: Install VSCode
-  package:
-    name: "code"
-    state: "present"
+- include_tasks: tmux.yml
 
-- name: Install IO Top
-  package:
-    name: "iotop"
-    state: "present"
+- include_tasks: linux_only.yml
+  when: ansible_os_family == 'Debian'
 
-- name: Install Rip Grep
-  package:
-    name: "ripgrep"
-    state: "present"
-
-- name: Install HTop
-  package:
-    name: "htop"
-    state: "present"
-
-- name: Install TIG
-  package:
-    name: "tig"
-    state: "present"
-
-- name: Install Postgresql Client
-  package:
-    name: postgresql-client
-    state: present
-
-- name: Install NGINX
-  package:
-    name: nginx
-    state: present
-
-- name: Install Siege
-  package:
-    name: siege
-    state: present
-
-- name: Install Docker
-  include_tasks: docker.yml
-
-- name: Install Google Cloud SDK Tools
-  include_tasks: gcp_sdk.yml
-
-- name: Install Neovim
-  include_tasks: neovim.yml
-
-- name: Install Tmux
-  include_tasks: tmux.yml
-
-- name: Install Terraform 
-  include_tasks: terraform.yml
-
-- name: Install zsh
-  include_tasks: zsh.yml
-
-- name: Install AWS CLI
-  include_tasks: aws.yml
-
-- include_tasks: postman.yml

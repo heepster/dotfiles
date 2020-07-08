@@ -1,0 +1,41 @@
+- name: Install SSH Server
+  package: 
+    name: "openssh-server"
+    state: "present"
+
+- name: Install Pidgin
+  package:
+    name: "pidgin"
+    state: "present"
+
+- name: Install Okular
+  package:
+    name: "okular"
+    state: "present"
+ 
+- name: Install Tor
+  package:
+    name: "torbrowser-launcher"
+    state: "present"
+
+- apt_repository:
+    repo: ppa:transmissionbt/ppa
+
+- name: Install Transmission
+  package:
+    name: transmission
+    state: present
+
+- name: Install Rhythmbox
+  package:
+    name: rhythmbox
+    state: present
+
+- include_tasks: gnome.yml
+
+- include_tasks: vlc.yml
+
+- include_tasks: vpn.yml
+
+- include_tasks: wireshark.yml
+
