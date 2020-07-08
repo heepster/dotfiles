@@ -1,11 +1,21 @@
 - name: Install Postman
   snap:
-    name: "postman"
+    name: postman
     classic: yes
-    state: "present"
+    state: present
+  when: os.type == 'linux'
 
 - name: Change Postman Icon
   lineinfile:
     path: /var/lib/snapd/desktop/applications/postman_postman.desktop
     regexp: '^Icon='
     line: Icon=postman
+  when: os.type == 'linux'
+
+- name: Install Postman
+  homebrew_cask:
+    name: postman
+    state: present
+  when: os.type == 'osx'
+
+

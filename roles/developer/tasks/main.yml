@@ -6,6 +6,49 @@
 
 - include_tasks: zsh.yml
 
+- include_tasks: postman.yml
+
+
+- name: Install Tig
+  homebrew:
+    name: tig
+    state: present
+  when: os.type == 'osx'
+- name: Install Tig
+  package:
+    name: tig
+    state: present
+  when: os.type == 'linux'
+
+
+- name: Install Htop
+  homebrew:
+    name: htop
+    state: present
+  when: os.type == 'osx'
+- name: Install Htop
+  package:
+    name: htop
+    state: present
+  when: os.type == 'linux'
+
+
+- name: Install Ripgrep
+  homebrew:
+    name: ripgrep
+    state: present
+  when: os.type == 'osx'
+- name: Install Rip Grep
+  package:
+    name: ripgrep
+    state: present
+  when: os.type == 'linux'
+
+
+- name: Install AWS CLI
+  include_tasks: aws.yml
+
+
 - include_tasks: linux_only.yml
   when: ansible_os_family == 'Pop!_OS'
 

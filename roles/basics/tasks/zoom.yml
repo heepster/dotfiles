@@ -1,11 +1,11 @@
-- name: Install Zoom (Linux)
+- name: Install Zoom
   apt:
     deb: "https://zoom.us/client/latest/zoom_amd64.deb"
     state: "present"
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
-- name: Install Zoom (OSX)
+- name: Install Zoom
   homebrew_cask:
     name: zoomus
     state: present
-  when: ansible_os_family == 'Darwin'
+  when: os.type == 'osx'

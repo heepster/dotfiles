@@ -4,6 +4,8 @@
     nfs:
       server: true
       client: false
+    os:
+      type: linux
   roles:
     - { role: always }
     - { role: basics }

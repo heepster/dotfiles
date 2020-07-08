@@ -1,14 +1,14 @@
-- name: Install Tmux (Linux)
+- name: Install Tmux
   package:
     name: "tmux"
     state: "present"
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
 - name: Install Tmux (OSX)
   homebrew:
     name: tmux
     state: present
-  when: ansible_os_family == 'Darwin'
+  when: os.type == 'osx'
 
 - name: Install Tmux Plugin Manager
   become: no
@@ -16,5 +16,4 @@
     git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
   args:
     creates: "{{ lookup('env', 'HOME') }}/.tmux/plugins/tpm"
-
 

@@ -7,3 +7,4 @@
     rm -rf aws awscliv2.zip
   args:
     creates: /usr/local/bin/aws
+  when: os.type == 'linux'

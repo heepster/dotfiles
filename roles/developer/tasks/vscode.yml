@@ -6,16 +6,16 @@
     rm packages.microsoft.gpg
   args:
     creates: /etc/apt/sources.list.d/vscode.list
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
-- name: Install VSCode (OSX)
+- name: Install VSCode
   package:
-    name: "code"
-    state: "present"
-  when: ansible_os_family == 'Pop!_OS'
+    name: code
+    state: present
+  when: os.type == 'linux'
 
-- name: Install VSCode (OSX)
+- name: Install VSCode
   homebrew_cask:
     name: visual-studio-code
     state: present
-  when: ansible_os_family == 'Darwin'
+  when: os.type == 'osx'

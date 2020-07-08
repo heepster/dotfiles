@@ -3,26 +3,6 @@
     name: "apt-transport-https"
     state: "present"
 
-- name: Install IO Top
-  package:
-    name: "iotop"
-    state: "present"
-
-- name: Install Rip Grep
-  package:
-    name: "ripgrep"
-    state: "present"
-
-- name: Install HTop
-  package:
-    name: "htop"
-    state: "present"
-
-- name: Install TIG
-  package:
-    name: "tig"
-    state: "present"
-
 - name: Install Postgresql Client
   package:
     name: postgresql-client
@@ -47,7 +27,3 @@
 - name: Install Terraform 
   include_tasks: terraform.yml
 
-- name: Install AWS CLI
-  include_tasks: aws.yml
-
-- include_tasks: postman.yml
