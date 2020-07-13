@@ -1,9 +1,9 @@
-- apt_repository:
-    repo: "ppa:ubuntuhandbook1/audacity"
-
-- name: Install Audacity
-  package:
-    name: "audacity"
-    state: "present"
-
 - include_tasks: musescore.yml
+
+- include_tasks: osx_only.yml
+  when: os.type == 'osx'
+
+- include_tasks: linux_only.yml
+  when: os.type == 'linux'
+
+

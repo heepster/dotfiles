@@ -1,0 +1,5 @@
+- name: Install Guitar Pro
+  homebrew_cask:
+    name: guitar-pro
+    state: present
+

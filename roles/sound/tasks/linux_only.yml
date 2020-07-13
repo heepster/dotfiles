@@ -1,0 +1,9 @@
+- apt_repository:
+    repo: "ppa:ubuntuhandbook1/audacity"
+
+- name: Install Audacity
+  package:
+    name: "audacity"
+    state: "present"
+
+
