@@ -113,5 +113,9 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
+if [[ "$(uname)" == "Darwin" ]]; then
+  export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+fi
+
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
