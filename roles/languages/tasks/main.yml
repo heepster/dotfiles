@@ -6,4 +6,10 @@
     bash /usr/bin/n lts
   args:
     creates: /usr/bin/n
+  when: os.type == 'linux'
 
+- name: Install N
+  homebrew:
+    name: n
+    state: present
+  when: os.type == 'osx'

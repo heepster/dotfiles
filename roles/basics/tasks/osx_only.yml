@@ -1,0 +1,4 @@
+- name: Install GPG
+  homebrew: 
+    name: gnupg
+    state: present

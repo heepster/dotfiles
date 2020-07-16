@@ -3,25 +3,36 @@
     url: "https://packages.cloud.google.com/apt/doc/apt-key.gpg"
     keyring: /usr/share/keyrings/cloud.google.gpg
     state: "present"
+  when: os.type == 'linux'
 
 - apt_repository: 
     repo: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
     state: present
+  when: os.type == 'linux'
 
 - name: Install Google Cloud SDK
   package:
     name: "google-cloud-sdk"
     state: "present"
+  when: os.type == 'linux'
 
 - name: Install Google Cloud Datastore Emulator
   package:
     name: "google-cloud-sdk-datastore-emulator"
     state: "present"
+  when: os.type == 'linux'
 
 - name: Install Kubectrl 
   package:
     name: "kubectl"
     state: "present"
+  when: os.type == 'linux'
+
+- name: Install Google Cloud SDK
+  homebrew_cask:
+    name: google-cloud-sdk
+    state: present
+  when: os.type == 'osx'
 
 
 

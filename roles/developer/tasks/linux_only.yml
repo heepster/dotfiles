@@ -21,9 +21,6 @@
 - name: Install Docker
   include_tasks: docker.yml
 
-- name: Install Google Cloud SDK Tools
-  include_tasks: gcp_sdk.yml
-
 - name: Install Terraform 
   include_tasks: terraform.yml
 

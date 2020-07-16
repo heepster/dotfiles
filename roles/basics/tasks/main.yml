@@ -20,3 +20,6 @@
 - include_tasks: linux_packages.yml
   when: os.type == 'linux'
 
+- include_tasks: osx_only.yml
+  when: os.type == 'osx'
+

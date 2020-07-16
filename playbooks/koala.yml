@@ -10,6 +10,7 @@
     - { role: always }
     - { role: basics, become: no }
     - { role: developer, become: no }
+    - { role: languages, become: no }
     - { role: sound, become: no }
     - { role: configuration, become: no }
 
