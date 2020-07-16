@@ -32,9 +32,18 @@
     src: "{{ playbook_dir }}/../configs/gtk.css"
     dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
     state: link
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
+
+- name: Set Apple Keyboard shortcuts
+  become: no
+  file: 
+    src: "{{ playbook_dir }}/../configs/com.apple.symbolichotkeys.plist"
+    dest: "{{ lookup('env', 'HOME') }}/Library/Preferences/com.apple.symbolichotkeys.plist"
+    state: link
+    force: yes
+  when: os.type == 'osx'
 
 - include_tasks: vscode.yml
 
 - include_tasks: aws.yml
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
