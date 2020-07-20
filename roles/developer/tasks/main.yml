@@ -8,7 +8,6 @@
 
 - include_tasks: postman.yml
 
-
 - name: Install Tig
   homebrew:
     name: tig
@@ -20,7 +19,6 @@
     state: present
   when: os.type == 'linux'
 
-
 - name: Install Htop
   homebrew:
     name: htop
@@ -31,7 +29,6 @@
     name: htop
     state: present
   when: os.type == 'linux'
-
 
 - name: Install Ripgrep
   homebrew:
@@ -43,7 +40,6 @@
     name: ripgrep
     state: present
   when: os.type == 'linux'
-
 
 - name: Install AWS CLI
   include_tasks: aws.yml

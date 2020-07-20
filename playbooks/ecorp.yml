@@ -6,6 +6,7 @@
       client: false
     os:
       type: osx
+    is_corp: true
   roles:
     - { role: always }
     - { role: basics, become: no }
