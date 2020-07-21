@@ -25,7 +25,7 @@ list=['2f43804a-b5b6-48fe-86ee-57fc8a732b98']
 [legacy/profiles:/:2f43804a-b5b6-48fe-86ee-57fc8a732b98]
 allow-bold=true
 background-color='#2D2D2D2D2D2D'
-background-transparency-percent=10
+background-transparency-percent=2
 bold-color='#D4D4D4D4D4D4'
 bold-color-same-as-fg=true
 cell-height-scale=1.3500000000000003
