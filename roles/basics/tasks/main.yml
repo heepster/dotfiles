@@ -4,6 +4,7 @@
 - include_tasks: zoom.yml
 - include_tasks: microsoft_teams.yml
 - include_tasks: syncthing.yml
+- include_tasks: obsidian.yml
 
 - name: Install SSHPass
   package:
