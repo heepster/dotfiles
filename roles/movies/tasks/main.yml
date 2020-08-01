@@ -17,6 +17,11 @@
     classic: yes
     state: "present"
 
+- name: Install CCExtractor
+  package:
+    name: ccextractor
+    state: present
+
 - name: Add Plex Server Apt Key
   apt_key:
     url: https://downloads.plex.tv/plex-keys/PlexSign.key 
