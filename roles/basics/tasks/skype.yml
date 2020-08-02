@@ -4,3 +4,9 @@
     classic: yes
     state: present
   when: os.type == 'linux'
+
+- name: Install Skype
+  homebrew_cask:
+    name: skype
+    state: present
+  when: os.type == 'osx'
