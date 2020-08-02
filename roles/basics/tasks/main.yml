@@ -5,6 +5,7 @@
 - include_tasks: microsoft_teams.yml
 - include_tasks: syncthing.yml
 - include_tasks: skype.yml
+- include_tasks: evernote.yml
 
 - name: Install SSHPass
   package:
