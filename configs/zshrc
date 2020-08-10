@@ -115,7 +115,10 @@ alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
 if [[ "$(uname)" == "Darwin" ]]; then
   export PATH="$PATH:$HOME/Library/Python/3.7/bin"
+
+  # Setup Node
   export N_PREFIX="$HOME/.local"
+  export PATH=$N_PREFIX/bin:$PATH
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
