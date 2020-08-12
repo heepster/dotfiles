@@ -3,3 +3,7 @@
     name: gnupg
     state: present
 
+- name: Install Unarchiver
+  homebrew_cask:
+    name: the-unarchiver
+    state: present
