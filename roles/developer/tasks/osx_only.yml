@@ -2,3 +2,8 @@
   homebrew_cask:
     name: iterm2
     state: present
+
+- name: Install Cyberduck
+  homebrew_cask:
+    name: cyberduck
+    state: present

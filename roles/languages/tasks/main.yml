@@ -13,3 +13,18 @@
     name: n
     state: present
   when: os.type == 'osx'
+
+
+- name: Install Go
+  homebrew:
+    name: golang
+    state: present
+  when: os.type == 'osx'
+
+- name: Install Dep
+  homebrew:
+    name: dep
+    state: present
+  when: os.type == 'osx'
+
+

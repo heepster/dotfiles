@@ -18,5 +18,8 @@
   "terminal.integrated.lineHeight": 1.3,
   "window.zoomLevel": 1,
   "workbench.editor.enablePreviewFromQuickOpen": false,
-  "files.trimTrailingWhitespace": true
+  "files.trimTrailingWhitespace": true,
+  "go.gopath": "/usr/local/Cellar/go/1.15/bin",
+  "go.formatTool": "gofmt",
+  "go.useLanguageServer": true
 }
