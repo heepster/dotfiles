@@ -4,6 +4,7 @@
     git clone https://github.com/tfutils/tfenv.git /home/{{ lookup('env', 'USER') }}/.tfenv
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.tfenv
+  when: os.type == 'linux'
 
 - name: Symlink Terraform Manager to /usr/local/bin
   file: 
@@ -13,6 +14,7 @@
   loop:
     - { src: 'tfenv', dest: 'tfenv' }
     - { src: 'terraform', dest: 'terraform' }
+  when: os.type == 'linux'
 
 - name: Install latest version of terraform
   become: no
@@ -20,3 +22,10 @@
     /home/{{ lookup('env', 'USER')}}/.tfenv/bin/tfenv install
   args:
     creates: /home/{{ lookup('env', 'USER')}}/.tfenv/versions/
+  when: os.type == 'linux'
+
+- name: Install Terraform Manager
+  homebrew:
+    name: tfenv
+    state: present
+  when: os.type == 'osx'

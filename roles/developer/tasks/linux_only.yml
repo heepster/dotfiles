@@ -21,6 +21,4 @@
 - name: Install Docker
   include_tasks: docker.yml
 
-- name: Install Terraform 
-  include_tasks: terraform.yml
 
