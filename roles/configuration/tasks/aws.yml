@@ -1,22 +1,19 @@
 - name: Create a AWS config folder
   file:
-    path: "/home/{{ lookup('env', 'USER') }}/.aws"
+    path: "{{ lookup('env', 'HOME') }}/.aws"
     owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     state: directory
 
 - name: Copy AWS config 
   copy:
     src: "{{ playbook_dir }}/../configs/aws/config"
-    dest: "/home/{{ lookup('env', 'USER') }}/.aws/config"
+    dest: "{{ lookup('env', 'HOME') }}/.aws/config"
     owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     mode: '0600'
 
 - name: Copy AWS credentials 
   copy:
     src: "{{ playbook_dir }}/../configs/aws/credentials"
-    dest: "/home/{{ lookup('env', 'USER') }}/.aws/credentials"
+    dest: "{{ lookup('env', 'HOME') }}/.aws/credentials"
     owner: "{{ lookup('env', 'USER') }}"
-    group: "{{ lookup('env', 'USER') }}"
     mode: '0600'

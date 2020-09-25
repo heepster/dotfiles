@@ -8,3 +8,9 @@
   args:
     creates: /usr/local/bin/aws
   when: os.type == 'linux'
+
+- name: Install AWS CLI
+  homebrew:
+    name: awscli
+    state: present
+  when: os.type == 'osx'
