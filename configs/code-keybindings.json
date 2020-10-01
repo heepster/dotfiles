@@ -142,14 +142,6 @@
         "command": "-workbench.action.openEditorAtIndex9"
     },
     {
-        "key": "meta+z",
-        "command": "workbench.action.toggleZenMode"
-    },
-    {
-        "key": "ctrl+k z",
-        "command": "-workbench.action.toggleZenMode"
-    },
-    {
         "key": "ctrl+=",
         "command": "workbench.action.navigateForward"
     },
