@@ -3,7 +3,6 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.lineHeight": 22,
-  "workbench.colorTheme": "Nord",
   "window.menuBarVisibility": "toggle",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {

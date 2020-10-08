@@ -1,0 +1,8 @@
+- name: Install Go
+  homebrew:
+    name: golang
+    state: present
+  when: os.type == 'osx'
+
+- include_tasks: go_linux.yml
+  when: os.type == 'linux'
