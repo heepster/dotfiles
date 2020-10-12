@@ -12,3 +12,8 @@
   homebrew_cask:
     name: rectangle
     state: present
+
+- name: Install Contexts
+  homebrew_cask:
+    name: contexts
+    state: present

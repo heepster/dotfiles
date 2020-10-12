@@ -13,6 +13,13 @@
       "tab.inactiveBackground": "#34314d",
       "titleBar.activeBackground": "#34314d"
     },
+    "[DuoTone Dark Sea]": {
+      "activityBar.background": "#1E2D43",
+      "statusBar.background": "#1E2D43",
+      "sideBar.background": "#1E2D43",
+      "tab.inactiveBackground": "#1E2D43",
+      "titleBar.activeBackground": "#1E2D43"
+    },
   },
   "terminal.integrated.lineHeight": 1.3,
   "window.zoomLevel": 1,
