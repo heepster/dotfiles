@@ -69,8 +69,9 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-  git 
+  git
   zsh-autosuggestions
+  #globalias
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -122,8 +123,14 @@ if [[ "$(uname)" == "Darwin" ]]; then
   # Work Laptop
   if [[ "$(hostname)" == "LM-LTH-40012043" ]]; then
     export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl@1.1/cert.pem
-  fi 
+  fi
+fi
+
+if [[ "$(uname)" == "Linux" ]]; then
+  # Add GO to Path
+  export PATH="$PATH:/usr/local/go/bin"
 fi
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
