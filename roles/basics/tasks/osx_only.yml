@@ -7,3 +7,8 @@
   homebrew_cask:
     name: the-unarchiver
     state: present
+
+- name: Install Rectangle
+  homebrew_cask:
+    name: rectangle
+    state: present

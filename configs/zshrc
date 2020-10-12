@@ -71,7 +71,6 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git 
   zsh-autosuggestions
-  globalias
 )
 
 source $ZSH/oh-my-zsh.sh

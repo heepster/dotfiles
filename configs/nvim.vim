@@ -88,7 +88,7 @@ call plug#begin(stdpath('data') . '/plugged')
 call plug#end()
 
 """ Theme
-colorscheme dracula
+""" colorscheme dracula
 
 """ Key mappings
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>

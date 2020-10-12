@@ -3,7 +3,6 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.lineHeight": 22,
-  "workbench.colorTheme": "Nord",
   "window.menuBarVisibility": "toggle",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
@@ -21,5 +20,6 @@
   "files.trimTrailingWhitespace": true,
   "go.gopath": "/usr/local/Cellar/go/1.15/bin",
   "go.formatTool": "gofmt",
-  "go.useLanguageServer": true
+  "explorer.confirmDelete": false,
+  "workbench.colorTheme": "DuoTone Dark Sea"
 }
