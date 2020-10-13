@@ -69,6 +69,7 @@ call plug#begin(stdpath('data') . '/plugged')
        Plug 'tpope/vim-rhubarb' " Github
   "Plug 'airblade/vim-gitgutter'
   Plug 'ctrlpvim/ctrlp.vim'
+  Plug 'ruanyl/vim-gh-line'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -80,6 +81,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'GEverding/vim-hocon'
   Plug 'digitaltoad/vim-pug'
   Plug 'HerringtonDarkholme/yats.vim'
+  Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Language Engines
   Plug 'Quramy/tsuquyomi'
