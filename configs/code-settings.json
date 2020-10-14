@@ -27,6 +27,5 @@
   "files.trimTrailingWhitespace": true,
   "go.gopath": "/usr/local/Cellar/go/1.15/bin",
   "go.formatTool": "gofmt",
-  "explorer.confirmDelete": false,
-  "workbench.colorTheme": "DuoTone Dark Sea"
+  "explorer.confirmDelete": false
 }

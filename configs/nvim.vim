@@ -70,6 +70,7 @@ call plug#begin(stdpath('data') . '/plugged')
   "Plug 'airblade/vim-gitgutter'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'ruanyl/vim-gh-line'
+  Plug 'mileszs/ack.vim'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -84,8 +85,12 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
   " Language Engines
-  Plug 'Quramy/tsuquyomi'
-      Plug 'Shougo/vimproc.vim'
+  " Plug 'Quramy/tsuquyomi'
+  " Plug 'Shougo/vimproc.vim'
+  
+  Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+    " To Install specific language servers
+    " :CocInstall coc-tsserver coc-json coc-html coc-css
 
 call plug#end()
 
@@ -100,7 +105,7 @@ nnoremap <C-o> :copen<CR>
 map } :execute "cnext"<CR>
 map { :execute "cprev"<CR>
 " Toggle fold
-nnoremap <tab> za
+" nnoremap <tab> za
 " Tab Navigation
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
@@ -130,6 +135,38 @@ if executable('rg')
   let g:ctrlp_use_caching = 0
 endif
 
+""" COC 
+" Tab for autocompletion
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+""" ACK
+" Use ripgrep for searching ⚡️
+" Options include:
+" --vimgrep -> Needed to parse the rg response properly for ack.vim
+" --type-not sql -> Avoid huge sql file dumps as it slows down the search
+" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
+let g:ackprg = 'rg --vimgrep --type-not sql --smart-case -g "!{node_modules,.git}"'
+
+" Auto close the Quickfix list after pressing '<enter>' on a list item
+let g:ack_autoclose = 1
+
+" Any empty ack search will search for the work the cursor is on
+let g:ack_use_cword_for_empty_search = 1
+
+" Don't jump to first match
+cnoreabbrev Ack Ack!
+
+" Maps <leader>/ so we're ready to type the search keyword
+nnoremap <Leader>/ :Ack!<Space>
+" }}}
+
+" Navigate quickfix list with ease
+nnoremap <silent> [q :cprevious<CR>
+nnoremap <silent> ]q :cnext<CR>
 
 """ FILE SPECIFIC
 au FileType fish compiler fish
