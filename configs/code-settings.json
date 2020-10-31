@@ -3,7 +3,6 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.lineHeight": 22,
-  "window.menuBarVisibility": "toggle",
   "workbench.activityBar.visible": true,
   "workbench.colorCustomizations": {
     "[DuoTone Dark Sky]": {
@@ -28,5 +27,7 @@
   "go.gopath": "/usr/local/Cellar/go/1.15/bin",
   "go.formatTool": "gofmt",
   "explorer.confirmDelete": false,
-  "workbench.colorTheme": "DuoTone Dark Sea"
+  "terminal.integrated.shell.linux": "/usr/bin/zsh",
+  "window.enableMenuBarMnemonics": false,
+  "terminal.integrated.scrollback": 100000
 }
