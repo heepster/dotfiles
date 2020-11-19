@@ -122,7 +122,11 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
   # Work Laptop
   if [[ "$(hostname)" == "LM-LTH-40012043" ]]; then
+    # For SSL stuff
     export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl@1.1/cert.pem
+
+    # For Gcloud utils
+    export CLOUDSDK_PYTHON=python2
   fi
 fi
 

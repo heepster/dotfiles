@@ -16,7 +16,6 @@ set wildmenu
 set showcmd
 set hidden
 set report=0
-"set number relativenumber
 set numberwidth=1
 set lazyredraw
 set ttyfast
@@ -28,8 +27,8 @@ set nowrap
 set cursorline
 set autoread
 
-" Cursorline
-hi CursorLine cterm=NONE ctermbg=509 ctermfg=495 guibg=grey guifg=white
+" Highlights Cursorline 
+" hi CursorLine cterm=NONE ctermbg=509 ctermfg=495 guibg=grey guifg=white
 
 " Gutter
 hi clear SignColumn
@@ -77,6 +76,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   " Languages
   Plug 'rust-lang/rust.vim'
+  Plug 'pangloss/vim-javascript'
   Plug 'derekwyatt/vim-scala'
   Plug 'chrisbra/csv.vim'
   Plug 'GEverding/vim-hocon'
@@ -191,7 +191,7 @@ au BufNewFile,BufRead *.py
     \ set autoindent |
     \ set fileformat=unix
 
-let g:lightline = {
+let g:lightline =  {
       \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
