@@ -32,6 +32,9 @@ set autoread
 
 " Gutter
 hi clear SignColumn
+"highlight SignColumn ctermbg=none
+"set signcolumn='auto:3'
+
 
 " Colors
 " https://jonasjacek.github.io/colors/
@@ -73,6 +76,7 @@ call plug#begin(stdpath('data') . '/plugged')
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
+  Plug 'jeffkreeftmeijer/vim-dim'
 
   " Languages
   Plug 'rust-lang/rust.vim'
@@ -90,12 +94,12 @@ call plug#begin(stdpath('data') . '/plugged')
   
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
-    " :CocInstall coc-tsserver coc-json coc-html coc-css
+    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint
 
 call plug#end()
 
 """ Theme
-""" colorscheme dracula
+colorscheme dim
 
 """ Key mappings
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
