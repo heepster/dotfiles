@@ -16,7 +16,8 @@ set wildmenu
 set showcmd
 set hidden
 set report=0
-set numberwidth=1
+set numberwidth=5
+set number
 set lazyredraw
 set ttyfast
 set directory=/var/tmp
@@ -24,28 +25,14 @@ set backspace=indent,eol,start
 set updatetime=300
 set cmdheight=1
 set nowrap
-set cursorline
+"set cursorline
 set autoread
 
-" Highlights Cursorline 
-" hi CursorLine cterm=NONE ctermbg=509 ctermfg=495 guibg=grey guifg=white
-
-" Gutter
-hi clear SignColumn
-"highlight SignColumn ctermbg=none
-"set signcolumn='auto:3'
-
+" Always keep the SignColumn transparent bg 
+autocmd BufRead,BufNewFile * highlight clear SignColumn
 
 " Colors
 " https://jonasjacek.github.io/colors/
-
-" Folding
-"set foldmethod=syntax "syntax highlighting items specify folds
-"set foldcolumn=1 "defines 1 col at window left, to indicate folding
-"let javaScript_fold=1 "activate folding by JS syntax
-"set foldlevelstart=99 "start file with all folds opened
-"hi Folded ctermbg=NONE
-"hi Folded ctermfg=NONE
 
 syntax on
 syntax enable
@@ -95,6 +82,9 @@ call plug#end()
 """ Theme
 colorscheme dim
 
+" Cursor  
+"highlight CursorLine cterm=NONE ctermbg=grey ctermfg=white guibg=grey guifg=white
+
 """ Key mappings
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :so $MYVIMRC<CR>
@@ -102,9 +92,6 @@ nnoremap <Leader>b :Gblame<CR>
 nnoremap <C-o> :copen<CR>
 map } :execute "cnext"<CR>
 map { :execute "cprev"<CR>
-" Toggle fold
-" nnoremap <tab> za
-" Tab Navigation
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
 
@@ -187,6 +174,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 let g:lightline =  {
+      \ 'colorscheme': 'onedark',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'fugitive', 'filename', 'modified' ],
