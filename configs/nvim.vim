@@ -69,10 +69,9 @@ call plug#begin(stdpath('data') . '/plugged')
        " Plugins for Vim Fugitive GBrowse
        Plug 'tommcdo/vim-fubitive' " Bitbucket
        Plug 'tpope/vim-rhubarb' " Github
-  "Plug 'airblade/vim-gitgutter'
-  Plug 'ctrlpvim/ctrlp.vim'
   Plug 'ruanyl/vim-gh-line'
-  Plug 'mileszs/ack.vim'
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -87,11 +86,6 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-
-  " Language Engines
-  " Plug 'Quramy/tsuquyomi'
-  " Plug 'Shougo/vimproc.vim'
-  
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
     " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint
@@ -120,25 +114,6 @@ let NERDTreeMapOpenVSplit = '<C-v>'
 let NERDTreeMapOpenInTab = '<C-t>'
 let NERDTreeMapOpenSplit = '<C-s>'
 
-""" CTRL P
-let g:ctrlp_map = '<C-p>'
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_prompt_mappings = {
-    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
-    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
-    \ 'PrtHistory(-1)':       ['<down>'],
-    \ 'PrtHistory(1)':        ['<up>'],
-    \ }"
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|target)$|node_modules|target|dist|deps|build|iOS\/frameworks',
-  \ 'file': '\v\.(exe|so|dll|log|class)$',
-  \ }
-if executable('rg')
-  set grepprg=rg\ --color=never\ -n
-  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
-  let g:ctrlp_use_caching = 0
-endif
-
 """ COC 
 " Tab for autocompletion
 inoremap <silent><expr> <TAB>
@@ -146,27 +121,43 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gr <Plug>(coc-references)
+nnoremap <silent><nowait> ga  :<C-u>CocList diagnostics<cr>
 
-""" ACK
-" Use ripgrep for searching ⚡️
-" Options include:
-" --vimgrep -> Needed to parse the rg response properly for ack.vim
-" --type-not sql -> Avoid huge sql file dumps as it slows down the search
-" --smart-case -> Search case insensitive if all lowercase pattern, Search case sensitively otherwise
-let g:ackprg = 'rg --vimgrep --type-not sql --smart-case -g "!{node_modules,.git}"'
+" Symbol renaming.
+nmap <leader>gn <Plug>(coc-rename)
 
-" Auto close the Quickfix list after pressing '<enter>' on a list item
-let g:ack_autoclose = 1
+nnoremap <silent> K :call <SID>show_documentation()<CR>
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
 
-" Any empty ack search will search for the work the cursor is on
-let g:ack_use_cword_for_empty_search = 1
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
-" Don't jump to first match
-cnoreabbrev Ack Ack!
 
-" Maps <leader>/ so we're ready to type the search keyword
-nnoremap <Leader>/ :Ack!<Space>
-" }}}
+""" FZF
+function! RipgrepFzf(query, fullscreen)
+  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+  let initial_command = printf(command_fmt, shellescape(a:query))
+  let reload_command = printf(command_fmt, '{q}')
+  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <silent> <C-p> :GFiles<CR>
+nnoremap <silent> <C-s> :RG<CR>
 
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
@@ -196,10 +187,10 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 let g:lightline =  {
-      \ 'colorscheme': 'darcula',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'readonly', 'fugitive', 'filename', 'modified' ] ],
+      \             [ 'readonly', 'fugitive', 'filename', 'modified' ],
+      \             [ 'cocstatus' ] ],
       \   'right': [['lineinfo'], ['percent'], ['fileencoding', 'filetype']]
       \ },
       \ 'inactive': {
@@ -207,6 +198,9 @@ let g:lightline =  {
       \   'right': [['lineinfo'], ['percent']]
       \ },
       \ 'component_function': {
-      \   'fugitive': 'FugitiveStatusline'
+      \   'fugitive': 'FugitiveStatusline',
+      \   'cocstatus': 'coc#status'
       \ }
       \ }
+" Auto update lightline
+autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
