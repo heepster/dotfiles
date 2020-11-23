@@ -16,7 +16,7 @@ set wildmenu
 set showcmd
 set hidden
 set report=0
-set numberwidth=5
+set numberwidth=6
 set number
 set lazyredraw
 set ttyfast

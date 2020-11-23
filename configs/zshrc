@@ -102,8 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export EDITOR=vim
+export EDITOR=nvim
 
+alias vim="nvim"
 alias gs="git status"
 alias gd="git diff --staged HEAD *"
 alias gc="git commit -m"
