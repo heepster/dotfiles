@@ -1,0 +1,32 @@
+- name: Install Kitty
+  package:
+    name: kitty
+    state: present
+  when: os.type == 'linux'
+
+- name: Install Kitty
+  homebrew:
+    name: kitty
+    state: present
+  when: os.type == 'osx'
+
+- name: Create Kitty configuration directory
+  become: no
+  file:
+    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
+    state: directory
+
+- name: Get Kitty Themes
+  become: no
+  git:
+    repo: https://github.com/dexpota/kitty-themes
+    dest: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty-themes"
+
+- name: Set Kitty Theme
+  become: no
+  file:
+    src: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty-themes/themes/Afterglow.conf"
+    dest: "{{ lookup('env', 'HOME') }}/.config/kitty/theme.conf"
+    state: link
+    force: yes # initial install of zsh includes .zshrc, so must remove it
+

@@ -7,14 +7,14 @@
     os:
       type: linux
   roles:
-    - { role: always }
-    - { role: nfs }
-    - { role: basics }
+    #- { role: always }
+    #- { role: nfs }
+    #- { role: basics }
     - { role: developer }
-    - { role: virtualization }
-    - { role: languages }
-    - { role: sound }
-    - { role: art }
+      #- { role: virtualization }
+      #- { role: languages }
+      #- { role: sound }
+      #- { role: art }
     - { role: configuration }
-    - { role: themes }
-    - { role: post_run }
+      #- { role: themes }
+      #- { role: post_run }

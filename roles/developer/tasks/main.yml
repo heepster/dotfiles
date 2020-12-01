@@ -50,6 +50,9 @@
 - name: Install Google Cloud SDK Tools
   include_tasks: gcp_sdk.yml
 
+- name: Install Kitty
+  include_tasks: kitty.yml
+
 - include_tasks: linux_only.yml
   when: os.type == 'linux'
 
