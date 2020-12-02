@@ -74,6 +74,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+  Plug 'jparise/vim-graphql', 
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
     " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-go
