@@ -75,7 +75,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
-    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint
+    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-go
 
 call plug#end()
 
@@ -145,6 +145,9 @@ endfunction
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-s> :RG<CR>
+nnoremap <silent> <C-f> :BLines<CR>
+nnoremap <silent> <C-m> :Marks<CR>
+nnoremap <silent> <C-b> :Windows<CR>
 
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
