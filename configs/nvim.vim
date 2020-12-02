@@ -59,6 +59,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'ruanyl/vim-gh-line'
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
+  Plug 'mhinz/vim-startify'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -89,9 +90,6 @@ colorscheme dim
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :so $MYVIMRC<CR>
 nnoremap <Leader>b :Gblame<CR>
-nnoremap <C-o> :copen<CR>
-map } :execute "cnext"<CR>
-map { :execute "cprev"<CR>
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
 
