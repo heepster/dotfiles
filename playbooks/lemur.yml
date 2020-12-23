@@ -11,8 +11,8 @@
     - { role: nfs }
     - { role: basics }
     - { role: developer }
-    - { role: virtualization }
-      #- { role: languages }
+    - { role: games }
+    - { role: languages }
     - { role: sound }
     - { role: art }
     - { role: configuration }
