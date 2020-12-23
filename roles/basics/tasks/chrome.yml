@@ -1,0 +1,7 @@
+- name: Install Chrome
+  apt:
+    deb: "https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb"
+    state: "present"
+  ignore_errors: yes
+  when: os.type == 'linux'
+
