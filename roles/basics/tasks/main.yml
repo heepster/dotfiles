@@ -1,6 +1,7 @@
 - include_tasks: spotify.yml
 #- include_tasks: vivaldi.yml
 - include_tasks: slack.yml
+- include_tasks: discord.yml
 - include_tasks: zoom.yml
 - include_tasks: microsoft_teams.yml
 - include_tasks: syncthing.yml

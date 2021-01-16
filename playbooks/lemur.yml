@@ -8,13 +8,13 @@
       type: linux
   roles:
     - { role: always }
-    - { role: nfs }
+    #- { role: nfs }
     - { role: basics }
-    - { role: developer }
-    - { role: games }
-    - { role: languages }
-    - { role: sound }
-    - { role: art }
-    - { role: configuration }
-    - { role: themes }
-    - { role: post_run }
+      #- { role: developer }
+      #- { role: games }
+      #- { role: languages }
+      #- { role: sound }
+      #- { role: art }
+      #- { role: configuration }
+      #- { role: themes }
+      #- { role: post_run }

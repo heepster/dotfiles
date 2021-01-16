@@ -1,0 +1,19 @@
+- name: Install Discord
+  snap:
+    name: discord
+    classic: yes
+    state: present
+  when: os.type == 'linux'
+
+- name: Change Discord Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/discord_discord.desktop
+    regexp: '^Icon='
+    line: Icon=discord
+  when: os.type == 'linux'
+
+- name: Install Discord
+  homebrew_cask:
+    name: discord
+    state: present
+  when: os.type == 'osx' and not is_corp
