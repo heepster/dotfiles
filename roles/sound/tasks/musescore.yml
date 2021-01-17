@@ -1,6 +1,9 @@
 - name: Install Musescore
-  snap:
+  become: no
+  community.general.flatpak:
     name: musescore
+    method: user
+    remote: flathub
     state: present
   when: os.type == 'linux'
 

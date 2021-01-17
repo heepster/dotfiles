@@ -9,13 +9,13 @@
   roles:
     - { role: always }
       #- { role: basics }
-    - { role: games }
+      #- { role: games }
       #- { role: nfs }
       #- { role: developer }
       #- { role: languages }
-      #- { role: sound }
+    - { role: sound }
       #- { role: movies }
-    - { role: art }
+      #- { role: art }
     - { role: configuration }
     - { role: themes }
     - { role: post_run }
