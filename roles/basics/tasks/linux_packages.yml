@@ -38,6 +38,11 @@
     name: rhythmbox
     state: present
 
+- name: Install Blueman
+  package:
+    name: blueman
+    state: present
+
 - include_tasks: gnome.yml
 
 - include_tasks: vlc.yml

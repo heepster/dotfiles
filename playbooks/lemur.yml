@@ -15,6 +15,6 @@
       #- { role: languages }
       #- { role: sound }
       #- { role: art }
-      #- { role: configuration }
-      #- { role: themes }
-      #- { role: post_run }
+    - { role: configuration }
+    - { role: themes }
+    - { role: post_run }
