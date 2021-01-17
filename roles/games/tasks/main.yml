@@ -3,3 +3,12 @@
     name: steam
     state: present
   when: os.type == 'linux'
+
+- name: Install Godot
+  become: no
+  community.general.flatpak:
+    name: org.godotengine.Godot
+    state: present
+    method: user
+    remote: flathub
+  when: os.type == 'linux'

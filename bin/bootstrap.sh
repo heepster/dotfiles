@@ -51,3 +51,4 @@ fi
 
 mkdir -p galaxy
 ansible-galaxy install --roles-path galaxy -r requirements.yml
+ansible-galaxy collection install community.general

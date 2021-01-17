@@ -8,7 +8,7 @@
       type: linux
   roles:
     - { role: always }
-    - { role: basics }
+      #- { role: basics }
     - { role: games }
       #- { role: nfs }
       #- { role: developer }
