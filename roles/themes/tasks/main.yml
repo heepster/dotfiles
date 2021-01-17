@@ -19,3 +19,11 @@
     group: "{{ lookup('env', 'USER') }}"
     state: link
 
+- apt_repository: 
+    repo: ppa:papirus/papirus
+
+- name: Install Papirus Icons
+  package:
+    name: papirus-icon-theme
+    state: present
+  
