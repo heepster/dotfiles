@@ -1,9 +1,8 @@
 - include_tasks: spotify.yml
-#- include_tasks: vivaldi.yml
+- include_tasks: dropbox.yml
 - include_tasks: slack.yml
 - include_tasks: discord.yml
 - include_tasks: zoom.yml
-- include_tasks: microsoft_teams.yml
 - include_tasks: syncthing.yml
 - include_tasks: skype.yml
 - include_tasks: evernote.yml
@@ -14,12 +13,6 @@
   package:
     name: sshpass
     state: present
-  when: os.type == 'linux'
-
-- name: Install Mosh
-  package:
-    name: "mosh"
-    state: "present"
   when: os.type == 'linux'
 
 - include_tasks: linux_packages.yml
