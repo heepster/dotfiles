@@ -9,12 +9,6 @@
 - include_tasks: synergy.yml
 - include_tasks: chrome.yml
 
-- name: Install SSHPass
-  package:
-    name: sshpass
-    state: present
-  when: os.type == 'linux'
-
 - include_tasks: linux_packages.yml
   when: os.type == 'linux'
 

@@ -38,4 +38,3 @@
     force: yes
   when: os.type == 'osx'
 
-
