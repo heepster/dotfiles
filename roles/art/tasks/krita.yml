@@ -1,0 +1,15 @@
+- apt_repository: 
+    repo: ppa:kritalime/ppa
+  when: os.type == 'linux'
+
+- name: Install Krita
+  package:
+    name: krita
+    state: present
+  when: os.type == 'linux'
+
+- name: Install Krita
+  homebrew_cask:
+    name: krita
+    state: present
+  when: os.type == 'osx'

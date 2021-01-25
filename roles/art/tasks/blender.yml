@@ -1,0 +1,19 @@
+- name: Install Blender
+  snap:
+    name: blender
+    classic: yes
+    state: present
+  when: os.type == 'linux'
+
+- name: Change Blender Icon
+  lineinfile:
+    path: /var/lib/snapd/desktop/applications/blender_blender.desktop
+    regexp: '^Icon='
+    line: Icon=blender
+  when: os.type == 'linux'
+
+- name: Install Blender
+  homebrew_cask:
+    name: blender
+    state: present
+  when: os.type == 'osx'

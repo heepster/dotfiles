@@ -1,34 +1,7 @@
-- name: Install the Gimp flatpak
-  become: no
-  flatpak:
-    name:  https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
-    state: present
-    method: user
+- include: krita.yml
+- include: blender.yml
 
-- apt_repository: 
-    repo: ppa:inkscape.dev/stable
+- include: linux_only.yml
+  when: os.type == 'linux'
+   
 
-- name: Install Inkscape
-  package:
-    name: inkscape
-    state: present
-
-- apt_repository: 
-    repo: ppa:kritalime/ppa
-
-- name: Install Krita
-  package: 
-    name: krita
-    state: present
-    
-- name: Install Blender
-  snap:
-    name: blender
-    classic: yes
-    state: present
-
-- name: Change Blender Icon
-  lineinfile:
-    path: /var/lib/snapd/desktop/applications/blender_blender.desktop
-    regexp: '^Icon='
-    line: Icon=blender
