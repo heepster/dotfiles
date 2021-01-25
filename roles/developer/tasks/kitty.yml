@@ -8,6 +8,7 @@
   homebrew:
     name: kitty
     state: present
+  ignore_errors: yes 
   when: os.type == 'osx'
 
 - name: Create Kitty configuration directory

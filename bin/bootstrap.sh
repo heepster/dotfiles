@@ -40,7 +40,7 @@ elif [ "$UNAME" == "Darwin" ]; then
 
   echo "Installing Ansible"
   pip3 install --user ansible
-  export PATH=~/Library/Python/3.7/bin:$PATH
+  export PATH=~/Library/Python/3.8/bin:$PATH
 
 else
 

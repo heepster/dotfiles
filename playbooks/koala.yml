@@ -11,6 +11,7 @@
     - { role: always }
     - { role: basics, become: no }
     - { role: developer, become: no }
+    - { role: art, become: no }
     - { role: sound, become: no }
     - { role: configuration, become: no }
 

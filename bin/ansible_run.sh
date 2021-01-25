@@ -6,7 +6,7 @@ VAULT_PW_FILE=vault-pw
 COMMAND=ansible-playbook
 
 if [ "$(uname)" == "Darwin" ]; then
-  PREFIX=~/Library/Python/3.7/bin/
+  PREFIX=~/Library/Python/3.8/bin/
   COMMAND="$PREFIX$COMMAND"
 fi
 
