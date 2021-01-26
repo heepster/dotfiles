@@ -38,6 +38,9 @@ elif [ "$UNAME" == "Darwin" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi
 
+  echo "Upgrading PIP"
+  pip3 install --upgrade --user pip
+
   echo "Installing Ansible"
   pip3 install --user ansible
   export PATH=~/Library/Python/3.8/bin:$PATH

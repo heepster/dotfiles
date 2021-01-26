@@ -1,0 +1,17 @@
+- hosts: all
+  become: yes
+  vars:
+    nfs:
+      server: true
+      client: false
+    os:
+      type: osx
+    is_corp: false
+  roles:
+    - { role: always }
+    - { role: basics, become: no }
+    - { role: developer, become: no }
+    - { role: art, become: no }
+    - { role: sound, become: no }
+    - { role: configuration, become: no }
+

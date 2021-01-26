@@ -5,7 +5,6 @@
 - include_tasks: zoom.yml
 - include_tasks: syncthing.yml
 - include_tasks: skype.yml
-- include_tasks: evernote.yml
 - include_tasks: synergy.yml
 - include_tasks: chrome.yml
 
