@@ -4,6 +4,12 @@
     state: present
   when: os.type == 'linux'
 
+- name: Install Steam
+  homebrew_cask:
+    name: steam
+    state: present
+  when: os.type == 'osx'
+
 - name: Install Godot
   become: no
   community.general.flatpak:
