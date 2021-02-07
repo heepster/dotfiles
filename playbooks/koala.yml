@@ -1,9 +1,6 @@
 - hosts: all
   become: yes
   vars:
-    nfs:
-      server: true
-      client: false
     os:
       type: osx
     is_corp: false

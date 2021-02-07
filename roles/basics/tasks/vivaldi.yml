@@ -1,9 +1,10 @@
-- name: Install Vivaldi
-  apt:
-    deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
-    state: "present"
-  ignore_errors: yes
-  when: os.type == 'linux'
+# TODO - update to latest version
+#- name: Install Vivaldi
+#  apt:
+#    deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
+#    state: "present"
+#  ignore_errors: yes
+#  when: os.type == 'linux'
 
 - name: Install Vivaldi
   homebrew_cask:
