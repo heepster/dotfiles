@@ -128,6 +128,15 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     # For Gcloud utils
     export CLOUDSDK_PYTHON=python2
+
+    # Add Java
+    export PATH="/usr/local/opt/openjdk@11/bin":$PATH
+    export JAVA_HOME="/usr/local/opt/openjdk@11"
+
+    # Add Github Token for Maven
+    TOKEN=$(cat $HOME/.github_maven_token)
+    export GITHUB_TOKEN=$TOKEN
+    export GH_TOKEN=$TOKEN
   fi
 fi
 
