@@ -137,6 +137,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     TOKEN=$(cat $HOME/.github_maven_token)
     export GITHUB_TOKEN=$TOKEN
     export GH_TOKEN=$TOKEN
+
+    # Add Local Bin
+    export PATH="~/bin":$PATH
   fi
 fi
 
