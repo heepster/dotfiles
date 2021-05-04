@@ -4,21 +4,21 @@
     state: present
 
 - name: Install Unarchiver
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: the-unarchiver
     state: present
 
 - name: Install Rectangle
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: rectangle
     state: present
 
 - name: Install Contexts
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: contexts
     state: present
 
 - name: Install Karabiner
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: karabiner-elements
     state: present

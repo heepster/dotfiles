@@ -4,7 +4,7 @@
   when: os.type == 'linux'
 
 - name: Install Synergy
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: synergy
     state: present
   when: os.type == 'osx'

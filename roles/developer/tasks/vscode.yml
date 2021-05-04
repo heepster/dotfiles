@@ -15,7 +15,7 @@
   when: os.type == 'linux'
 
 - name: Install VSCode
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: visual-studio-code
     state: present
   when: os.type == 'osx'

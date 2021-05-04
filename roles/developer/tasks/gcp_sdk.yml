@@ -5,7 +5,7 @@
     state: "present"
   when: os.type == 'linux'
 
-- apt_repository: 
+- apt_repository:
     repo: "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main"
     state: present
   when: os.type == 'linux'
@@ -22,14 +22,14 @@
     state: "present"
   when: os.type == 'linux'
 
-- name: Install Kubectrl 
+- name: Install Kubectrl
   package:
     name: "kubectl"
     state: "present"
   when: os.type == 'linux'
 
 - name: Install Google Cloud SDK
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: google-cloud-sdk
     state: present
   when: os.type == 'osx'

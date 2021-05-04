@@ -1,5 +1,5 @@
 - name: Install Microsoft Teams
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: microsoft-teams
     state: present
   when: os.type == 'osx' and not is_corp

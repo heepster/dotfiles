@@ -13,7 +13,7 @@
   when: os.type == 'linux'
 
 - name: Install Discord
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: discord
     state: present
   when: os.type == 'osx' and not is_corp

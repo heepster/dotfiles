@@ -8,7 +8,7 @@
   when: os.type == 'linux'
 
 - name: Install Musescore
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: musescore
     state: present
   when: os.type == 'osx'

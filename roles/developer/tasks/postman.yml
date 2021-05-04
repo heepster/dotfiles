@@ -13,7 +13,7 @@
   when: os.type == 'linux'
 
 - name: Install Postman
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: postman
     state: present
   when: os.type == 'osx'

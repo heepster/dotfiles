@@ -5,7 +5,7 @@
   when: os.type == 'linux'
 
 - name: Install Steam
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: steam
     state: present
   when: os.type == 'osx'

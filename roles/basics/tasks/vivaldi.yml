@@ -7,7 +7,7 @@
 #  when: os.type == 'linux'
 
 - name: Install Vivaldi
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: vivaldi
     state: present
   when: os.type == 'osx'

@@ -5,7 +5,7 @@
   when: os.type == 'linux'
 
 - name: Install Zoom
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: zoomus
     state: present
   when: os.type == 'osx'

@@ -13,7 +13,7 @@
   when: os.type == 'linux'
 
 - name: Install Blender
-  homebrew_cask:
+  community.general.homebrew_cask:
     name: blender
     state: present
   when: os.type == 'osx'
