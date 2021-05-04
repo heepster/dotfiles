@@ -180,16 +180,6 @@
         "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+u",
-        "command": "workbench.action.terminal.scrollUp",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+d",
-        "command": "workbench.action.terminal.scrollDown",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
         "key": "ctrl+j",
         "command": "-workbench.action.togglePanel"
     },
