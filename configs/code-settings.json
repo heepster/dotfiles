@@ -30,5 +30,10 @@
   "terminal.integrated.shell.linux": "/usr/bin/zsh",
   "window.enableMenuBarMnemonics": false,
   "terminal.integrated.scrollback": 100000,
-  "go.toolsManagement.autoUpdate": true
+  "go.toolsManagement.autoUpdate": true,
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  }
 }
