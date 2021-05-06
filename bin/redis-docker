@@ -2,7 +2,7 @@
 
 VERSION=6.0
 
-sudo docker run \
+docker run \
   -p 6379:6379 \
   --rm \
   --name redis$VERSION \

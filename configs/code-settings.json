@@ -35,5 +35,6 @@
     "**/.bloop": true,
     "**/.metals": true,
     "**/.ammonite": true
-  }
+  },
+  "terminal.integrated.macOptionIsMeta": true
 }
