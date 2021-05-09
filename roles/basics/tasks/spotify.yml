@@ -1,5 +1,5 @@
 - name: Install Spotify
-  community.general.flatpak:
+  community.general.flatpak_remote:
     name: spotify
     state: present
   when: os.type == 'linux'
