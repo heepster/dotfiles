@@ -229,4 +229,16 @@
         "key": "ctrl+w",
         "command": "-workbench.action.closeActiveEditor"
     },
+    {
+        "key": "meta+s",
+        "command": "workbench.action.files.save"
+    },
+    {
+        "key": "meta+v",
+        "command": "editor.action.clipboardPasteAction"
+    },
+    {
+        "key": "meta+c",
+        "command": "editor.action.clipboardCopyAction"
+    },
 ]

@@ -6,7 +6,7 @@
     method: user
 
 - name: Install SSH Server
-  package: 
+  package:
     name: "openssh-server"
     state: "present"
 
@@ -19,7 +19,7 @@
   package:
     name: "okular"
     state: "present"
- 
+
 - name: Install Tor
   package:
     name: "torbrowser-launcher"
@@ -36,6 +36,12 @@
 - name: Install Rhythmbox
   package:
     name: rhythmbox
+    state: present
+
+- name: Install Gestures
+  community.general.flatpak_remote:
+    name: gestures
+    method: user
     state: present
 
 - include_tasks: gnome.yml
