@@ -8,7 +8,7 @@
 
 - include_tasks: postman.yml
 
-- name: Install Terraform 
+- name: Install Terraform
   include_tasks: terraform.yml
 
 - name: Install Tig

@@ -1,0 +1,12 @@
+- name: Install Maven
+  homebrew:
+    name: maven
+    state: present
+  when: os.type == 'osx'
+
+- name: Install JEnv
+  homebrew:
+    name: jenv
+    state: present
+  when: os.type == 'osx'
+

@@ -15,3 +15,4 @@
   when: os.type == 'osx'
 
 - include_tasks: go.yml
+- include_tasks: java.yml
