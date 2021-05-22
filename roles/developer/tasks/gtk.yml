@@ -1,0 +1,6 @@
+- name: Install Glade
+  snap:
+    name: glade
+    classic: yes
+    state: present
+  when: os.type == 'linux'

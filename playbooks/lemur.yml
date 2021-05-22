@@ -9,11 +9,11 @@
   roles:
     - { role: always }
     - { role: basics }
-    #- { role: developer }
-    #- { role: games }
-    #- { role: languages }
-    #- { role: sound }
-    #- { role: art }
-    #- { role: configuration }
-    #- { role: themes }
-    #- { role: post_run }
+    - { role: developer }
+    - { role: games }
+    - { role: languages }
+    - { role: sound }
+    - { role: art }
+    - { role: configuration }
+    - { role: themes }
+    - { role: post_run }
