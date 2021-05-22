@@ -8,6 +8,8 @@
 
 - include_tasks: postman.yml
 
+- include_tasks: gtk.yml
+
 - name: Install Terraform
   include_tasks: terraform.yml
 
