@@ -241,4 +241,12 @@
         "key": "meta+c",
         "command": "editor.action.clipboardCopyAction"
     },
+    {
+        "key": "meta+=",
+        "command": "workbench.action.zoomIn"
+    },
+    {
+        "key": "meta+-",
+        "command": "workbench.action.zoomOut"
+    },
 ]

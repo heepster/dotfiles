@@ -37,6 +37,6 @@
   },
   "terminal.integrated.macOptionIsMeta": true,
   "rust-analyzer.inlayHints.typeHints": false,
-  "window.zoomLevel": 1,
-  "terminal.integrated.tabs.enabled": true
+  "terminal.integrated.tabs.enabled": true,
+  "window.zoomLevel": 1
 }
