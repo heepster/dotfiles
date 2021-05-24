@@ -38,5 +38,6 @@
   "terminal.integrated.macOptionIsMeta": true,
   "rust-analyzer.inlayHints.typeHints": false,
   "terminal.integrated.tabs.enabled": true,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 3,
+  "terminal.integrated.macOptionClickForcesSelection": true
 }
