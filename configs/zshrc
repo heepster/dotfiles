@@ -144,6 +144,9 @@ if [[ "$(uname)" == "Darwin" ]]; then
     # Add JENV
     export PATH="$HOME/.jenv/bin:$PATH"
     eval "$(jenv init -)"
+
+    # Set JAVA HOME as well
+    export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
   fi
 fi
 
