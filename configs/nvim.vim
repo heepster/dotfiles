@@ -77,7 +77,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'jparise/vim-graphql', 
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
-    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-go coc-metals
+    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-eslint coc-go coc-metals coc-rls
 
 call plug#end()
 
