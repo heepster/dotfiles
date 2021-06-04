@@ -102,6 +102,9 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Ignore Ctrl+d exit
+setopt IGNORE_EOF
+
 export EDITOR=nvim
 
 alias vim="nvim"
