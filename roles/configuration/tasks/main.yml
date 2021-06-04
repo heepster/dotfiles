@@ -24,14 +24,6 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty.conf"
     state: link
 
-- name: Set ZSH configuration file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/zshrc"
-    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
-    state: link
-    force: yes # initial install of zsh includes .zshrc, so must remove it
-
 - name: Set TMUX configuration file
   become: no
   file:
@@ -49,7 +41,7 @@
 
 - name: Set Apple Keyboard shortcuts
   become: no
-  file: 
+  file:
     src: "{{ playbook_dir }}/../configs/com.apple.symbolichotkeys.plist"
     dest: "{{ lookup('env', 'HOME') }}/Library/Preferences/com.apple.symbolichotkeys.plist"
     state: link
@@ -60,3 +52,5 @@
 
 - include_tasks: aws.yml
   when: is_corp | default(false) | bool == true
+
+- include_tasks: zsh.yml

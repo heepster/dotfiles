@@ -35,7 +35,6 @@
   },
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.tabs.enabled": true,
-  "window.zoomLevel": 2,
   "terminal.integrated.macOptionClickForcesSelection": true,
   "java.home": "~/Library/Java/JavaVirtualMachines/openjdk-16/Contents/Home",
   "java.configuration.runtimes": [
@@ -49,5 +48,7 @@
     "**/.project": true,
     "**/.settings": true,
     "**/.factorypath": true
-  }
+  },
+  "rust-analyzer.inlayHints.enable": false,
+  "window.zoomLevel": 2
 }

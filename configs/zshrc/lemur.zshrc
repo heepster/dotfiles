@@ -1,0 +1,1 @@
+alias e-mon-off=xrandr --output eDP-1 --off
