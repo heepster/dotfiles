@@ -129,8 +129,11 @@ function! s:show_documentation()
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
-autocmd CursorHold * silent call CocActionAsync('highlight')
+" autocmd CursorHold * silent call CocActionAsync('highlight')
 
+" Scrolling within pop up
+nnoremap <nowait><expr> <j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<j>"
+nnoremap <nowait><expr> <k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<k>"
 
 """ FZF
 function! RipgrepFzf(query, fullscreen)

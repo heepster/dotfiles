@@ -1,0 +1,23 @@
+- name: Set ZSH configuration file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/zshrc/zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc"
+    state: link
+    force: yes # initial install of zsh includes .zshrc, so must remove it
+
+- name: Set ZSH local file for Lemur
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/zshrc/lemur.zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
+    state: link
+  when: name is defined and name == 'lemur'
+
+- name: Set ZSH local file for others
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/zshrc/empty.zshrc"
+    dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
+    state: link
+  when: name is not defined

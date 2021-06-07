@@ -8,14 +8,15 @@
       type: linux
   roles:
     - { role: always }
-      #- { role: basics }
-      #- { role: games }
-      #- { role: nfs }
-      #- { role: developer }
-      #- { role: languages }
+    - { role: basics }
+    - { role: games }
+    - { role: nfs }
+    - { role: developer }
+    - { role: languages }
     - { role: sound }
-      #- { role: movies }
-      #- { role: art }
+    - { role: movies }
+    - { role: art }
+    - { role: virtualization }
     - { role: configuration }
     - { role: themes }
     - { role: post_run }

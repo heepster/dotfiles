@@ -18,7 +18,10 @@
     name: siege
     state: present
 
+- name: Install GJS
+  package:
+    name: gjs
+    state: present
+
 - name: Install Docker
   include_tasks: docker.yml
-
-
