@@ -12,7 +12,7 @@
     src: "{{ playbook_dir }}/../configs/zshrc/lemur.zshrc"
     dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
     state: link
-  when: name == 'lemur'
+  when: name is defined and name == 'lemur'
 
 - name: Set ZSH local file for others
   become: no
