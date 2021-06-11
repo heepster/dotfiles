@@ -10,6 +10,6 @@
     - { role: always }
     - { role: basics }
     - { role: developer }
-    #- { role: art  }
+    - { role: art  }
     - { role: configuration }
 
