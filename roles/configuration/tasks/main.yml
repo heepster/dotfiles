@@ -51,6 +51,6 @@
 - include_tasks: vscode.yml
 
 - include_tasks: aws.yml
-  when: is_corp | default(false) | bool == true
+  when: is_corp is defined and is_corp
 
 - include_tasks: zsh.yml

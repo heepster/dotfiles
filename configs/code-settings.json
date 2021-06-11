@@ -50,6 +50,5 @@
     "**/.factorypath": true
   },
   "rust-analyzer.inlayHints.enable": false,
-  "window.zoomLevel": 1,
   "workbench.editor.showTabs": false
 }

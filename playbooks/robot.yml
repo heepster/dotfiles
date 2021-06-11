@@ -1,0 +1,15 @@
+- hosts: all
+  become: yes
+  vars:
+    nfs:
+      server: true
+      client: false
+    os:
+      type: linux
+  roles:
+    - { role: always }
+    - { role: basics }
+    - { role: developer }
+    #- { role: art  }
+    - { role: configuration }
+

@@ -16,4 +16,4 @@
   community.general.homebrew_cask:
     name: slack
     state: present
-  when: os.type == 'osx' and not is_corp
+  when: os.type == 'osx' and is_corp is defined and is_corp
