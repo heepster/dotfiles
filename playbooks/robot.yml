@@ -12,4 +12,5 @@
     - { role: developer }
     - { role: art  }
     - { role: configuration }
+    - { role: post_run }
 
