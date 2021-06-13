@@ -48,9 +48,9 @@
     force: yes
   when: os.type == 'osx'
 
-- include_tasks: vscode.yml
+- import_tasks: vscode.yml
 
-- include_tasks: aws.yml
+- import_tasks: aws.yml
   when: is_corp is defined and is_corp
 
-- include_tasks: zsh.yml
+- import_tasks: zsh.yml

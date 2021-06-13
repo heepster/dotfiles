@@ -1,20 +1,24 @@
-- name: Install Wireshark  
+- name: Install Wireshark
   package:
     name: wireshark
     state: present
+  when: os.type == 'linux'
 
 - debug:
     msg: "Remember to run sudo dpkg-reconfigure wireshark-common if wireshark was installed"
+  when: os.type == 'linux'
 
 - name: Make Wireshark group
-  group: 
+  group:
     name: wireshark
     state: present
+  when: os.type == 'linux'
 
 - name: adding existing user to group wireshark
   user:
     name: "{{ lookup('env', 'USER') }}"
     groups: wireshark
     append: yes
+  when: os.type == 'linux'
 
 

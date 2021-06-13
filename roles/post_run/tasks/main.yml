@@ -1,1 +1,1 @@
-- include_tasks: app_menu.yml
+- import_tasks: app_menu.yml

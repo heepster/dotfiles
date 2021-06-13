@@ -3,7 +3,6 @@
   vars:
     nfs:
       server: true
-      client: false
     os:
       type: linux
   roles:
@@ -20,4 +19,3 @@
     - { role: configuration }
     - { role: themes }
     - { role: post_run }
-

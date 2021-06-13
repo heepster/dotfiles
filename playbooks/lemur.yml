@@ -2,9 +2,6 @@
   become: yes
   vars:
     name: lemur
-    nfs:
-      server: false
-      client: true
     os:
       type: linux
   roles:

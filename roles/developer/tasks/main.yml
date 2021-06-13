@@ -1,64 +1,21 @@
-- include_tasks: vscode.yml
+- import_tasks: vscode.yml
+- import_tasks: neovim.yml
+- import_tasks: tmux.yml
+- import_tasks: zsh.yml
+- import_tasks: postman.yml
+- import_tasks: gtk.yml
+- import_tasks: tig.yml
+- import_tasks: terraform.yml
+- import_tasks: htop.yml
+- import_tasks: ripgrep.yml
+- import_tasks: aws.yml
+- import_tasks: gcp_sdk.yml
+- import_tasks: kitty.yml
+- import_tasks: godot.yml
+- import_tasks: docker.yml
 
-- include_tasks: neovim.yml
-
-- include_tasks: tmux.yml
-
-- include_tasks: zsh.yml
-
-- include_tasks: postman.yml
-
-- include_tasks: gtk.yml
-
-- name: Install Terraform
-  include_tasks: terraform.yml
-
-- name: Install Tig
-  homebrew:
-    name: tig
-    state: present
-  when: os.type == 'osx'
-- name: Install Tig
-  package:
-    name: tig
-    state: present
+- import_tasks: linux_only.yml
   when: os.type == 'linux'
 
-- name: Install Htop
-  homebrew:
-    name: htop
-    state: present
+- import_tasks: osx_only.yml
   when: os.type == 'osx'
-- name: Install Htop
-  package:
-    name: htop
-    state: present
-  when: os.type == 'linux'
-
-- name: Install Ripgrep
-  homebrew:
-    name: ripgrep
-    state: present
-  when: os.type == 'osx'
-- name: Install Rip Grep
-  package:
-    name: ripgrep
-    state: present
-  when: os.type == 'linux'
-
-- name: Install AWS CLI
-  include_tasks: aws.yml
-
-- name: Install Google Cloud SDK Tools
-  include_tasks: gcp_sdk.yml
-
-- name: Install Kitty
-  include_tasks: kitty.yml
-
-- include_tasks: linux_only.yml
-  when: os.type == 'linux'
-
-- include_tasks: osx_only.yml
-  when: os.type == 'osx'
-
-

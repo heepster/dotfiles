@@ -1,0 +1,11 @@
+- name: Install Ripgrep
+  homebrew:
+    name: ripgrep
+    state: present
+  when: os.type == 'osx'
+
+- name: Install Rip Grep
+  package:
+    name: ripgrep
+    state: present
+  when: os.type == 'linux'

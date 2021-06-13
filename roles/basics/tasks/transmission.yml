@@ -1,0 +1,16 @@
+- apt_repository:
+    repo: ppa:transmissionbt/ppa
+  when: os.type == 'linux'
+
+- name: Install Transmission
+  package:
+    name: transmission
+    state: present
+  when: os.type == 'linux'
+
+- name: Install Transmission
+  community.general.homebrew_cask:
+    name: transmission
+    state: present
+  when: os.type == 'osx'
+

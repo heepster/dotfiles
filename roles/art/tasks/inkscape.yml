@@ -1,0 +1,18 @@
+- apt_repository:
+    repo: ppa:inkscape.dev/stable
+  when: os.type == 'linux'
+
+- name: Install Inkscape
+  package:
+    name: inkscape
+    state: present
+  when: os.type == 'linux'
+
+# Inkscape is currently unbearably slow on OSX
+# Hopefully one day this can be fixed
+#
+#- name: Install Inkscape
+#  community.general.homebrew_cask:
+#    name: inkscape
+#    state: present
+#  when: os.type == 'osx'

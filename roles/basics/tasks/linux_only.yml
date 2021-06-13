@@ -1,3 +1,6 @@
+- import_tasks: gnome.yml
+- import_tasks: vpn.yml
+
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
@@ -25,14 +28,6 @@
     name: "torbrowser-launcher"
     state: "present"
 
-- apt_repository:
-    repo: ppa:transmissionbt/ppa
-
-- name: Install Transmission
-  package:
-    name: transmission
-    state: present
-
 - name: Install Rhythmbox
   package:
     name: rhythmbox
@@ -43,12 +38,3 @@
     name: gestures
     method: user
     state: present
-
-- include_tasks: gnome.yml
-
-- include_tasks: vlc.yml
-
-- include_tasks: vpn.yml
-
-- include_tasks: wireshark.yml
-

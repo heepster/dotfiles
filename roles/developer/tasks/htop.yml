@@ -1,0 +1,12 @@
+- name: Install Htop
+  homebrew:
+    name: htop
+    state: present
+  when: os.type == 'osx'
+
+- name: Install Htop
+  package:
+    name: htop
+    state: present
+  when: os.type == 'linux'
+

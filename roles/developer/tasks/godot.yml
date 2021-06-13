@@ -1,0 +1,15 @@
+- name: Install Godot
+  become: no
+  community.general.flatpak_remote:
+    name: org.godotengine.Godot
+    state: present
+    method: user
+  when: os.type == 'linux'
+
+- name: Install Godot
+  community.general.homebrew_cask:
+    name: godot
+    state: present
+  when: os.type == 'osx'
+
+

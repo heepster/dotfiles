@@ -4,5 +4,5 @@
     state: present
   when: os.type == 'osx'
 
-- include_tasks: go_linux.yml
+- import_tasks: go_linux.yml
   when: os.type == 'linux'

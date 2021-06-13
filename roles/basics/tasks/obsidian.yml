@@ -1,5 +1,0 @@
-- name: Install Obsidian
-  community.general.homebrew_cask:
-    name: obsidian
-    state: present
-  when: os.type == 'osx'

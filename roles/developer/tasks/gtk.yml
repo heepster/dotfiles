@@ -4,3 +4,8 @@
     classic: yes
     state: present
   when: os.type == 'linux'
+
+- name: Install GJS
+  package:
+    name: gjs
+    state: present

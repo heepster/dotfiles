@@ -2,3 +2,4 @@
   package:
     name: 'virtualbox'
     state: present
+  when: os.type == 'linux'

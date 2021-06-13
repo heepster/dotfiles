@@ -14,5 +14,5 @@
     state: present
   when: os.type == 'osx'
 
-- include_tasks: go.yml
-- include_tasks: java.yml
+- import_tasks: go.yml
+- import_tasks: java.yml

@@ -1,7 +1,5 @@
-- include: krita.yml
-- include: blender.yml
-
-- include: linux_only.yml
-  when: os.type == 'linux'
-   
+- import_tasks: krita.yml
+- import_tasks: blender.yml
+- import_tasks: inkscape.yml
+- import_tasks: gimp.yml
 

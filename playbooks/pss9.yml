@@ -1,10 +1,7 @@
 - hosts: all
   become: yes
   vars:
-    nfs:
-      server: true
-      client: false
-    os:
+   os:
       type: osx
   roles:
     - { role: always }

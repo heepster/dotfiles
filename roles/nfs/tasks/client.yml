@@ -2,4 +2,5 @@
   package:
     name: nfs-common
     state: present
+  when: os.type == 'linux'
 

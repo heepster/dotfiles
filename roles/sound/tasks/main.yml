@@ -1,9 +1,9 @@
-- include_tasks: musescore.yml
+- import_tasks: musescore.yml
 
-- include_tasks: osx_only.yml
+- import_tasks: osx_only.yml
   when: os.type == 'osx'
 
-- include_tasks: linux_only.yml
+- import_tasks: linux_only.yml
   when: os.type == 'linux'
 
 

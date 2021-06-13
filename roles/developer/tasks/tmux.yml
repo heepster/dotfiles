@@ -4,7 +4,7 @@
     state: "present"
   when: os.type == 'linux'
 
-- name: Install Tmux (OSX)
+- name: Install Tmux
   homebrew:
     name: tmux
     state: present
