@@ -1,6 +1,12 @@
 - import_tasks: gnome.yml
 - import_tasks: vpn.yml
 
+- name: Install Snap
+  package:
+    name: "snapd"
+    state: "present"
+  when: os.type == 'linux'
+
 - name: Add the flathub flatpak repository remote to the user installation
   community.general.flatpak_remote:
     name: flathub
