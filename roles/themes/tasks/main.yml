@@ -12,6 +12,20 @@
     creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Zafiro-Icons
   when: os.type == 'linux'
 
+- name: Install Oogir Icons
+  become: no
+  shell: |
+    export ICON_DIR=qogir-icons
+    cd /tmp
+    git clone https://github.com/vinceliuice/Qogir-icon-theme $ICON_DIR
+    cd $ICON_DIR
+    ./install.sh
+    cd ../
+    rm -rf $ICON_DIR
+  args:
+    creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Qogir
+  when: os.type == 'linux'
+
 - apt_repository:
     repo: ppa:papirus/papirus
   when: os.type == 'linux'
@@ -21,4 +35,3 @@
     name: papirus-icon-theme
     state: present
   when: os.type == 'linux'
-
