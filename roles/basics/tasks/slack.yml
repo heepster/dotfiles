@@ -17,3 +17,4 @@
     name: slack
     state: present
   when: os.type == 'osx' and is_corp is defined and is_corp
+  ignore_errors: yes
