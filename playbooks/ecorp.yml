@@ -1,6 +1,7 @@
 - hosts: all
   become: yes
   vars:
+    name: ecorp
     os:
       type: osx
     is_corp: true
