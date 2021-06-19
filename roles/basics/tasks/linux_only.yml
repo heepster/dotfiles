@@ -19,21 +19,6 @@
     name: "openssh-server"
     state: "present"
 
-- name: Install Pidgin
-  package:
-    name: "pidgin"
-    state: "present"
-
-- name: Install Okular
-  package:
-    name: "okular"
-    state: "present"
-
-- name: Install Tor
-  package:
-    name: "torbrowser-launcher"
-    state: "present"
-
 - name: Install Rhythmbox
   package:
     name: rhythmbox

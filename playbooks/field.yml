@@ -6,11 +6,11 @@
       type: linux
   roles:
     - { role: basics }
-    - { role: developer }
-    - { role: games }
-    - { role: languages }
-    - { role: sound }
-    - { role: art }
+    #- { role: developer }
+    #- { role: games }
+    #- { role: languages }
+    #- { role: sound }
+    #- { role: art }
     - { role: configuration }
     - { role: themes }
-    - { role: post_run }
+    #- { role: post_run }

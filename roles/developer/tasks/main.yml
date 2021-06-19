@@ -1,4 +1,3 @@
-- import_tasks: vscode.yml
 - import_tasks: neovim.yml
 - import_tasks: tmux.yml
 - import_tasks: zsh.yml

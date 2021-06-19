@@ -6,13 +6,21 @@
     rm packages.microsoft.gpg
   args:
     creates: /etc/apt/sources.list.d/vscode.list
-  when: os.type == 'linux'
+  when: ansible_os_family == 'Debian'
 
 - name: Install VSCode
   package:
     name: code
     state: present
-  when: os.type == 'linux'
+  when: ansible_os_family == 'Debian'
+
+- name: Install the VSCode
+  become: no
+  flatpak:
+    name: com.visualstudio.code 
+    state: present
+    method: user
+  when: ansible_os_family == 'RedHat'
 
 - name: Install VSCode
   community.general.homebrew_cask:

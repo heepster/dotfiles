@@ -1,7 +1,9 @@
 - name: Install Spotify
-  community.general.flatpak_remote:
-    name: spotify
+  become: no
+  flatpak:
+    name: com.spotify.Client
     state: present
+    method: user
   when: os.type == 'linux'
 
 - name: Install Spotify

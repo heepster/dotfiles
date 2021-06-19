@@ -25,13 +25,3 @@
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Qogir
   when: os.type == 'linux'
-
-- apt_repository:
-    repo: ppa:papirus/papirus
-  when: os.type == 'linux'
-
-- name: Install Papirus Icons
-  package:
-    name: papirus-icon-theme
-    state: present
-  when: os.type == 'linux'

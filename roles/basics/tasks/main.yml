@@ -1,3 +1,19 @@
+- name: Install Snap
+  package:
+    name: "snapd"
+    state: "present"
+  when: os.type == 'linux'
+
+- name: Add the flathub flatpak repository remote to the user installation
+  become: no
+  flatpak_remote:
+    name: flathub
+    state: present
+    flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
+    method: user
+  when: os.type == 'linux'
+
+- import_tasks: vscode.yml
 - import_tasks: spotify.yml
 - import_tasks: dropbox.yml
 - import_tasks: slack.yml
@@ -6,7 +22,6 @@
 - import_tasks: firefox.yml
 - import_tasks: wireshark.yml
 - import_tasks: vlc.yml
-- import_tasks: transmission.yml
 
 - import_tasks: linux_only.yml
   when: os.type == 'linux'
