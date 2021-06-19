@@ -3,10 +3,11 @@
     name: wireshark
     state: present
   when: os.type == 'linux'
+  register: wireshark
 
 - debug:
     msg: "Remember to run sudo dpkg-reconfigure wireshark-common if wireshark was installed"
-  when: os.type == 'linux'
+  when: os.type == 'linux' and wireshark.changed
 
 - name: Make Wireshark group
   group:

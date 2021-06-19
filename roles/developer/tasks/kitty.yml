@@ -8,7 +8,7 @@
   homebrew:
     name: kitty
     state: present
-  ignore_errors: yes 
+  ignore_errors: yes
   when: os.type == 'osx'
 
 - name: Create Kitty configuration directory
@@ -22,6 +22,8 @@
   git:
     repo: https://github.com/dexpota/kitty-themes
     dest: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty-themes"
+  register: git_result
+  changed_when: "git_result.after|default('after') != git_result.before|default('before')"
 
 - name: Set Kitty Theme
   become: no

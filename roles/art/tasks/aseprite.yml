@@ -1,0 +1,38 @@
+# TODO
+#- name: Set Skia Dir variable
+#  set_fact:
+#    skia_dir: "/home/{{ lookup('env', 'USER') }}/.local/share/skia"
+#
+#- name: Create Skia Folder
+#  ansible.builtin.file:
+#    path: "{{skia_dir}}"
+#    state: directory
+#    mode: '0755'
+#
+#- name: Download Skia
+#  ansible.builtin.unarchive:
+#    src: https://github.com/aseprite/skia/releases/download/m81-b607b32047/Skia-Linux-Release-x64.zip
+#    dest: "{{skia_dir}}"
+#    remote_src: yes
+#
+#- name: Git Checkout Aseprite
+#  ansible.builtin.git:
+#    repo: https://github.com/aseprite/aseprite
+#    dest:
+#    recursive: true
+#    version: master
+#
+#https://github.com/aseprite/skia#skia-on-linux
+#
+## Probably not needed if building skia
+#sudo apt install libzstd-dev liblz4-dev libb2-1
+#
+#cmake \
+#  -DCMAKE_BUILD_TYPE=RelWithDebInfo \
+#  -DLAF_BACKEND=skia \
+#  -DSKIA_DIR=$HOME/deps/skia \
+#  -DSKIA_LIBRARY_DIR=$HOME/deps/skia/out/Release-x64 \
+#  -DSKIA_LIBRARY=$HOME/deps/skia/out/Release-x64/libskia.a \
+#  -G Ninja \
+#  ..
+#

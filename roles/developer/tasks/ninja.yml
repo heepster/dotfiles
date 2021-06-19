@@ -1,0 +1,11 @@
+- name: Install Ninja
+  homebrew:
+    name: ninja
+    state: present
+  when: os.type == 'osx'
+
+- name: Install Ninja
+  package:
+    name: ninja-build
+    state: present
+  when: os.type == 'linux'

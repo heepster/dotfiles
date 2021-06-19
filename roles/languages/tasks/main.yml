@@ -1,18 +1,4 @@
-- name: Install N
-  shell: |
-    curl -L https://raw.githubusercontent.com/tj/n/master/bin/n -o n
-    chmod +x n
-    sudo mv n /usr/bin/n
-    bash /usr/bin/n lts
-  args:
-    creates: /usr/bin/n
-  when: os.type == 'linux'
-
-- name: Install N
-  homebrew:
-    name: n
-    state: present
-  when: os.type == 'osx'
-
+- import_tasks: javascript.yml
 - import_tasks: go.yml
 - import_tasks: java.yml
+- import_tasks: python.yml

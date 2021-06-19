@@ -5,13 +5,13 @@
     os:
       type: linux
   roles:
-    - { role: always }
-    - { role: basics }
-    - { role: developer }
-    - { role: games }
+    #- { role: always }
+    #- { role: basics }
+    #- { role: developer }
+    #- { role: games }
     - { role: languages }
-    - { role: sound }
-    - { role: art }
-    - { role: configuration }
-    - { role: themes }
-    - { role: post_run }
+    #- { role: sound }
+    #- { role: art }
+    #- { role: configuration }
+    #- { role: themes }
+    #- { role: post_run }

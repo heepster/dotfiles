@@ -3,6 +3,7 @@
     name: tig
     state: present
   when: os.type == 'osx'
+
 - name: Install Tig
   package:
     name: tig

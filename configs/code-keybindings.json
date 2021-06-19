@@ -194,23 +194,13 @@
         "when": "inQuickOpen"
     },
     {
-        "key": "ctrl+cmd+k",
+        "key": "ctrl+alt+k",
         "command": "workbench.action.terminal.resizePaneUp",
         "when": "terminalFocus && terminalProcessSupported"
     },
     {
-        "key": "ctrl+cmd+up",
-        "command": "-workbench.action.terminal.resizePaneUp",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+cmd+j",
+        "key": "ctrl+alt+j",
         "command": "workbench.action.terminal.resizePaneDown",
-        "when": "terminalFocus && terminalProcessSupported"
-    },
-    {
-        "key": "ctrl+cmd+down",
-        "command": "-workbench.action.terminal.resizePaneDown",
         "when": "terminalFocus && terminalProcessSupported"
     },
     {

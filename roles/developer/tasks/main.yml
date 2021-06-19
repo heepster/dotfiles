@@ -13,6 +13,7 @@
 - import_tasks: kitty.yml
 - import_tasks: godot.yml
 - import_tasks: docker.yml
+- import_tasks: ninja.yml
 
 - import_tasks: linux_only.yml
   when: os.type == 'linux'
