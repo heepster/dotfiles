@@ -14,7 +14,14 @@ function printInstallSkip {
 
 UNAME="$(uname -s)"
 
-if [ "$UNAME" == "Linux" ]; then 
+if hostnamectl | grep -i fedora; then 
+  sudo dnf install dpkg ansible gnome-tweaks snapd -y
+
+  if [ ! -f /snap ]; then
+    sudo ln -s /var/lib/snapd/snap /snap
+  fi
+
+elif [ "$UNAME" == "Linux" ]; then 
 
   sudo apt-get update
   

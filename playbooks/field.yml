@@ -1,0 +1,16 @@
+- hosts: all
+  become: yes
+  vars:
+    name: field
+    os:
+      type: linux
+  roles:
+    - { role: basics }
+    - { role: developer }
+    - { role: games }
+    - { role: languages }
+    - { role: sound }
+    - { role: art }
+    - { role: configuration }
+    - { role: themes }
+    - { role: post_run }
