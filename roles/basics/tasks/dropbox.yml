@@ -4,6 +4,11 @@
     state: "present"
   when: ansible_os_family == "Debian"
 
+- rpm_key:
+    state: present
+    key: https://linux.dropbox.com/fedora/rpm-public-key.asc
+  when: ansible_os_family == "RedHat"
+
 - name: Install Dropbox
   yum:
     name: "https://www.dropbox.com/download?dl=packages/fedora/nautilus-dropbox-2020.03.04-1.fedora.x86_64.rpm"
