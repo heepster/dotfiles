@@ -239,4 +239,34 @@
         "key": "meta+-",
         "command": "workbench.action.zoomOut"
     },
+    {
+        "key": "alt+1",
+        "command": "workbench.action.terminal.focusAtIndex1",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+2",
+        "command": "workbench.action.terminal.focusAtIndex2",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+3",
+        "command": "workbench.action.terminal.focusAtIndex3",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+4",
+        "command": "workbench.action.terminal.focusAtIndex4",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+5",
+        "command": "workbench.action.terminal.focusAtIndex5",
+        "when": "terminalFocus"
+    },
+    {
+        "key": "alt+6",
+        "command": "workbench.action.terminal.focusAtIndex6",
+        "when": "terminalFocus"
+    },
 ]

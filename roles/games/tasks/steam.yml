@@ -1,3 +1,15 @@
+- name: Set Fedora Version
+  shell: rpm -E %fedora
+  register: fedora_version
+  when: ansible_distribution == 'Fedora'
+
+- name: Install Steam YUM Repo
+  dnf:
+    name: https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-{{ fedora_version.stdout }}.noarch.rpm
+    state: present
+    disable_gpg_check: yes
+  when: ansible_distribution == 'Fedora'
+
 - name: Install Steam
   package:
     name: steam
