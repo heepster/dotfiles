@@ -5,12 +5,9 @@
     os:
       type: linux
   roles:
-    #- { role: basics }
-    #- { role: art }
+    - { role: basics }
+    - { role: art }
     - { role: games }
-    #- { role: developer }
-    #- { role: languages }
-    #- { role: sound }
     - { role: configuration }
     - { role: themes }
     - { role: post_run }
