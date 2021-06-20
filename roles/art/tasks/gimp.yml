@@ -1,9 +1,7 @@
-- name: Install the Gimp flatpak
-  become: no
-  flatpak:
-    name:  https://flathub.org/repo/appstream/org.gimp.GIMP.flatpakref
+- name: Install Gimp
+  package:
+    name: gimp
     state: present
-    method: user
   when: os.type == 'linux'
 
 - name: Install Gimp

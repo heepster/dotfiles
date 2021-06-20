@@ -1,6 +1,6 @@
 - apt_repository:
     repo: ppa:inkscape.dev/stable
-  when: os.type == 'linux'
+  when: ansible_os_family == 'Debian'
 
 - name: Install Inkscape
   package:
