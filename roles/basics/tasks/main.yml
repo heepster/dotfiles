@@ -2,6 +2,8 @@
 - import_tasks: snap.yml
 - import_tasks: flatpak.yml
 - import_tasks: zsh.yml
+- import_tasks: neovim.yml
+- import_tasks: tmux.yml
 - import_tasks: vscode.yml
 - import_tasks: spotify.yml
 - import_tasks: dropbox.yml

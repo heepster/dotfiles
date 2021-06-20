@@ -1,5 +1,3 @@
-- import_tasks: neovim.yml
-- import_tasks: tmux.yml
 - import_tasks: postman.yml
 - import_tasks: gtk.yml
 - import_tasks: tig.yml
