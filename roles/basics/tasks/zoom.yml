@@ -4,7 +4,8 @@
     state: "present"
   when: ansible_os_family == 'Debian'
 
-- rpm_key:
+- name: Add Zoom RPM Key
+  rpm_key:
     state: present
     key: https://zoom.us/linux/download/pubkey
   when: ansible_os_family == "RedHat"

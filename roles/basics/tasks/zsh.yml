@@ -2,7 +2,7 @@
   package:
     name: "zsh"
     state: "present"
-  when: ansible_os_family == 'Pop!_OS'
+  when: os.type == 'linux'
 
 - name: Install Oh My ZSH
   become: no

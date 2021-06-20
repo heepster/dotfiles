@@ -167,6 +167,10 @@ export PATH="$HOME/.cargo/bin/":$PATH
 export PATH="$PATH:$HOME/.rvm/bin"
 
 # Setup Pyenv vars
-eval "$(pyenv init -)"
+if which pyenv > /dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
 
-source ~/.zshrc.local
+if [ -f $HOME/.zshrc.local ]; then
+  source ~/.zshrc.local
+fi

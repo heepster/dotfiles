@@ -1,0 +1,9 @@
+# Install packages that we need to just get up and running
+
+# Install chsh so we can at least change default shell
+- name: Install package with chsh command
+  package:
+    name: util-linux-user
+    state: present
+  when: ansible_os_family == 'RedHat'
+

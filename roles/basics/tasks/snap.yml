@@ -1,0 +1,5 @@
+- name: Install Snap
+  package:
+    name: "snapd"
+    state: "present"
+  when: os.type == 'linux'
