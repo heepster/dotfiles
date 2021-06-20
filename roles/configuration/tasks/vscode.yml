@@ -14,15 +14,6 @@
     force: yes
   when: os.type == 'linux'
 
-- name: Set VSCode Settings file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/code-settings.json"
-    dest: "{{ lookup('env', 'HOME') }}/.var/app/com.visualstudio.code/config/Code/User/settings.json"
-    state: link
-    force: yes
-  when: os.type == 'linux'
-
 - name: Set VSCode key bindings file
   become: no
   file:
@@ -31,16 +22,6 @@
     state: link
     force: yes
   when: os.type == 'linux'
-
-- name: Set VSCode key bindings file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/code-keybindings.json"
-    dest: "{{ lookup('env', 'HOME') }}/.var/app/com.visualstudio.code/config/Code/User/keybindings.json"
-    state: link
-    force: yes
-  when: os.type == 'linux'
-
 
 - name: Set VSCode settings file
   become: no
