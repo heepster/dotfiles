@@ -1,0 +1,4 @@
+- import_tasks: skype.yml
+- import_tasks: slack.yml
+- import_tasks: zoom.yml
+- import_tasks: discord.yml
