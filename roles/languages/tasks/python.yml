@@ -6,27 +6,4 @@
     version: master
   register: git_result
   changed_when: "git_result.after|default('after') != git_result.before|default('before')"
-
-- name: Set Python 2 Version
-  set_fact:
-    python_2_version: "2.7.18"
-
-- name: Set Python 3 Version
-  set_fact:
-    python_3_version: "3.9.2"
-
-- name: Install Python 2
-  become: no
-  shell: |
-    pyenv install {{ python_2_version }}
-  args:
-    executable: /bin/zsh
-    creates: "/home/{{ lookup('env', 'USER') }}/.pyenv/versions/{{ python_2_version }}"
-
-- name: Install Python 3
-  become: no
-  shell: |
-    pyenv install {{ python_3_version }}
-  args:
-    executable: /bin/zsh
-    creates: "/home/{{ lookup('env', 'USER') }}/.pyenv/versions/{{ python_3_version }}"
+  when: os.type == 'linux'
