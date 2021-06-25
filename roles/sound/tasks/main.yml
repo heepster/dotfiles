@@ -1,9 +1,2 @@
 - import_tasks: musescore.yml
-
-- import_tasks: osx_only.yml
-  when: os.type == 'osx'
-
-- import_tasks: linux_only.yml
-  when: os.type == 'linux'
-
-
+- import_tasks: bitwig.yml

@@ -1,7 +1,7 @@
 - name: Install Musescore
   become: no
-  community.general.flatpak_remote:
-    name: musescore
+  flatpak:
+    name: org.musescore.MuseScore
     method: user
     state: present
   when: os.type == 'linux'
@@ -11,4 +11,3 @@
     name: musescore
     state: present
   when: os.type == 'osx'
-
