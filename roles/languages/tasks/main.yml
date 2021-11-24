@@ -2,3 +2,4 @@
 - import_tasks: go.yml
 - import_tasks: java.yml
 - import_tasks: python.yml
+  when: name != 'ecorp'

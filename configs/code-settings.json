@@ -2,7 +2,6 @@
   "editor.minimap.enabled": false,
   "editor.tabSize": 2,
   "editor.lineHeight": 22,
-  "workbench.activityBar.visible": false,
   "workbench.colorCustomizations": {
     "[DuoTone Dark Sky]": {
       "activityBar.background": "#221f3b",

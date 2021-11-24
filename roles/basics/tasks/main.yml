@@ -13,6 +13,7 @@
 - import_tasks: firefox.yml
 - import_tasks: wireshark.yml
 - import_tasks: vlc.yml
+- import_tasks: alfred.yml
 
 - import_tasks: linux_only.yml
   when: os.type == 'linux'

@@ -1,0 +1,5 @@
+- name: Install Alfred
+  community.general.homebrew_cask:
+    name: alfred
+    state: present
+  when: os.type == 'osx'
