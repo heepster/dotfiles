@@ -1,13 +1,15 @@
 - hosts: all
   become: yes
   vars:
-    name: field
+    name: fieldpack
     os:
       type: linux
   roles:
     - { role: basics }
     - { role: art }
+    - { role: communication }
     - { role: games }
+    - { role: sound }
     - { role: configuration }
     - { role: themes }
     - { role: post_run }

@@ -1,0 +1,7 @@
+- name: Install Bitwig
+  become: no
+  flatpak:
+    name: https://dl.flathub.org/repo/appstream/com.bitwig.BitwigStudio.flatpakref
+    state: present
+    method: user
+  when: os.type == 'linux'

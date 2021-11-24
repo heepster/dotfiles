@@ -6,6 +6,7 @@
   roles:
     - { role: always }
     - { role: basics, become: no }
+    - { role: communication, become: no }
     - { role: developer, become: no }
     - { role: art, become: no }
     - { role: games, become: no }

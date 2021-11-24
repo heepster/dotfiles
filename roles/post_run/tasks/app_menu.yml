@@ -2,7 +2,7 @@
   file:
     path: /usr/share/applications/{{ item }}.desktop
     state: absent
-  loop:  
+  loop:
     - openjdk-8-java
     - openjdk-8-policytool
     - vim
@@ -16,5 +16,6 @@
     - org.kde.kdeconnect.sms
     - org.kde.kdeconnect.smshandler
     - org.kde.kdeconnect.telhandler
+    - org.kde.kdeconnect.settings
     - display-im6.q16
 

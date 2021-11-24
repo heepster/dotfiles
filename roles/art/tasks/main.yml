@@ -1,3 +1,4 @@
+- import_tasks: aseprite.yml
 - import_tasks: krita.yml
 - import_tasks: blender.yml
 - import_tasks: inkscape.yml

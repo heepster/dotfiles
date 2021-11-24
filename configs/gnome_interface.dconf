@@ -1,6 +1,0 @@
-[/]
-enable-hot-corners=true
-gtk-im-module='gtk-im-context-simple'
-gtk-key-theme='Emacs'
-gtk-theme='Pop-dark'
-icon-theme='Zafiro-Icons'

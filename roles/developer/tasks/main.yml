@@ -1,9 +1,6 @@
 - import_tasks: postman.yml
 - import_tasks: gtk.yml
-- import_tasks: tig.yml
 - import_tasks: terraform.yml
-- import_tasks: htop.yml
-- import_tasks: ripgrep.yml
 - import_tasks: aws.yml
 - import_tasks: gcp_sdk.yml
 - import_tasks: kitty.yml

@@ -7,6 +7,7 @@
   roles:
     - { role: always }
     - { role: basics }
+    - { role: communication }
     - { role: developer }
     - { role: games }
     - { role: languages }

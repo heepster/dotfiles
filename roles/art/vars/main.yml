@@ -1,0 +1,2 @@
+aseprite:
+  launcher_path: "{{ lookup('env', 'HOME') }}/.local/share/applications/Aseprite.desktop"
