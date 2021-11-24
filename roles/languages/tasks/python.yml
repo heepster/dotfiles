@@ -2,7 +2,7 @@
   become: no
   git:
     repo: https://github.com/pyenv/pyenv.git
-    dest: "/home/{{ lookup('env', 'USER') }}/.pyenv"
+    dest: "{{ lookup('env', 'HOME') }}/.pyenv"
     version: master
   register: git_result
   changed_when: "git_result.after|default('after') != git_result.before|default('before')"
@@ -21,7 +21,7 @@
     pyenv install {{ python_2_version }}
   args:
     executable: /bin/zsh
-    creates: "/home/{{ lookup('env', 'USER') }}/.pyenv/versions/{{ python_2_version }}"
+    creates: "{{ lookup('env', 'HOME') }}/.pyenv/versions/{{ python_2_version }}"
 
 - name: Install Python 3
   become: no
@@ -29,4 +29,4 @@
     pyenv install {{ python_3_version }}
   args:
     executable: /bin/zsh
-    creates: "/home/{{ lookup('env', 'USER') }}/.pyenv/versions/{{ python_3_version }}"
+    creates: "{{ lookup('env', 'HOME') }}/.pyenv/versions/{{ python_3_version }}"

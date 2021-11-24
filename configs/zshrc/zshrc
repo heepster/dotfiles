@@ -109,7 +109,7 @@ export EDITOR=nvim
 
 alias vim="nvim"
 alias gs="git status"
-alias gd="git diff --staged HEAD *"
+alias gd="git diff HEAD *"
 alias gc="git commit -m"
 alias ga="git add ."
 alias grs="git restore --staged"
@@ -128,6 +128,10 @@ if [[ "$(uname)" == "Darwin" ]]; then
   if [[ "$(hostname)" == "LM-LTH-40012043" ]]; then
     # For SSL stuff
     export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl@1.1/cert.pem
+
+    # Set python 3 as default python
+    alias python="python3"
+    alias pip="pip3"
 
     # For Gcloud utils
     export CLOUDSDK_PYTHON=python2
@@ -150,6 +154,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
 
     # Set JAVA HOME as well
     export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
+
+    # Set Krew Path
+    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+
+    # Set Kube Plugin Path
+    export PATH=$PATH:~/.kube/plugins/scan
   fi
 fi
 
