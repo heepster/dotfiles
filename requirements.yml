@@ -1,1 +1,2 @@
-- src: rvm.ruby
+# Don't like this package very much, takes too long
+#- src: rvm.ruby

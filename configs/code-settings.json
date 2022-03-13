@@ -49,6 +49,6 @@
     "**/.factorypath": true
   },
   "rust-analyzer.inlayHints.enable": false,
-  "window.zoomLevel": 2,
-  "redhat.telemetry.enabled": false
+  "redhat.telemetry.enabled": false,
+  "window.zoomLevel": 2
 }
