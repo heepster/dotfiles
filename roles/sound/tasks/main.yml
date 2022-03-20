@@ -1,2 +1,6 @@
 - import_tasks: musescore.yml
-- import_tasks: bitwig.yml
+
+# For some reason, the flatpak version of bitwig
+# can't connect to Jack, so rely on manual download instead
+# https://www.bitwig.com/download/
+# - import_tasks: bitwig.yml

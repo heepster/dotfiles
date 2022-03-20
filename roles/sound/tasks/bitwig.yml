@@ -3,4 +3,5 @@
     name: app/com.bitwig.BitwigStudio/x86_64/stable
     state: present
     method: user
+  become: no
   when: os.type == 'linux'
