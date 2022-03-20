@@ -1,8 +1,9 @@
 ---
 dependencies:
-  - role: rvm.ruby
-    vars:
-      rvm1_rubies: 
-        - 'ruby-2.5'
-      rvm1_user: "{{ lookup('env', 'USER') }}"
-      rvm1_bundler_install: true
+  # Don't like this very much, takes too long
+  #- role: rvm.ruby
+  #  vars:
+  #    rvm1_rubies: 
+  #      - 'ruby-2.5'
+  #    rvm1_user: "{{ lookup('env', 'USER') }}"
+  #    rvm1_bundler_install: true
