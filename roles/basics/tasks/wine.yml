@@ -1,0 +1,15 @@
+- name: Add Wine Repo Key
+  ansible.builtin.apt_key:
+    url: https://dl.winehq.org/wine-builds/winehq.key
+    state: present
+
+- name: Add Wine Repository
+  apt_repository:
+    repo: deb https://dl.winehq.org/wine-builds/ubuntu/ impish main
+  when: ansible_os_family == 'Debian'
+
+- name: Install Wine Staging
+  package:
+    name: winehq-stable
+    state: present
+  when: os.type == 'linux'
