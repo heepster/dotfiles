@@ -4,3 +4,5 @@
 # can't connect to Jack, so rely on manual download instead
 # https://www.bitwig.com/download/
 # - import_tasks: bitwig.yml
+
+- import_tasks: qjackctl.yml

@@ -1,0 +1,5 @@
+- name: Install QJackCtl
+  package:
+    name: qjackctl
+    state: present
+  when: os.type == 'linux'
