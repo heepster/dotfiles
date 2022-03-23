@@ -1,15 +1,7 @@
 - name: Install Slack
-  snap:
-    name: slack
-    classic: yes
+  package:
+    name: slack-desktop
     state: present
-  when: os.type == 'linux'
-
-- name: Change Slack Icon
-  lineinfile:
-    path: /var/lib/snapd/desktop/applications/slack_slack.desktop
-    regexp: '^Icon='
-    line: Icon=slack
   when: os.type == 'linux'
 
 - name: Install Slack
