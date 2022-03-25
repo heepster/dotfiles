@@ -18,3 +18,8 @@
     name: gestures
     method: user
     state: present
+
+- name: Install Libnotify (For notify-send cli)
+  package:
+    name: libnotify-bin
+    state: present

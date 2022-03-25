@@ -8,6 +8,7 @@
   roles:
     - { role: always }
     - { role: basics }
+    - { role: cron }
     - { role: communication }
     - { role: games }
     - { role: developer }

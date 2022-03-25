@@ -1,0 +1,6 @@
+- name: Create Virtual Instrument Rsync Cron Job
+  ansible.builtin.cron:
+    name: "Virtual Instrument Rsync job"
+    special_time: hourly
+    job: "{{ playbook_dir }}/../scripts/sync_virtual_instruments.sh"
+  become: no
