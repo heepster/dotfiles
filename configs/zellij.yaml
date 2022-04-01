@@ -1,0 +1,18 @@
+keybinds:
+  #unbind: [ 
+  #    Ctrl: 'p', 
+  #    Ctrl: 'n'
+  #  ]
+
+  #locked:
+  #  - action: [SwitchToMode: Normal,]
+  #    key: [Ctrl: 'j',]
+
+  #normal: 
+  #  - action: [SwitchToMode: Pane,]
+  #    key: [Char: 'p',]
+
+ui:
+  pane_frames:
+    rounded_corners: true
+

@@ -61,3 +61,5 @@
   when: is_corp is defined and is_corp
 
 - import_tasks: zsh.yml
+
+- import_tasks: zellij.yml

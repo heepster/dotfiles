@@ -1,0 +1,12 @@
+- name: Create Zellij Directory
+  become: no
+  ansible.builtin.file:
+    path: "{{ lookup('env', 'HOME') }}/.config/zellij/"
+    state: directory
+
+- name: Set Zellij configuration file
+  become: no
+  file:
+    src: "{{ playbook_dir }}/../configs/zellij.yaml"
+    dest: "{{ lookup('env', 'HOME') }}/.config/zellij/config.yaml"
+    state: link

@@ -16,6 +16,7 @@
     - { role: sound }
     - { role: movies }
     - { role: art }
+    - { role: fonts }
     - { role: configuration }
     - { role: themes }
     - { role: post_run }

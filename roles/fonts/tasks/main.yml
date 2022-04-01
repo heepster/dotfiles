@@ -1,0 +1,7 @@
+- name: Install Powerline Fonts
+  package:
+    name: "fonts-powerline"
+    state: "present"
+  when: os.type == 'linux'
+
+
