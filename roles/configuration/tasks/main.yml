@@ -11,6 +11,13 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
     state: link
 
+- name: Set CoC Settings file
+  become: no
+  file:
+    src: "{{ playbook_dir}}/../configs/coc-settings.json"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/coc-settings.json"
+    state: link
+
 - name: Create Kitty configuration directory
   become: no
   file:
