@@ -3,6 +3,11 @@
 - import_tasks: wine.yml
 - import_tasks: xournal.yml
 
+- name: Software Properties Common
+  package:
+    name: software-properties-common
+    state: present
+
 - name: Install SSH Server
   package:
     name: "openssh-server"
