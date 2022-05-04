@@ -117,69 +117,8 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
-if [[ "$(uname)" == "Darwin" ]]; then
-  export PATH="$PATH:$HOME/Library/Python/3.7/bin"
-
-  # Setup Node
-  export N_PREFIX="$HOME/.local"
-  export PATH=$N_PREFIX/bin:$PATH
-
-  # Work Laptop
-  if [[ "$(hostname)" == "LM-LTH-40012043" ]]; then
-    # For SSL stuff
-    export NODE_EXTRA_CA_CERTS=/usr/local/etc/openssl@1.1/cert.pem
-
-    # Set python 3 as default python
-    alias python="python3"
-    alias pip="pip3"
-
-    # For Gcloud utils
-    export CLOUDSDK_PYTHON=python2
-
-    # Add Java
-    export PATH="/usr/local/opt/openjdk@11/bin":$PATH
-    export JAVA_HOME="/usr/local/opt/openjdk@11"
-
-    # Add Github Token for Maven
-    TOKEN=$(cat $HOME/.github_maven_token)
-    export GITHUB_TOKEN=$TOKEN
-    export GH_TOKEN=$TOKEN
-
-    # Add Local Bin
-    export PATH="$HOME/bin":$PATH
-
-    # Add JENV
-    export PATH="$HOME/.jenv/bin:$PATH"
-    eval "$(jenv init -)"
-
-    # Set JAVA HOME as well
-    export JAVA_HOME="$(/usr/libexec/java_home -v1.8)"
-
-    # Set Krew Path
-    export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-
-    # Set Kube Plugin Path
-    export PATH=$PATH:~/.kube/plugins/scan
-  fi
-fi
-
-if [[ "$(uname)" == "Linux" ]]; then
-  # Add GO to Path
-  export PATH="$PATH:/usr/local/go/bin"
-
-  export PATH="$PATH:$HOME/.local/bin"
-fi
-
 # Setup Cargo
 export PATH="$HOME/.cargo/bin/":$PATH
-
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
-# Setup Pyenv vars
-if which pyenv > /dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
 
 if [ -f $HOME/.zshrc.local ]; then
   source ~/.zshrc.local

@@ -18,19 +18,6 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim/coc-settings.json"
     state: link
 
-- name: Create Kitty configuration directory
-  become: no
-  file:
-    path: "{{ lookup('env', 'HOME') }}/.config/kitty"
-    state: directory
-
-- name: Set Kitty configuration file
-  become: no
-  file:
-    src: "{{ playbook_dir}}/../configs/kitty.conf"
-    dest: "{{ lookup('env', 'HOME') }}/.config/kitty/kitty.conf"
-    state: link
-
 - name: Set TMUX configuration file
   become: no
   file:
@@ -46,19 +33,7 @@
     state: link
   when: os.type == 'linux'
 
-- name: Set Apple Keyboard shortcuts
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/com.apple.symbolichotkeys.plist"
-    dest: "{{ lookup('env', 'HOME') }}/Library/Preferences/com.apple.symbolichotkeys.plist"
-    state: link
-    force: yes
-  when: os.type == 'osx'
-
 - import_tasks: vscode.yml
-
-- import_tasks: aws.yml
-  when: is_corp is defined and is_corp
 
 - import_tasks: zsh.yml
 

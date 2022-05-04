@@ -1,0 +1,9 @@
+# Basics
+- include: ../roles/basics/tasks/htop.yml
+- include: ../roles/basics/tasks/tmux.yml
+- include: ../roles/basics/tasks/neovim.yml
+- include: ../roles/basics/tasks/rectangle.yml
+- include: ../roles/basics/tasks/karabiner.yml
+
+# Languages
+- include: ../roles/languages/tasks/javascript.yml

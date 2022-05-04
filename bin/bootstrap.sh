@@ -40,7 +40,7 @@ elif [ "$UNAME" == "Linux" ]; then
 
 elif [ "$UNAME" == "Darwin" ]; then 
 
-  if [ ! -f /usr/local/bin/brew ]; then
+  if [[ ! -f /usr/local/bin/brew ]] && [[ ! -f /opt/homebrew/bin/brew ]]; then
     echo "Installing Brew"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
   fi

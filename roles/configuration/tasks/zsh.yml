@@ -6,13 +6,6 @@
     state: link
     force: yes # initial install of zsh includes .zshrc, so must remove it
 
-- name: Set ZSH profile file
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/zshrc/zprofile"
-    dest: "{{ lookup('env', 'HOME') }}/.zprofile"
-    state: link
-
 - name: Set ZSH local file for Lemur
   become: no
   file:
@@ -20,19 +13,3 @@
     dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
     state: link
   when: name is defined and name == 'lemur'
-
-- name: Set ZSH local file for Ecorp
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/zshrc/ecorp.zshrc"
-    dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
-    state: link
-  when: name is defined and name == 'ecorp'
-
-- name: Set ZSH local file for others
-  become: no
-  file:
-    src: "{{ playbook_dir }}/../configs/zshrc/empty.zshrc"
-    dest: "{{ lookup('env', 'HOME') }}/.zshrc.local"
-    state: link
-  when: name is not defined
