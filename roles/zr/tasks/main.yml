@@ -5,5 +5,8 @@
 - include: ../roles/basics/tasks/rectangle.yml
 - include: ../roles/basics/tasks/karabiner.yml
 
+# Dev
+- include: ../roles/developer/tasks/fzf.yml
+
 # Languages
 - include: ../roles/languages/tasks/javascript.yml
