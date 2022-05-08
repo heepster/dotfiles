@@ -154,7 +154,7 @@ nnoremap <silent> <C-p> :GFiles<CR>
 nnoremap <silent> <C-s> :RG<CR>
 nnoremap <silent> <C-f> :BLines<CR>
 nnoremap <silent> <C-m> :Marks<CR>
-nnoremap <silent> <C-b> :Windows<CR>
+nnoremap <silent> <C-b> :Buffers<CR>
 
 " Navigate quickfix list with ease
 nnoremap <silent> [q :cprevious<CR>
