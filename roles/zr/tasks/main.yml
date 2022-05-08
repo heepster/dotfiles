@@ -8,6 +8,7 @@
 # Dev
 - include: ../roles/developer/tasks/fzf.yml
 - include: ../roles/developer/tasks/fd.yml
+- include: ../roles/developer/tasks/bat.yml
 
 # Languages
 - include: ../roles/languages/tasks/javascript.yml

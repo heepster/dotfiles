@@ -7,6 +7,8 @@
 - import_tasks: godot.yml
 - import_tasks: docker.yml
 - import_tasks: ninja.yml
+- import_tasks: bat.yml
+- import_tasks: fd.yml
 
 - import_tasks: linux_only.yml
   when: os.type == 'linux'

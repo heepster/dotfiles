@@ -2,3 +2,9 @@
   community.general.homebrew:
     name: fzf
     state: present
+  when: os.type == 'osx'
+  register: fzf
+
+- debug:
+    msg: "Remember to run the fzf install script (https://github.com/junegunn/fzf#installation)"
+  when: fzf.changed

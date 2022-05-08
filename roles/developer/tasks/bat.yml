@@ -1,5 +1,5 @@
-- name: Install fd
+- name: Install bat
   community.general.homebrew:
-    name: fd
+    name: bat
     state: present
   when: os.type == 'osx'
