@@ -28,7 +28,7 @@ set nowrap
 "set cursorline
 set autoread
 
-" Always keep the SignColumn transparent bg 
+" Always keep the SignColumn transparent bg
 autocmd BufRead,BufNewFile * highlight clear SignColumn
 
 " Colors
@@ -41,7 +41,7 @@ silent !stty -ixon > /dev/null 2>/dev/null
 let mapleader = ","
 
 " Auto remove trailing whitespaces
-autocmd FileType typescript,javascript,c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e 
+autocmd FileType typescript,javascript,c,cpp,java,php,scala,python,ruby autocmd BufWritePre <buffer> %s/\s\+$//e
 
 " Auto Resize windows
 autocmd VimResized * wincmd =
@@ -60,6 +60,8 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mhinz/vim-startify'
+  Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  Plug 'kyazdani42/nvim-tree.lua'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -74,7 +76,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'digitaltoad/vim-pug'
   Plug 'HerringtonDarkholme/yats.vim'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-  Plug 'jparise/vim-graphql', 
+  Plug 'jparise/vim-graphql',
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
     " :CocInstall coc-tsserver coc-json coc-html coc-css coc-rust-analyzer
@@ -84,7 +86,7 @@ call plug#end()
 """ Theme
 colorscheme dim
 
-" Cursor  
+" Cursor
 "highlight CursorLine cterm=NONE ctermbg=grey ctermfg=white guibg=grey guifg=white
 
 """ Key mappings
@@ -94,13 +96,14 @@ nnoremap <Leader>b :Gblame<CR>
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
 
-""" NERDTREE
-map <C-e> :NERDTreeToggle<CR>
-let NERDTreeMapOpenVSplit = '<C-v>'
-let NERDTreeMapOpenInTab = '<C-t>'
-let NERDTreeMapOpenSplit = '<C-s>'
 
-""" COC 
+""" NERDTREE
+" map <C-e> :NERDTreeToggle<CR>
+" let NERDTreeMapOpenVSplit = '<C-v>'
+" let NERDTreeMapOpenInTab = '<C-t>'
+" let NERDTreeMapOpenSplit = '<C-s>'
+
+""" COC
 " Tab for autocompletion
 inoremap <silent><expr> <TAB>
       \ pumvisible() ? "\<C-n>" :
@@ -197,3 +200,33 @@ let g:lightline =  {
       \ }
 " Auto update lightline
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+
+" NvimTree
+nnoremap <C-e> :NvimTreeToggle<CR>
+lua << EOF
+require'nvim-tree'.setup {
+}
+EOF
+let g:nvim_tree_icons = {
+    \ 'default': "",
+    \ 'symlink': "s",
+    \ 'git': {
+    \   'unstaged': "✗",
+    \   'staged': "✓",
+    \   'unmerged': "",
+    \   'renamed': "➜",
+    \   'untracked': "★",
+    \   'deleted': "",
+    \   'ignored': "◌"
+    \   },
+    \ 'folder': {
+    \   'arrow_open': "",
+    \   'arrow_closed': "",
+    \   'default': "",
+    \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
+    \   'symlink': "s",
+    \   'symlink_open': "s",
+    \   }
+    \ }
