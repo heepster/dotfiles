@@ -60,8 +60,10 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mhinz/vim-startify'
-  Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  Plug 'kyazdani42/nvim-tree.lua'
+
+  " Doesn't work on mpb13
+  " Plug 'kyazdani42/nvim-web-devicons' " for file icons
+  " Plug 'kyazdani42/nvim-tree.lua'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
@@ -98,10 +100,10 @@ map <C-t>h :execute "tabprev"<CR>
 
 
 """ NERDTREE
-" map <C-e> :NERDTreeToggle<CR>
-" let NERDTreeMapOpenVSplit = '<C-v>'
-" let NERDTreeMapOpenInTab = '<C-t>'
-" let NERDTreeMapOpenSplit = '<C-s>'
+map <C-e> :NERDTreeToggle<CR>
+let NERDTreeMapOpenVSplit = '<C-v>'
+let NERDTreeMapOpenInTab = '<C-t>'
+let NERDTreeMapOpenSplit = '<C-s>'
 
 """ COC
 " Tab for autocompletion
@@ -201,32 +203,34 @@ let g:lightline =  {
 " Auto update lightline
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-" NvimTree
-nnoremap <C-e> :NvimTreeToggle<CR>
-lua << EOF
-require'nvim-tree'.setup {
-}
-EOF
-let g:nvim_tree_icons = {
-    \ 'default': "",
-    \ 'symlink': "s",
-    \ 'git': {
-    \   'unstaged': "✗",
-    \   'staged': "✓",
-    \   'unmerged': "",
-    \   'renamed': "➜",
-    \   'untracked': "★",
-    \   'deleted': "",
-    \   'ignored': "◌"
-    \   },
-    \ 'folder': {
-    \   'arrow_open': "",
-    \   'arrow_closed': "",
-    \   'default': "",
-    \   'open': "",
-    \   'empty': "",
-    \   'empty_open': "",
-    \   'symlink': "s",
-    \   'symlink_open': "s",
-    \   }
-    \ }
+" NvimTree -- doesn't work on mpb13; fails to set up properly
+" nnoremap <C-e> :NvimTreeToggle<CR>
+" let g:nvim_tree_icons = {
+"     \ 'default': "",
+"     \ 'symlink': "s",
+"     \ 'git': {
+"     \   'unstaged': "✗",
+"     \   'staged': "✓",
+"     \   'unmerged': "",
+"     \   'renamed': "➜",
+"     \   'untracked': "★",
+"     \   'deleted': "",
+"     \   'ignored': "◌"
+"     \   },
+"     \ 'folder': {
+"     \   'arrow_open': "",
+"     \   'arrow_closed': "",
+"     \   'default': "",
+"     \   'open': "",
+"     \   'empty': "",
+"     \   'empty_open': "",
+"     \   'symlink': "s",
+"     \   'symlink_open': "s",
+"     \   }
+"     \ }
+" lua << EOF
+"   require'nvim-tree'.setup {
+" }
+" EOF
+
+

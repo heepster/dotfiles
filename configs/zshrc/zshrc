@@ -120,6 +120,10 @@ alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 # Setup Cargo
 export PATH="$HOME/.cargo/bin/":$PATH
 
+# Setup N
+export N_PREFIX=$HOME/opt
+export PATH=$HOME/opt/bin:$PATH
+
 if [ -f $HOME/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
