@@ -17,5 +17,3 @@
     name: postman
     state: present
   when: os.type == 'osx'
-
-

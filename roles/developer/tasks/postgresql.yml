@@ -1,0 +1,6 @@
+- name: Install Postgresql Client
+  package:
+    name: postgresql-client
+    state: present
+  when: os.type == 'linux'
+

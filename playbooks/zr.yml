@@ -4,6 +4,15 @@
     name: zr
     os:
       type: osx
+  tasks:
+    - include_tasks: ../roles/basics/tasks/htop.yml
+    - include_tasks: ../roles/basics/tasks/tmux.yml
+    - include_tasks: ../roles/basics/tasks/neovim.yml
+    - include_tasks: ../roles/basics/tasks/rectangle.yml
+    - include_tasks: ../roles/basics/tasks/karabiner.yml
+
+    # Languages
+    - include_tasks: ../roles/languages/tasks/javascript.yml
   roles:
-    - { role: zr }
+    - { role: developer }
     - { role: configuration }

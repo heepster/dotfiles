@@ -1,9 +1,6 @@
-- name: Install iTerm2
-  community.general.homebrew_cask:
-    name: iterm2
-    state: present
-
 - name: Install Cyberduck
   community.general.homebrew_cask:
     name: cyberduck
     state: present
+  when: os.type == 'osx'
+
