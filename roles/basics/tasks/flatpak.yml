@@ -5,4 +5,4 @@
     state: present
     flatpakrepo_url: https://dl.flathub.org/repo/flathub.flatpakrepo
     method: user
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

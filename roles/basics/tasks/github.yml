@@ -3,22 +3,22 @@
     keyserver: "keyserver.ubuntu.com"
     id: "C99B11DEB97541F0"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Add Github Apt Repo
   apt_repository:
     repo: "deb [arch=amd64] https://cli.github.com/packages {{ ansible_distribution_release }} stable"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Github CLI
   package:
     name: gh
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Github CLI
   community.general.homebrew_cask:
     name: gh
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

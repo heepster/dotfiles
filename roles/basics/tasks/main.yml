@@ -16,7 +16,7 @@
 - import_tasks: alfred.yml
 
 - import_tasks: linux_only.yml
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - import_tasks: osx_only.yml
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

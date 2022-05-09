@@ -2,11 +2,11 @@
   package:
     name: slack-desktop
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Slack
   community.general.homebrew_cask:
     name: slack
     state: present
-  when: os.type == 'osx' and name != 'ecorp'
+  when: ansible_facts['os_family'] == 'Darwin' and name != 'ecorp'
   ignore_errors: yes

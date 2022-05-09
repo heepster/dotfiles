@@ -2,5 +2,5 @@
   package:
     name: postgresql-client
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 

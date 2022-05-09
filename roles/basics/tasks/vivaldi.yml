@@ -4,10 +4,10 @@
 #    deb: "https://downloads.vivaldi.com/stable/vivaldi-stable_3.1.1929.29-1_amd64.deb"
 #    state: "present"
 #  ignore_errors: yes
-#  when: os.type == 'linux'
+#  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Vivaldi
   community.general.homebrew_cask:
     name: vivaldi
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

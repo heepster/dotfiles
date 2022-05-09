@@ -3,11 +3,11 @@
     name: "vlc"
     classic: yes
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Change VLC Icon
   lineinfile:
     path: /var/lib/snapd/desktop/applications/vlc_vlc.desktop
     regexp: '^Icon='
     line: Icon=vlc
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

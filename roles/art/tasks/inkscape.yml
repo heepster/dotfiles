@@ -1,12 +1,12 @@
 - apt_repository:
     repo: ppa:inkscape.dev/stable
-  when: ansible_os_family == 'Debian'
+  when: when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Inkscape
   package:
     name: inkscape
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 # Inkscape is currently unbearably slow on OSX
 # Hopefully one day this can be fixed
@@ -15,4 +15,4 @@
 #  community.general.homebrew_cask:
 #    name: inkscape
 #    state: present
-#  when: os.type == 'osx'
+#  when: ansible_facts['os_family'] == 'Darwin'

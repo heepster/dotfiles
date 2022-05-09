@@ -7,10 +7,10 @@
     rm -rf aws awscliv2.zip
   args:
     creates: /usr/local/bin/aws
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install AWS CLI
   homebrew:
     name: awscli
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

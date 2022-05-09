@@ -4,4 +4,4 @@
     state: present
     method: user
   become: no
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

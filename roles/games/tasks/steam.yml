@@ -9,11 +9,11 @@
   package:
     name: steam
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Steam
   community.general.homebrew_cask:
     name: steam
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 

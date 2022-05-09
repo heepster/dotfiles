@@ -3,23 +3,23 @@
     name: blender
     classic: yes
     state: present
-  when: ansible_os_family == 'Debian'
+  when: when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Blender
   package:
     name: blender
     state: present
-  when: ansible_os_family == 'RedHat'
+  when: when: ansible_facts['os_family'] == 'RedHat'
 
 #- name: Change Blender Icon
 #  lineinfile:
 #    path: /var/lib/snapd/desktop/applications/blender_blender.desktop
 #    regexp: '^Icon='
 #    line: Icon=blender
-#  when: os.type == 'linux'
+#  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Blender
   community.general.homebrew_cask:
     name: blender
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

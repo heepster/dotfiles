@@ -15,4 +15,4 @@
   community.general.homebrew_cask:
     name: dropbox
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

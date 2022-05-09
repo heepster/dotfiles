@@ -4,10 +4,10 @@
     name: org.musescore.MuseScore
     method: user
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Musescore
   community.general.homebrew_cask:
     name: musescore
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

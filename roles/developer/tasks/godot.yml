@@ -4,12 +4,12 @@
     name: org.godotengine.Godot
     state: present
     method: user
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Godot
   community.general.homebrew_cask:
     name: godot
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 

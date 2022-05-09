@@ -2,7 +2,7 @@
   apt:
     deb: "https://zoom.us/client/latest/zoom_amd64.deb"
     state: "present"
-  when: ansible_os_family == 'Debian'
+  when: when: ansible_facts['os_family'] == 'Debian'
 
 - name: Add Zoom RPM Key
   rpm_key:
@@ -20,4 +20,4 @@
   community.general.homebrew_cask:
     name: zoomus
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

@@ -2,13 +2,13 @@
   package:
     name: "tmux"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Tmux
   homebrew:
     name: tmux
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Install Tmux Plugin Manager
   become: no

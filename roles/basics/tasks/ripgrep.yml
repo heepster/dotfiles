@@ -2,10 +2,10 @@
   homebrew:
     name: ripgrep
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Install Rip Grep
   package:
     name: ripgrep
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

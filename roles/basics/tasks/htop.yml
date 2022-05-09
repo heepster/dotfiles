@@ -2,11 +2,11 @@
   homebrew:
     name: htop
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Install Htop
   package:
     name: htop
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 

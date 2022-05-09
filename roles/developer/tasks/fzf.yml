@@ -2,7 +2,7 @@
   community.general.homebrew:
     name: fzf
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
   register: fzf
 
 - debug:

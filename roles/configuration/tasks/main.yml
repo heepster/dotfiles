@@ -31,7 +31,7 @@
     src: "{{ playbook_dir }}/../configs/gtk.css"
     dest: "/home/{{ lookup('env', 'USER') }}/.config/gtk-3.0/gtk.css"
     state: link
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - import_tasks: vscode.yml
 

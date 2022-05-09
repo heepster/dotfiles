@@ -10,7 +10,7 @@
     rm -rf zafiro-icons.tar.gz Zafiro-icons-$VERSION
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Zafiro-Icons
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Oogir Icons
   become: no
@@ -24,4 +24,4 @@
     rm -rf $ICON_DIR
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.local/share/icons/Qogir
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

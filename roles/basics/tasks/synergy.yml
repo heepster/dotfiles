@@ -1,10 +1,10 @@
 - name: Install Synergy
   apt:
     deb: https://binaries.symless.com/synergy/v1-core-standard/v1.11.1-stable-55ec3105/synergy_1.11.1.stable~b58%2B55ec3105_ubuntu19_amd64.deb
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Synergy
   community.general.homebrew_cask:
     name: synergy
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

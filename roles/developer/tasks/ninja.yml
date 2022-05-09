@@ -2,10 +2,10 @@
   homebrew:
     name: ninja
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Install Ninja
   package:
     name: ninja-build
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

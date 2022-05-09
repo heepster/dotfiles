@@ -2,12 +2,12 @@
   package:
     name: "gnome-tweaks"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install DConf Editor
   package:
     name: "dconf-editor"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 

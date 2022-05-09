@@ -3,17 +3,17 @@
     name: postman
     classic: yes
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Change Postman Icon
   lineinfile:
     path: /var/lib/snapd/desktop/applications/postman_postman.desktop
     regexp: '^Icon='
     line: Icon=postman
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Postman
   community.general.homebrew_cask:
     name: postman
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

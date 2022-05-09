@@ -2,24 +2,24 @@
   package:
     name: wireshark
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
   register: wireshark
 
 - debug:
     msg: "Remember to run sudo dpkg-reconfigure wireshark-common if wireshark was installed"
-  when: os.type == 'linux' and wireshark.changed
+  when: ansible_facts['os_family'] == 'Debian' and wireshark.changed
 
 - name: Make Wireshark group
   group:
     name: wireshark
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: adding existing user to group wireshark
   user:
     name: "{{ lookup('env', 'USER') }}"
     groups: wireshark
     append: yes
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 

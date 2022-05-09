@@ -2,7 +2,7 @@
   package:
     name: "zsh"
     state: "present"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Oh My ZSH
   become: no

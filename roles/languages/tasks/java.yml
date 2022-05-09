@@ -2,11 +2,11 @@
   homebrew:
     name: maven
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Install JEnv
   homebrew:
     name: jenv
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 

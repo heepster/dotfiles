@@ -6,7 +6,7 @@
     rm packages.microsoft.gpg
   args:
     creates: /etc/apt/sources.list.d/vscode.list
-  when: ansible_os_family == 'Debian'
+  when: when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Microsoft Yum Repository
   shell: |
@@ -15,19 +15,19 @@
     sudo dnf check-update
   args:
     creates: /etc/yum.repos.d/vscode.repo
-  when: ansible_os_family == 'RedHat'
+  when: when: ansible_facts['os_family'] == 'RedHat'
 
 - name: Install VSCode
   package:
     name: code
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install VSCode
   community.general.homebrew_cask:
     name: visual-studio-code
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Create a directory if it does not exist
   file:
@@ -36,4 +36,4 @@
     owner: "{{ lookup('env', 'USER') }}"
     group: staff
     mode: '0755'
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

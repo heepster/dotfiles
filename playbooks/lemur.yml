@@ -1,9 +1,5 @@
 - hosts: all
   become: yes
-  vars:
-    name: lemur
-    os:
-      type: linux
   roles:
     #- { role: always }
     #- { role: basics }

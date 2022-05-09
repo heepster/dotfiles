@@ -30,4 +30,4 @@
   args:
     executable: /bin/zsh
     creates: "{{ lookup('env', 'HOME') }}/.pyenv/versions/{{ python_3_version }}"
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

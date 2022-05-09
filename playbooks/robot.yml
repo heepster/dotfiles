@@ -1,8 +1,5 @@
 - hosts: all
   become: yes
-  vars:
-    os:
-      type: linux
   roles:
     - { role: always }
     - { role: basics }

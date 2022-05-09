@@ -1,21 +1,21 @@
 - apt_key:
     url: https://syncthing.net/release-key.txt
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - apt_repository:
     repo: deb https://apt.syncthing.net/ syncthing stable
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Syncthing
   package:
     name: syncthing
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Syncthing
   community.general.homebrew_cask:
     name: syncthing
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

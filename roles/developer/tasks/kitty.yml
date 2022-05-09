@@ -2,14 +2,14 @@
   package:
     name: kitty
     state: present
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Kitty
   homebrew:
     name: kitty
     state: present
   ignore_errors: yes
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Create Kitty configuration directory
   become: no

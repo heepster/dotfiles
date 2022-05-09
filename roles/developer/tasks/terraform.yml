@@ -4,17 +4,17 @@
     git clone https://github.com/tfutils/tfenv.git /home/{{ lookup('env', 'USER') }}/.tfenv
   args:
     creates: /home/{{ lookup('env', 'USER') }}/.tfenv
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Symlink Terraform Manager to /usr/local/bin
-  file: 
+  file:
     src: /home/{{ lookup('env', 'USER') }}/.tfenv/bin/{{ item.src }}
     dest: /usr/local/bin/{{ item.dest }}
     state: link
   loop:
     - { src: 'tfenv', dest: 'tfenv' }
     - { src: 'terraform', dest: 'terraform' }
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install latest version of terraform
   become: no
@@ -22,10 +22,10 @@
     /home/{{ lookup('env', 'USER')}}/.tfenv/bin/tfenv install
   args:
     creates: /home/{{ lookup('env', 'USER')}}/.tfenv/versions/
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Terraform Manager
   homebrew:
     name: tfenv
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

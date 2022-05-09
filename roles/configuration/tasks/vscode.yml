@@ -3,7 +3,7 @@
   file:
     path: "{{ lookup('env', 'HOME') }}/.config/Code/User"
     state: directory
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Set VSCode settings file
   become: no
@@ -12,7 +12,7 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/settings.json"
     state: link
     force: yes
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Set VSCode key bindings file
   become: no
@@ -21,7 +21,7 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/Code/User/keybindings.json"
     state: link
     force: yes
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Set VSCode settings file
   become: no
@@ -30,7 +30,7 @@
     dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/Code/User/settings.json"
     state: link
     force: yes
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - name: Set VSCode key bindings file
   become: no
@@ -39,5 +39,5 @@
     dest: "{{ lookup('env', 'HOME') }}/Library/Application Support/Code/User/keybindings.json"
     state: link
     force: yes
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 

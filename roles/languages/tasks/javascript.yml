@@ -6,10 +6,10 @@
     bash /usr/bin/n lts
   args:
     creates: /usr/bin/n
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install N
   homebrew:
     name: n
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'

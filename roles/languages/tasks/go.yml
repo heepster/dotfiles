@@ -2,7 +2,7 @@
   homebrew:
     name: golang
     state: present
-  when: os.type == 'osx'
+  when: ansible_facts['os_family'] == 'Darwin'
 
 - import_tasks: go_linux.yml
-  when: os.type == 'linux'
+  when: ansible_facts['os_family'] == 'Debian'

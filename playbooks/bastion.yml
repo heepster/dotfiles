@@ -3,8 +3,6 @@
   vars:
     nfs:
       server: true
-    os:
-      type: linux
   roles:
     - { role: always }
     - { role: basics }
