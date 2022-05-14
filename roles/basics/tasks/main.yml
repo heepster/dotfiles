@@ -1,4 +1,3 @@
-- import_tasks: prereq_packages.yml
 - import_tasks: snap.yml
 - import_tasks: flatpak.yml
 - import_tasks: zsh.yml
@@ -9,8 +8,6 @@
 - import_tasks: dropbox.yml
 - import_tasks: firefox.yml
 - import_tasks: wireshark.yml
-- import_tasks: vlc.yml
-- import_tasks: alfred.yml
 
 - import_tasks: linux_only.yml
   when: ansible_facts['os_family'] == 'Debian'

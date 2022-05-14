@@ -1,12 +1,11 @@
 - hosts: all
-  become: yes
+  become: no 
   roles:
-    - { role: always }
-    - { role: basics, become: no }
-    - { role: communication, become: no }
-    - { role: developer, become: no }
-    - { role: art, become: no }
-    - { role: games, become: no }
-    - { role: sound, become: no }
-    - { role: configuration, become: no }
+    - { role: basics }
+    - { role: communication }
+    - { role: developer }
+    - { role: art }
+    - { role: games }
+    - { role: sound }
+    - { role: configuration }
 

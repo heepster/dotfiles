@@ -6,7 +6,7 @@
 - name: Add Wine Repository
   apt_repository:
     repo: deb https://dl.winehq.org/wine-builds/ubuntu/ impish main
-  when: when: ansible_facts['os_family'] == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Wine Staging
   package:

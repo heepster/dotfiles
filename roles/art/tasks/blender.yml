@@ -3,13 +3,13 @@
     name: blender
     classic: yes
     state: present
-  when: when: ansible_facts['os_family'] == 'Debian'
+  when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Blender
   package:
     name: blender
     state: present
-  when: when: ansible_facts['os_family'] == 'RedHat'
+  when: ansible_facts['os_family'] == 'RedHat'
 
 #- name: Change Blender Icon
 #  lineinfile:
