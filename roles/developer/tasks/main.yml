@@ -6,3 +6,4 @@
 - import_tasks: ripgrep.yml
 - import_tasks: tig.yml
 - import_tasks: htop.yml
+- import_tasks: exa.yml

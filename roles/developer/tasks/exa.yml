@@ -1,12 +1,11 @@
-- name: Install bat
-  community.general.homebrew:
-    name: bat
+- name: Install Exa
+  homebrew:
+    name: exa
     state: present
   when: ansible_facts['os_family'] == 'Darwin'
 
-- name: Install Bat
+- name: Install Exa
   package:
-    name: bat
+    name: exa
     state: present
   when: ansible_facts['os_family'] == 'Debian'
-
