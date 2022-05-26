@@ -274,4 +274,8 @@
         "command": "-workbench.action.terminal.focusFind",
         "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
     },
+    {
+        "key": "alt+p",
+        "command": "workbench.action.showAllEditorsByMostRecentlyUsed"
+    },
 ]

@@ -16,17 +16,14 @@
       "sideBar.background": "#1E2D43",
       "tab.inactiveBackground": "#1E2D43",
       "titleBar.activeBackground": "#1E2D43"
-    },
+    }
   },
   "terminal.integrated.lineHeight": 1.3,
   "workbench.editor.enablePreviewFromQuickOpen": false,
   "files.trimTrailingWhitespace": true,
-  "go.gopath": "/usr/local/Cellar/go/1.15/bin",
-  "go.formatTool": "gofmt",
   "explorer.confirmDelete": false,
   "terminal.integrated.defaultProfile.linux": "/usr/bin/zsh",
   "terminal.integrated.scrollback": 100000,
-  "go.toolsManagement.autoUpdate": true,
   "files.watcherExclude": {
     "**/.bloop": true,
     "**/.metals": true,
@@ -35,13 +32,6 @@
   "terminal.integrated.macOptionIsMeta": true,
   "terminal.integrated.tabs.enabled": true,
   "terminal.integrated.macOptionClickForcesSelection": true,
-  "java.home": "~/Library/Java/JavaVirtualMachines/openjdk-16/Contents/Home",
-  "java.configuration.runtimes": [
-    {
-      "name": "JavaSE-1.8",
-      "path": "/Library/Java/JavaVirtualMachines/zulu-sa-1.8.0_232.jdk/Contents/Home",
-    }
-  ],
   "files.exclude": {
     "**/.classpath": true,
     "**/.project": true,
