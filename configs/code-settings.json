@@ -41,5 +41,6 @@
   "rust-analyzer.inlayHints.enable": false,
   "redhat.telemetry.enabled": false,
   "explorer.confirmDragAndDrop": false,
-  "window.zoomLevel": 1
+  "window.zoomLevel": 1,
+  "settingsSync.keybindingsPerPlatform": false
 }
