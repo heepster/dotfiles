@@ -9,4 +9,3 @@
     name: fd-find
     state: present
   when: ansible_facts['os_family'] == 'Debian'
-
