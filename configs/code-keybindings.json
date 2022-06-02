@@ -293,5 +293,5 @@
     {
         "key": "ctrl+alt+-",
         "command": "-workbench.action.navigateBack"
-    },
+    }
 ]
