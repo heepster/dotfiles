@@ -1,0 +1,6 @@
+- name: Create Opt Directory
+  become: no
+  file:
+    path: "{{ lookup('env', 'HOME') }}/opt/bin"
+    state: directory
+    recurse: yes

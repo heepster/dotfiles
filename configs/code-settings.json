@@ -42,5 +42,16 @@
   "redhat.telemetry.enabled": false,
   "explorer.confirmDragAndDrop": false,
   "window.zoomLevel": 1,
-  "settingsSync.keybindingsPerPlatform": false
+  "settingsSync.keybindingsPerPlatform": false,
+  "[rust]": {
+    "editor.guides.highlightActiveIndentation": true,
+    "editor.guides.indentation": true,
+    "editor.detectIndentation": false,
+    "editor.tabSize": 4
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.fontSize": 13,
+  "debug.console.fontSize": 13,
+  "markdown.preview.fontSize": 13,
+  "terminal.integrated.fontSize": 13
 }

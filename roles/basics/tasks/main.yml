@@ -1,3 +1,4 @@
+- import_tasks: opt.yml
 - import_tasks: snap.yml
 - import_tasks: flatpak.yml
 - import_tasks: zsh.yml
