@@ -6,11 +6,19 @@
     state: present
   when: ansible_facts['os_family'] == 'Debian'
 
-- name: Set Udev file
+- name: Set Udev file for Wally
   become: yes
   file:
     src: "{{ playbook_dir }}/../configs/wally-udev.rules"
     dest: "/etc/udev/rules.d/50-wally.rules"
+    state: link
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Set Udev file for Oryx
+  become: yes
+  file:
+    src: "{{ playbook_dir }}/../configs/oryx-udev.rules"
+    dest: "/etc/udev/rules.d/50-oryx.rules"
     state: link
   when: ansible_facts['os_family'] == 'Debian'
 
