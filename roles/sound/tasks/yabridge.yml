@@ -1,0 +1,3 @@
+# Note: Bitwig needs yabridge to be in its path in order to load plugins properly
+# If you launch bitwig from the command line, and yabridge is in your PATH
+# then it seems like Bitwig "remembers" this even when launched from application launcher
