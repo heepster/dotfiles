@@ -98,6 +98,22 @@ nnoremap <Leader>b :Gblame<CR>
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
 
+" Remap cursor beginning
+nnoremap <C-h> ^
+vnoremap <C-h> ^
+
+" Remap cursor end
+nnoremap <C-l> $
+vnoremap <C-l> $
+
+" Remap page down
+nnoremap <C-j> <C-d>
+vnoremap <C-j> <C-d>
+
+" Remap page up
+nnoremap <C-k> <C-u>
+vnoremap <C-k> <C-u>
+
 
 """ NERDTREE
 map <C-e> :NERDTreeToggle<CR>
