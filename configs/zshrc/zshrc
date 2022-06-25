@@ -118,12 +118,15 @@ alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
+
+# General
+export PATH=$HOME/opt/bin:$PATH
+
 # Setup Cargo
 export PATH="$HOME/.cargo/bin/":$PATH
 
 # Setup N
 export N_PREFIX=$HOME/opt
-export PATH=$HOME/opt/bin:$PATH
 
 # FZF
 export FZF_DEFAULT_COMMAND='fd --type f'
