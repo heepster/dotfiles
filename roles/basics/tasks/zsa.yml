@@ -1,5 +1,8 @@
 # For ZSA keyboards
 
+# Doesnt seem necessary any more as Oryx
+# configurator can flash firmware from the browser
+
 - name: Install libusb
   package:
     name: libusb-1.0-0-dev

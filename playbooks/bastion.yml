@@ -18,6 +18,3 @@
     - { role: configuration }
     - { role: themes }
     - { role: post_run }
-  tasks:
-    - include_tasks: ../roles/basics/tasks/zsa.yml
-
