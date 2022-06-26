@@ -291,7 +291,7 @@
         "command": "-workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+e",
+        "key": "ctrl+i",
         "command": "workbench.action.terminal.toggleTerminal",
         "when": "terminal.active"
     },
