@@ -4,3 +4,10 @@
 
 # Debug notes
 #  /opt/bitwig-studio/bin/BitwigPluginHost-X64-SSE41 test ~/.vst/yabridge/Kontakt.so
+
+- name: Install Yabridge
+  ansible.builtin.unarchive:
+    src: https://github.com/robbert-vdh/yabridge/releases/download/4.0.1/yabridge-4.0.1.tar.gz
+    remote_src: yes
+    dest: "{{ lookup('env', 'HOME') }}/opt/bin/"
+  when: ansible_facts['os_family'] == 'Debian'

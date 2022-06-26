@@ -1,7 +1,4 @@
 - name: Install Bitwig
-  community.general.flatpak:
-    name: app/com.bitwig.BitwigStudio/x86_64/stable
-    state: present
-    method: user
-  become: no
+  ansible.builtin.apt:
+    deb: https://www.bitwig.com/dl/?id=481&os=installer_linux
   when: ansible_facts['os_family'] == 'Debian'

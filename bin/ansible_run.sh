@@ -10,4 +10,9 @@ if [ "$(uname)" == "Darwin" ]; then
   COMMAND="$PREFIX$COMMAND"
 fi
 
-$COMMAND --ask-become-pass --vault-id @$VAULT_PW_FILE --connection=local --inventory $HOST, $PLAYBOOK
+$COMMAND \
+  --ask-become-pass \
+  --vault-id @$VAULT_PW_FILE \
+  --connection=local \
+  --inventory $HOST, $PLAYBOOK \
+  -e 'ansible_python_interpreter=/usr/bin/python3'
