@@ -5,7 +5,7 @@
 - name: Install Inkscape
   package:
     name: inkscape
-    state: present
+    state: latest
   when: ansible_facts['os_family'] == 'Debian'
 
 # Inkscape is currently unbearably slow on OSX

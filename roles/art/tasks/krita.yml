@@ -5,7 +5,7 @@
 - name: Install Krita
   package:
     name: krita
-    state: present
+    state: latest
   when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Krita
