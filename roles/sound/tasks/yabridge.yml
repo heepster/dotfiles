@@ -9,5 +9,5 @@
   ansible.builtin.unarchive:
     src: https://github.com/robbert-vdh/yabridge/releases/download/4.0.1/yabridge-4.0.1.tar.gz
     remote_src: yes
-    dest: "{{ lookup('env', 'HOME') }}/opt/bin/"
+    dest: "{{ lookup('env', 'HOME') }}/.local/share/"
   when: ansible_facts['os_family'] == 'Debian'

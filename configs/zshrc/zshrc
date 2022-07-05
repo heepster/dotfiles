@@ -123,6 +123,11 @@ alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 # General
 export PATH=$HOME/opt/bin:$PATH
 
+# YAbridge
+if [ -d $HOME/.local/share/yabridge ]; then
+  export PATH=$HOME/.local/share/yabridge:$PATH
+fi
+
 # Setup Cargo
 export PATH="$HOME/.cargo/bin/":$PATH
 
