@@ -52,7 +52,6 @@
   "debug.console.fontSize": 13,
   "markdown.preview.fontSize": 13,
   "terminal.integrated.fontSize": 13,
-  "window.zoomLevel": 1,
 
   "vim": {
     "normalModeKeyBindingsNonRecursive": [
@@ -105,5 +104,7 @@
         "after": ["$"]
       }
     ]
-  }
+  },
+  "window.zoomLevel": 1,
+  "go.toolsManagement.autoUpdate": true
 }
