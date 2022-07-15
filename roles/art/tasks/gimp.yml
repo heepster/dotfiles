@@ -4,8 +4,9 @@
     state: present
   when: ansible_facts['os_family'] == 'Debian'
 
-- name: Install Gimp
-  community.general.homebrew_cask:
-    name: gimp
-    state: present
-  when: ansible_facts['os_family'] == 'Darwin'
+# Don't need this on Mac
+# - name: Install Gimp
+#   community.general.homebrew_cask:
+#     name: gimp
+#     state: present
+#   when: ansible_facts['os_family'] == 'Darwin'
