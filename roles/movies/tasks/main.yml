@@ -24,7 +24,7 @@
 
 - name: Add Plex Server Apt Key
   apt_key:
-    url: https://downloads.plex.tv/plex-keys/PlexSign.key 
+    url: https://downloads.plex.tv/plex-keys/PlexSign.key
     state: present
 
 - name: Add Plex Server PPA
@@ -37,3 +37,12 @@
     name: plexmediaserver
     state: present
 
+- name: Install exfat-fuse
+  package:
+    name: exfat-fuse
+    state: present
+
+- name: Install exfatprogs
+  package:
+    name: exfatprogs
+    state: present

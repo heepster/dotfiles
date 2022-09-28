@@ -3,7 +3,7 @@
 # so that it runs Asesprite directly
 # instead of running Steam first
 
-- name: Check that the somefile.conf exists
+- name: Aseprite - register launcher file
   stat:
     path: aseprite['launcher_path']
   register: launcher_file

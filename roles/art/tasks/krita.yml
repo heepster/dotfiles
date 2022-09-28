@@ -1,13 +1,17 @@
-- apt_repository:
-    repo: ppa:kritalime/ppa
-  when: ansible_facts['os_family'] == 'Debian'
+# TODO - use Krita SNAP
+# Krita PPA no longer appears to be active
 
-- name: Install Krita
-  package:
-    name: krita
-    state: latest
-  when: ansible_facts['os_family'] == 'Debian'
-
+#- name: Add Krita PPA
+#  apt_repository:
+#    repo: ppa:kritalime/ppa
+#  when: ansible_facts['os_family'] == 'Debian'
+#
+#- name: Install Krita
+#  package:
+#    name: krita
+#    state: latest
+#  when: ansible_facts['os_family'] == 'Debian'
+#
 - name: Install Krita
   community.general.homebrew_cask:
     name: krita
