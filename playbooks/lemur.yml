@@ -2,14 +2,14 @@
   become: yes
   roles:
     - { role: always }
-    - { role: basics }
-    - { role: communication }
-    - { role: developer }
-    - { role: games }
-    - { role: languages }
-    - { role: sound }
-    - { role: art }
-    - { role: fonts }
+      #- { role: basics }
+      #- { role: communication }
+      #- { role: developer }
+      #- { role: games }
+      #- { role: languages }
+      #- { role: sound }
+      #- { role: art }
+      #- { role: fonts }
     - { role: configuration }
-    - { role: themes }
+      #- { role: themes }
     - { role: post_run }

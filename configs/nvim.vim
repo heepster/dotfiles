@@ -1,3 +1,4 @@
+
 set shell=/bin/bash
 set so=7
 set ai
@@ -27,6 +28,8 @@ set cmdheight=1
 set nowrap
 "set cursorline
 set autoread
+set termguicolors
+"set fillchars=eob:\ 
 
 " Always keep the SignColumn transparent bg
 autocmd BufRead,BufNewFile * highlight clear SignColumn
@@ -60,14 +63,16 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
   Plug 'junegunn/fzf.vim'
   Plug 'mhinz/vim-startify'
-
-  " Doesn't work on mpb13
-  " Plug 'kyazdani42/nvim-web-devicons' " for file icons
-  " Plug 'kyazdani42/nvim-tree.lua'
+  Plug 'ggandor/leap.nvim'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
   Plug 'jeffkreeftmeijer/vim-dim'
+  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+
+  " NvimTree
+  Plug 'nvim-tree/nvim-web-devicons' " optional
+  Plug 'nvim-tree/nvim-tree.lua'
 
   " Languages
   Plug 'rust-lang/rust.vim'
@@ -83,10 +88,12 @@ call plug#begin(stdpath('data') . '/plugged')
     " To Install specific language servers
     " :CocInstall coc-tsserver coc-json coc-html coc-css coc-rust-analyzer
 
+  Plug 'alexghergh/nvim-tmux-navigation'
+
 call plug#end()
 
 """ Theme
-colorscheme dim
+colorscheme catppuccin_mocha
 
 " Cursor
 "highlight CursorLine cterm=NONE ctermbg=grey ctermfg=white guibg=grey guifg=white
@@ -95,6 +102,7 @@ colorscheme dim
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :so $MYVIMRC<CR>
 nnoremap <Leader>b :Gblame<CR>
+nnoremap <Leader>p :PlugInstall<CR>
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
 
@@ -114,12 +122,14 @@ vnoremap <C-j> <C-d>
 nnoremap <C-k> <C-u>
 vnoremap <C-k> <C-u>
 
+" Tmux / Nvim Navigation
+nnoremap <silent> <C-h> <Cmd>NvimTmuxNavigateLeft<CR>
+nnoremap <silent> <C-j> <Cmd>NvimTmuxNavigateDown<CR>
+nnoremap <silent> <C-k> <Cmd>NvimTmuxNavigateUp<CR>
+nnoremap <silent> <C-l> <Cmd>NvimTmuxNavigateRight<CR>
 
-""" NERDTREE
-map <C-e> :NERDTreeToggle<CR>
-let NERDTreeMapOpenVSplit = '<C-v>'
-let NERDTreeMapOpenInTab = '<C-t>'
-let NERDTreeMapOpenSplit = '<C-s>'
+""" NvimTree
+map <C-e> :NvimTreeToggle<CR>
 
 """ COC
 " Tab for autocompletion
@@ -218,35 +228,36 @@ let g:lightline =  {
       \ }
 " Auto update lightline
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
+let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
-" NvimTree -- doesn't work on mpb13; fails to set up properly
-" nnoremap <C-e> :NvimTreeToggle<CR>
-" let g:nvim_tree_icons = {
-"     \ 'default': "",
-"     \ 'symlink': "s",
-"     \ 'git': {
-"     \   'unstaged': "✗",
-"     \   'staged': "✓",
-"     \   'unmerged': "",
-"     \   'renamed': "➜",
-"     \   'untracked': "★",
-"     \   'deleted': "",
-"     \   'ignored': "◌"
-"     \   },
-"     \ 'folder': {
-"     \   'arrow_open': "",
-"     \   'arrow_closed': "",
-"     \   'default': "",
-"     \   'open': "",
-"     \   'empty': "",
-"     \   'empty_open': "",
-"     \   'symlink': "s",
-"     \   'symlink_open': "s",
-"     \   }
-"     \ }
-" lua << EOF
-"   require'nvim-tree'.setup {
-" }
-" EOF
+" NvimTree Load
+lua << EOF
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 
+local function my_on_attach(bufnr) 
+  local api = require('nvim-tree.api')
+  local function opts(desc)
+    return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
+  end
 
+  vim.keymap.set('n', '<C-e>', api.tree.toggle, opts('Toggle'))
+end
+  
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 50,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+  -- on_attach = my_on_attach,
+})
+EOF
+
+lua require("nvim-tmux-navigation")
+lua require('leap').add_default_mappings()
