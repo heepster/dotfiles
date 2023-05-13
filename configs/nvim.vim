@@ -53,22 +53,26 @@ autocmd VimResized * wincmd =
 au CursorHold,CursorHoldI * checktime
 
 call plug#begin(stdpath('data') . '/plugged')
-  Plug 'scrooloose/nerdTree'
   Plug 'itchyny/lightline.vim'
   Plug 'tpope/vim-fugitive'
        " Plugins for Vim Fugitive GBrowse
-       Plug 'tommcdo/vim-fubitive' " Bitbucket
+       " Plug 'tommcdo/vim-fubitive' " Bitbucket
        Plug 'tpope/vim-rhubarb' " Github
   Plug 'ruanyl/vim-gh-line'
-  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-  Plug 'junegunn/fzf.vim'
+
+  Plug 'nvim-lua/plenary.nvim'
+  Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+
+  Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    " :TSInstall rust typescript bash ruby go json
+
   Plug 'mhinz/vim-startify'
   Plug 'ggandor/leap.nvim'
 
   "Themes
   Plug 'rafi/awesome-vim-colorschemes'
   Plug 'jeffkreeftmeijer/vim-dim'
-  Plug 'catppuccin/vim', { 'as': 'catppuccin' }
+  Plug 'catppuccin/nvim', { 'branch': 'main', 'as': 'catppuccin' }
 
   " NvimTree
   Plug 'nvim-tree/nvim-web-devicons' " optional
@@ -93,36 +97,21 @@ call plug#begin(stdpath('data') . '/plugged')
 call plug#end()
 
 """ Theme
-colorscheme catppuccin_mocha
+" colorscheme catppuccin-mocha
+colorscheme catppuccin-mocha
 
 " Cursor
 "highlight CursorLine cterm=NONE ctermbg=grey ctermfg=white guibg=grey guifg=white
 
 """ Key mappings
+map <C-s> :w<CR>
+map <C-q> :q<CR>
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :so $MYVIMRC<CR>
-nnoremap <Leader>b :Gblame<CR>
+nnoremap <Leader>b :Git blame<CR>
 nnoremap <Leader>p :PlugInstall<CR>
 map <C-t>l :execute "tabnext"<CR>
 map <C-t>h :execute "tabprev"<CR>
-
-" Remap cursor beginning
-nnoremap <C-h> ^
-vnoremap <C-h> ^
-
-" Remap cursor end
-nnoremap <C-l> $
-vnoremap <C-l> $
-
-" Remap page down
-nnoremap <C-j> <C-d>
-vnoremap <C-j> <C-d>
-
-" Remap page up
-nnoremap <C-k> <C-u>
-vnoremap <C-k> <C-u>
-
-" Tmux / Nvim Navigation
 nnoremap <silent> <C-h> <Cmd>NvimTmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> <Cmd>NvimTmuxNavigateDown<CR>
 nnoremap <silent> <C-k> <Cmd>NvimTmuxNavigateUp<CR>
@@ -166,25 +155,10 @@ endfunction
 nnoremap <nowait><expr> <j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<j>"
 nnoremap <nowait><expr> <k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<k>"
 
-""" FZF
-function! RipgrepFzf(query, fullscreen)
-  let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
-  let initial_command = printf(command_fmt, shellescape(a:query))
-  let reload_command = printf(command_fmt, '{q}')
-  let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
-  call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
-endfunction
-
-command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
-nnoremap <silent> <C-p> :GFiles<CR>
-nnoremap <silent> <C-s> :RG<CR>
-nnoremap <silent> <C-f> :BLines<CR>
-nnoremap <silent> <C-m> :Marks<CR>
-nnoremap <silent> <C-b> :Buffers<CR>
-
-" Navigate quickfix list with ease
-nnoremap <silent> [q :cprevious<CR>
-nnoremap <silent> ]q :cnext<CR>
+nnoremap <silent> <C-p> :Telescope git_files<CR>
+nnoremap <silent> <C-a> :Telescope live_grep<CR>
+nnoremap <silent> <C-f> :Telescope current_buffer_fuzzy_find<CR>
+nnoremap <silent> <C-g> :Telescope git_bcommits<CR>
 
 """ FILE SPECIFIC
 au FileType fish compiler fish
@@ -210,7 +184,7 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 
 let g:lightline =  {
-      \ 'colorscheme': 'onedark',
+      \ 'colorscheme': 'catppuccin',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ],
       \             [ 'readonly', 'fugitive', 'filename', 'modified' ],
@@ -228,7 +202,6 @@ let g:lightline =  {
       \ }
 " Auto update lightline
 autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
-let g:lightline = {'colorscheme': 'catppuccin_mocha'}
 
 " NvimTree Load
 lua << EOF
@@ -241,13 +214,15 @@ local function my_on_attach(bufnr)
     return { desc = 'nvim-tree: ' .. desc, buffer = bufnr, noremap = true, silent = true, nowait = true }
   end
 
+  api.config.mappings.default_on_attach(bufnr)
+
   vim.keymap.set('n', '<C-e>', api.tree.toggle, opts('Toggle'))
 end
   
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
-    width = 50,
+    width = 30,
   },
   renderer = {
     group_empty = true,
@@ -255,9 +230,72 @@ require("nvim-tree").setup({
   filters = {
     dotfiles = true,
   },
-  -- on_attach = my_on_attach,
+  on_attach = my_on_attach
 })
+
+require("nvim-tmux-navigation")
+
+require('leap')
+vim.keymap.set('n', 'f', '<Plug>(leap-forward-to)')
+vim.keymap.set('n', 'F', '<Plug>(leap-backward-to)')
+
+
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the five listed parsers should always be installed)
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "rust", "typescript", "go", "bash", "ruby", "javascript" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  -- ignore_install = { "javascript" },
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    -- disable = { "c", "rust" },
+    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    disable = function(lang, buf)
+        local max_filesize = 100 * 1024 -- 100 KB
+        local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+        if ok and stats and stats.size > max_filesize then
+            return true
+        end
+    end,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+require("catppuccin").setup {
+    flavor = "frappe",
+    integrations = {
+    },
+    color_overrides = {
+        all = {
+            -- text = "#ffffff",
+        },
+        mocha = {
+            -- flamingo = "#ffffff",
+        }
+    }
+}
+vim.cmd.colorscheme "catppuccin"
+
 EOF
 
-lua require("nvim-tmux-navigation")
-lua require('leap').add_default_mappings()
