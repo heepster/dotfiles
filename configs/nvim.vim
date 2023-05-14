@@ -1,8 +1,4 @@
 
-set shell=/bin/bash
-set so=7
-set ai
-set expandtab
 set tabstop=2
 set shiftwidth=2
 set autoindent
@@ -30,6 +26,9 @@ set nowrap
 set autoread
 set termguicolors
 "set fillchars=eob:\ 
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+set nofoldenable
 
 " Always keep the SignColumn transparent bg
 autocmd BufRead,BufNewFile * highlight clear SignColumn
@@ -60,8 +59,11 @@ call plug#begin(stdpath('data') . '/plugged')
        Plug 'tpope/vim-rhubarb' " Github
   Plug 'ruanyl/vim-gh-line'
 
-  Plug 'nvim-lua/plenary.nvim'
+  " Required for telescope, neorg
+  Plug 'nvim-lua/plenary.nvim' 
+
   Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+  Plug 'nvim-neorg/neorg'
 
   Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
     " :TSInstall rust typescript bash ruby go json
@@ -94,6 +96,8 @@ call plug#begin(stdpath('data') . '/plugged')
 
   Plug 'alexghergh/nvim-tmux-navigation'
 
+  Plug 'akinsho/toggleterm.nvim', {'tag' : '*'}
+
 call plug#end()
 
 """ Theme
@@ -116,6 +120,7 @@ nnoremap <silent> <C-h> <Cmd>NvimTmuxNavigateLeft<CR>
 nnoremap <silent> <C-j> <Cmd>NvimTmuxNavigateDown<CR>
 nnoremap <silent> <C-k> <Cmd>NvimTmuxNavigateUp<CR>
 nnoremap <silent> <C-l> <Cmd>NvimTmuxNavigateRight<CR>
+nnoremap <silent> <C-t> <Cmd>ToggleTerm direction=vertical<CR>
 
 """ NvimTree
 map <C-e> :NvimTreeToggle<CR>
@@ -296,6 +301,60 @@ require("catppuccin").setup {
     }
 }
 vim.cmd.colorscheme "catppuccin"
+
+
+require('neorg').setup {
+    load = {
+        ["core.defaults"] = {}, -- Loads default behaviour
+        ["core.concealer"] = {}, -- Adds pretty icons to your documents
+        -- ["core.completion"] = {}, 
+        ["core.dirman"] = { -- Manages Neorg workspaces
+            config = {
+                workspaces = {
+                    notes = "~/notes",
+                },
+            },
+        },
+    },
+}
+
+
+function _G.set_terminal_keymaps()
+  local opts = {buffer = 0}
+  vim.keymap.set('t', '<esc>', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', 'jk', [[<C-\><C-n>]], opts)
+  vim.keymap.set('t', '<C-h>', [[<Cmd>wincmd h<CR>]], opts)
+  vim.keymap.set('t', '<C-j>', [[<Cmd>wincmd j<CR>]], opts)
+  vim.keymap.set('t', '<C-k>', [[<Cmd>wincmd k<CR>]], opts)
+  vim.keymap.set('t', '<C-l>', [[<Cmd>wincmd l<CR>]], opts)
+  vim.keymap.set('t', '<C-w>', [[<C-\><C-n><C-w>]], opts)
+end
+
+-- if you only want these mappings for toggle term use term://*toggleterm#* instead
+vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+require("toggleterm").setup {
+  -- size can be a number or function which is passed the current terminal
+  size = function(term)
+    if term.direction == "horizontal" then
+      return 15
+    elseif term.direction == "vertical" then
+      return vim.o.columns * 0.4
+    end
+  end,
+  open_mapping = [[<c-t]],
+  hide_numbers = true, -- hide the number column in toggleterm buffers
+  shade_terminals = false,
+  autochdir = false, -- when neovim changes it current directory the terminal will change it's own when next it's opened
+  shell = "/bin/zsh",
+  auto_scroll = true, -- automatically scroll to the bottom on terminal output
+  winbar = {
+    enabled = false,
+    name_formatter = function(term) --  term: Terminal
+      return term.name
+    end
+  }
+}
 
 EOF
 
