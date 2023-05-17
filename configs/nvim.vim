@@ -1,6 +1,8 @@
 
+set list
 set tabstop=2
 set shiftwidth=2
+set expandtab
 set autoindent
 set smartindent
 set title
@@ -92,7 +94,7 @@ call plug#begin(stdpath('data') . '/plugged')
   Plug 'jparise/vim-graphql',
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
     " To Install specific language servers
-    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-rust-analyzer
+    " :CocInstall coc-tsserver coc-json coc-html coc-css coc-rust-analyzer coc-snippets
 
   Plug 'alexghergh/nvim-tmux-navigation'
 
@@ -109,7 +111,9 @@ colorscheme catppuccin-mocha
 
 """ Key mappings
 map <C-s> :w<CR>
+imap <C-s> <ESC>:w<CR>
 map <C-q> :q<CR>
+imap <C-q> <ESC>:q!<CR>
 nnoremap <Leader>e :vsplit $MYVIMRC<CR>
 nnoremap <Leader>s :so $MYVIMRC<CR>
 nnoremap <Leader>b :Git blame<CR>
@@ -127,20 +131,39 @@ map <C-e> :NvimTreeToggle<CR>
 
 """ COC
 " Tab for autocompletion
+" inoremap <silent><expr> <TAB>
+"       \ pumvisible() ? "\<C-n>" :
+"       \ <SID>check_back_space() ? "\<TAB>" :
+"       \ coc#refresh()
+
+" Use tab for trigger completion with characters ahead and navigate
+" NOTE: There's always complete item selected by default, you may want to enable
+" no select by `"suggest.noselect": true` in your configuration file
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+
+function! CheckBackspace() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+inoremap <silent><expr> <cr> coc#pum#visible() ? coc#_select_confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gI <Plug>(coc-codeaction-cursor)
 nnoremap <silent><nowait> ga  :<C-u>CocList diagnostics<cr>
 
 " Symbol renaming.
-nmap <leader>gn <Plug>(coc-rename)
+nmap <silent> gn <Plug>(coc-rename)
 
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 function! s:show_documentation()
@@ -160,7 +183,7 @@ endfunction
 nnoremap <nowait><expr> <j> coc#float#has_scroll() ? coc#float#scroll(1) : "\<j>"
 nnoremap <nowait><expr> <k> coc#float#has_scroll() ? coc#float#scroll(0) : "\<k>"
 
-nnoremap <silent> <C-p> :Telescope git_files<CR>
+nnoremap <silent> <C-p> :Telescope find_files<CR>
 nnoremap <silent> <C-a> :Telescope live_grep<CR>
 nnoremap <silent> <C-f> :Telescope current_buffer_fuzzy_find<CR>
 nnoremap <silent> <C-g> :Telescope git_bcommits<CR>
@@ -227,7 +250,7 @@ end
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
-    width = 30,
+    width = 50,
   },
   renderer = {
     group_empty = true,
