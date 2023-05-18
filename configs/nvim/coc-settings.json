@@ -1,6 +1,6 @@
 {
   "diagnostic.showUnused": false,
-	"javascript.suggest.autoImports": true, 
+	"javascript.suggest.autoImports": true,
   "typescript.suggest.autoImports": true,
   "snippets.ultisnips.pythonPrompt": false
 }

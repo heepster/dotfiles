@@ -1,21 +1,8 @@
-- name: Create NeoVim configuration directory
+- name: Set NeoVim configuration folder
   become: no
   file:
-    path: "{{ lookup('env', 'HOME') }}/.config/nvim"
-    state: directory
-
-- name: Set NeoVim configuration file
-  become: no
-  file:
-    src: "{{ playbook_dir}}/../configs/nvim.vim"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/init.vim"
-    state: link
-
-- name: Set CoC Settings file
-  become: no
-  file:
-    src: "{{ playbook_dir}}/../configs/coc-settings.json"
-    dest: "{{ lookup('env', 'HOME') }}/.config/nvim/coc-settings.json"
+    src: "{{ playbook_dir}}/../configs/nvim/"
+    dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
 
 - name: Set TMUX configuration file
