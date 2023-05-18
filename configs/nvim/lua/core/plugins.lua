@@ -38,6 +38,14 @@ return require('packer').startup(function(use)
   }
 
   use {
+    'fannheyward/telescope-coc.nvim',
+    requires = {
+      'nvim-telescope/telescope.nvim',
+      'neoclide/coc.nvim',
+    }
+  }
+
+  use {
     'nvim-treesitter/nvim-treesitter',
     run = function()
       vim.cmd("TSUpdate")
