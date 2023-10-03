@@ -107,6 +107,10 @@
   },
   "go.toolsManagement.autoUpdate": true,
   "git.openRepositoryInParentFolders": "never",
-  "window.zoomLevel": 2,
   "typescript.updateImportsOnFileMove.enabled": "always",
+  "window.zoomLevel": 3,
+  "editor.codeActionsOnSave": {
+
+  },
+  "workbench.colorTheme": "GitHub Light",
 }
