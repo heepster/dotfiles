@@ -1,14 +1,5 @@
 - hosts: all
   become: no
   tasks:
-    #- include_tasks: ../roles/basics/tasks/opt.yml
-    #- include_tasks: ../roles/basics/tasks/tmux.yml
-    #- include_tasks: ../roles/basics/tasks/neovim.yml
-    #- include_tasks: ../roles/basics/tasks/rectangle.yml
-    #- include_tasks: ../roles/basics/tasks/karabiner.yml
-
-    ## Languages
-    #- include_tasks: ../roles/languages/tasks/javascript.yml
   roles:
-    #- { role: developer }
     - { role: configuration }

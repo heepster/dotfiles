@@ -5,6 +5,13 @@
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
 
+- name: Set Starship Config file
+  become: no
+  file:
+    src: "{{ playbook_dir}}/../configs/starship.toml"
+    dest: "{{ lookup('env', 'HOME') }}/.config/starship.toml"
+    state: link
+
 - name: Set TMUX configuration file
   become: no
   file:

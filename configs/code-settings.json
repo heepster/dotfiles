@@ -108,7 +108,7 @@
   "go.toolsManagement.autoUpdate": true,
   "git.openRepositoryInParentFolders": "never",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "window.zoomLevel": 2,
+  "window.zoomLevel": 3,
   "editor.codeActionsOnSave": {
 
   },
