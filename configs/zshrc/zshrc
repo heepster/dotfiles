@@ -122,7 +122,6 @@ alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
 
 # Setup prompt
-
 if command -v starship &> /dev/null; then
   eval "$(starship init zsh)"
 fi
@@ -152,7 +151,5 @@ export FZF_DEFAULT_COMMAND='fd --type f'
 if [ -f $HOME/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
-
-export PATH=$HOME/ziprecruiter/workspace2/tools/fastlane/:$PATH
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
