@@ -4,16 +4,16 @@
     nfs:
       server: true
   roles:
-    - { role: always }
+    #- { role: always }
     - { role: basics }
-    - { role: communication }
-    - { role: games }
-    - { role: developer }
-    - { role: languages }
-    - { role: sound }
-    - { role: movies }
-    - { role: art }
-    - { role: fonts }
+      #- { role: communication }
+      #- { role: games }
+      #- { role: developer }
+      #- { role: languages }
+      #- { role: sound }
+      #- { role: movies }
+      #- { role: art }
+      #- { role: fonts }
     - { role: configuration }
-    - { role: themes }
-    - { role: post_run }
+      #- { role: themes }
+      #- { role: post_run }

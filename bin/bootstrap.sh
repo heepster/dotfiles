@@ -1,43 +1,19 @@
 #!/bin/bash
 
-function checkExists {
-  dpkg -l | grep $1 > /dev/null 2>&1 
-}
-
-function printInstall {
-  echo "Installing $1..."
-}
-
-function printInstallSkip {
-  echo "$1 is already installed...skipping."
-}
 
 UNAME="$(uname -s)"
 
-if hostnamectl | grep -i fedora; then 
-  sudo dnf install dpkg ansible gnome-tweaks snapd -y
+if [ "$UNAME" == "Linux" ]; then 
 
-  if [ ! -f /snap ]; then
-    sudo ln -s /var/lib/snapd/snap /snap
+  # if Pip doesn't exist, install it and ansible
+  if ! python3 -m pip -V; then
+    curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
+    python3 get-pip.py --user
+    rm get-pip.py
+
+    python3 -m pip install --user ansible-core
   fi
-
-elif [ "$UNAME" == "Linux" ]; then 
-
-  sudo apt-get update
   
-  checkExists "ansible"
-  if [ $? -eq 0 ]; then
-    printInstallSkip "Ansible"
-  else
-    printInstall "Annsible"
-    sudo apt-add-repository --yes --update ppa:ansible/ansible
-    sudo apt install ansible
-  
-    # This PPA doesn't have a release file for 20.02 Ubuntu
-    # which 'breaks' apt updates, so just remove it
-    sudo add-apt-repository --remove ppa:ansible/ansible
-  fi
-
 elif [ "$UNAME" == "Darwin" ]; then 
 
   if [[ ! -f /usr/local/bin/brew ]] && [[ ! -f /opt/homebrew/bin/brew ]]; then
@@ -59,6 +35,3 @@ else
 
 fi 
 
-mkdir -p galaxy
-ansible-galaxy install --roles-path galaxy -r requirements.yml
-ansible-galaxy collection install community.general

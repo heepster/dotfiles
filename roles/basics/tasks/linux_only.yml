@@ -1,7 +1,4 @@
 - import_tasks: gnome.yml
-- import_tasks: vpn.yml
-- import_tasks: wine.yml
-- import_tasks: xournal.yml
 
 - name: Software Properties Common
   package:

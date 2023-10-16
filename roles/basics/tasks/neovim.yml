@@ -1,8 +1,26 @@
-- name: Install Neovim
-  package:
-    name: "neovim"
-    state: "present"
-  when: ansible_facts['os_family'] == 'Debian'
+- name: Check if nvim is in PATH
+  command: "which nvim"
+  register: nvim_check
+  ignore_errors: yes  # Ignore errors (return code 1) if nvim is not found
+
+- name: Download app image
+  get_url:
+    url: "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
+    dest: "/tmp/nvim.app.image"
+  when: nvim_check.rc != 0 and ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
+  register: download_result
+
+- name: Move app image to target folder (Linux)
+  copy:
+    src: "/tmp/nvim.app.image"
+    dest: "/usr/bin/nvim"
+  when: nvim_check.rc != 0 and not download_result.failed and (ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat")
+
+- name: Make the app image executable (Linux)
+  file:
+    path: "/usr/bin/nvim"
+    mode: "a+x"
+  when: nvim_check.rc != 0 and not download_result.failed and (ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat")
 
 - name: Install Neovim
   homebrew:

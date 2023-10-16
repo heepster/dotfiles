@@ -112,5 +112,8 @@
   "editor.codeActionsOnSave": {
 
   },
-  "workbench.colorTheme": "GitHub Light",
+  "workbench.colorTheme": "Default Dark Modern",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
 }

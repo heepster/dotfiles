@@ -10,6 +10,12 @@ if [ "$(uname)" == "Darwin" ]; then
   COMMAND="$PREFIX$COMMAND"
 fi
 
+if [ "$(uname)" == "Linux" ]; then
+  PREFIX=~/.local/bin/
+  COMMAND="$PREFIX$COMMAND"
+fi
+
+
 $COMMAND \
   --ask-become-pass \
   --vault-id @$VAULT_PW_FILE \
