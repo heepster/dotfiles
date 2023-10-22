@@ -2,17 +2,22 @@
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
 
-local Util = require("lazyvim.util")
+vim.keymap.set("n", "<leader>m", "<cmd>lua MiniMap.toggle()<cr>", { desc = "Toggle Mini Map" })
 
-local function map(mode, lhs, rhs, opts)
-  local keys = require("lazy.core.handler").handlers.keys
-  ---@cast keys LazyKeysHandler
-  -- do not create the keymap if a lazy keys handler exists
-  if not keys.active[keys.parse({ lhs, mode = mode }).id] then
-    opts = opts or {}
-    opts.silent = opts.silent ~= false
-    vim.keymap.set(mode, lhs, rhs, opts)
-  end
-end
+-- Remove keymaps for easy window traversal
+-- (I prefer using <C-w>hjkl)
+vim.keymap.del("n", "<C-h>")
+vim.keymap.del("n", "<C-j>")
+vim.keymap.del("n", "<C-k>")
+vim.keymap.del("n", "<C-l>")
 
-map("n", "<leader>m", "<cmd>lua MiniMap.toggle()<cr>", { desc = "Toggle Mini Map" })
+-- <C-;> doesn't work for some reason
+-- I can neither delete an existing map or set it
+-- vim.keymap.del("i", "<C-;>")
+-- vim.keymap.set("i", "<C-;>", "<esc>", { desc = "Escape" })
+
+-- This makes Escape easier on Moonlander keyboard
+vim.keymap.set({ "n", "i" }, "<C-\\>", "<esc>", { desc = "Escape" })
+
+vim.keymap.set({ "n", "i" }, "<C-l>", "$", { desc = "Beginning of line" })
+vim.keymap.set({ "n", "i" }, "<C-h>", "^", { desc = "End of line" })
