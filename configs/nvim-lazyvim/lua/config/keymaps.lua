@@ -11,13 +11,18 @@ vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
 
--- <C-;> doesn't work for some reason
--- I can neither delete an existing map or set it
--- vim.keymap.del("i", "<C-;>")
--- vim.keymap.set("i", "<C-;>", "<esc>", { desc = "Escape" })
+-- Easier Escape remaps
+vim.keymap.set("i", "jk", "<esc>", { desc = "Escape" })
+vim.keymap.set("i", "kj", "<esc>", { desc = "Escape" })
 
--- This makes Escape easier on Moonlander keyboard
-vim.keymap.set({ "n", "i" }, "<C-\\>", "<esc>", { desc = "Escape" })
-
+-- Easier line traversals
 vim.keymap.set({ "n", "i" }, "<C-l>", "$", { desc = "Beginning of line" })
 vim.keymap.set({ "n", "i" }, "<C-h>", "^", { desc = "End of line" })
+
+-- Easier save/close file
+vim.keymap.set({ "n", "i", "v" }, "<C-q>", ":q!<cr>", { desc = "Close without saving" })
+vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<esc>:w<cr>", { desc = "Save" })
+
+-- Functionality
+vim.keymap.set({ "n", "i", "v" }, "<C-e>", "<esc>:Neotree toggle<cr>", { desc = "ToggleNeoTree" })
+vim.keymap.set({ "n", "i", "v" }, "<C-p>", "<esc>:Telescope find_files<cr>", { desc = "Find files in cwd" })
