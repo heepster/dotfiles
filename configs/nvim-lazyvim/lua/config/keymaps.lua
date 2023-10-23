@@ -26,3 +26,10 @@ vim.keymap.set({ "n", "i", "v" }, "<C-s>", "<esc>:w<cr>", { desc = "Save" })
 -- Functionality
 vim.keymap.set({ "n", "i", "v" }, "<C-e>", "<esc>:Neotree toggle<cr>", { desc = "ToggleNeoTree" })
 vim.keymap.set({ "n", "i", "v" }, "<C-p>", "<esc>:Telescope find_files<cr>", { desc = "Find files in cwd" })
+vim.keymap.set({ "n" }, "<C-f>", "<esc>:Telescope current_buffer_fuzzy_find<cr>", { desc = "Find in current file" })
+vim.keymap.set({ "n" }, "<C-F>", "<esc>:Telescope live_grep<cr>", { desc = "Find in current directory" })
+vim.keymap.set({ "n" }, "<C-r>", "<esc>:Telescope resume<cr>", { desc = "Resume last telescope search" })
+
+-- Remove terminal
+vim.keymap.del("n", "<c-/>")
+vim.keymap.del("n", "<c-_>")
