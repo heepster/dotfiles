@@ -27,7 +27,5 @@
     state: link
   when: ansible_facts['os_family'] == 'Debian'
 
-- import_tasks: vscode.yml
-
 - import_tasks: zsh.yml
 
