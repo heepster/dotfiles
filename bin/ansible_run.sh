@@ -6,7 +6,17 @@ VAULT_PW_FILE=vault-pw
 COMMAND=ansible-playbook
 
 if [ "$(uname)" == "Darwin" ]; then
-  PREFIX=~/Library/Python/3.8/bin/
+
+  if [ -d "$HOME/Library/Python/3.8/" ]; then
+    PYTHON_DIR="$HOME/Library/Python/3.8"
+  elif [ -d "$HOME/Library/Python/3.9/" ]; then
+    PYTHON_DIR="$HOME/Library/Python/3.9"
+  else
+    echo "Python not found"
+    exit 1
+  fi
+
+  PREFIX=$PYTHON_DIR/bin/
   COMMAND="$PREFIX$COMMAND"
 fi
 

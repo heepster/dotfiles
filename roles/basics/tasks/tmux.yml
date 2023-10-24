@@ -5,6 +5,7 @@
   when: ansible_facts['os_family'] == 'Debian'
 
 - name: Install Tmux
+  become: no
   homebrew:
     name: tmux
     state: present

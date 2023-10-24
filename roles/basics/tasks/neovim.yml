@@ -2,46 +2,44 @@
   command: "which nvim"
   register: nvim_check
   ignore_errors: yes  # Ignore errors (return code 1) if nvim is not found
+  when:
+    - ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
 
 - name: Download app image
   get_url:
     url: "https://github.com/neovim/neovim/releases/download/stable/nvim.appimage"
     dest: "/tmp/nvim.app.image"
-  when: nvim_check.rc != 0 and ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
+  when: 
+    - ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
+    - nvim_check is defined 
+    - nvim_check.rc != 0 
   register: download_result
 
 - name: Move app image to target folder (Linux)
   copy:
     src: "/tmp/nvim.app.image"
     dest: "/usr/bin/nvim"
-  when: nvim_check.rc != 0 and not download_result.failed and (ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat")
+  when: 
+    - ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
+    - nvim_check is defined
+    - nvim_check.rc != 0 
+    - download_result is defined 
+    - not download_result.failed
 
 - name: Make the app image executable (Linux)
   file:
     path: "/usr/bin/nvim"
     mode: "a+x"
-  when: nvim_check.rc != 0 and not download_result.failed and (ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat")
+  when: 
+    - ansible_facts['os_family'] == "Debian" or ansible_facts['os_family'] == "RedHat"
+    - nvim_check is defined
+    - nvim_check.rc != 0 
+    - download_result is defined 
+    - not download_result.failed
 
 - name: Install Neovim
+  become: no
   homebrew:
     name: neovim
     state: present
-  when: ansible_facts['os_family'] == 'Darwin'
-
-- name: Install Vim Plug
-  become: no
-  shell: |
-    sh -c 'curl -fLo "$HOME"/.local/share/nvim/site/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  args:
-    creates: "{{ lookup('env', 'HOME') }}/.local/share/nvim/site/autoload/plug.vim"
-  when: ansible_facts['os_family'] == 'Debian'
-
-- name: Install Vim Plug
-  become: no
-  shell: |
-    sh -c 'curl -fLo "$HOME"/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  args:
-    creates: "{{ lookup('env', 'HOME') }}/.config/nvim/autoload/plug.vim"
   when: ansible_facts['os_family'] == 'Darwin'

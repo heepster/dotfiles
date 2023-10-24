@@ -28,12 +28,3 @@
     name: visual-studio-code
     state: present
   when: ansible_facts['os_family'] == 'Darwin'
-
-- name: Create a directory if it does not exist
-  file:
-    path: "{{ lookup('env', 'HOME') }}/Library/Application Support/Code/User/"
-    state: directory
-    owner: "{{ lookup('env', 'USER') }}"
-    group: staff
-    mode: '0755'
-  when: ansible_facts['os_family'] == 'Darwin'
