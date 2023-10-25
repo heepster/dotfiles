@@ -1,4 +1,5 @@
 - name: Install Htop
+  become: no
   homebrew:
     name: htop
     state: present

@@ -1,4 +1,5 @@
 - name: Install Exa
+  become: no
   homebrew:
     name: exa
     state: present

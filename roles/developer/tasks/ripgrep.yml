@@ -1,4 +1,5 @@
 - name: Install Ripgrep
+  become: no
   homebrew:
     name: ripgrep
     state: present

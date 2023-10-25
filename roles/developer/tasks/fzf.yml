@@ -1,4 +1,5 @@
 - name: Install fzf
+  become: no
   community.general.homebrew:
     name: fzf
     state: present

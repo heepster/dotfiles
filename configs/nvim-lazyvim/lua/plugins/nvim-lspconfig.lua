@@ -17,7 +17,6 @@ return {
       servers = {
         tsserver = {},
         rust_analyzer = {},
-        ansiblels = {},
         gopls = {},
         biome = {},
       },

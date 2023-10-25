@@ -1,5 +1,3 @@
-- import_tasks: postman.yml
-- import_tasks: docker.yml
 - import_tasks: bat.yml
 - import_tasks: fd.yml
 - import_tasks: fzf.yml

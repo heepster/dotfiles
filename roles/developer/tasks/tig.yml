@@ -1,4 +1,5 @@
 - name: Install Tig
+  become: no
   homebrew:
     name: tig
     state: present
