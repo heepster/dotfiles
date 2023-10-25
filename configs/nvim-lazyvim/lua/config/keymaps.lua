@@ -29,6 +29,7 @@ wk.register({
     ["|"] = "which_key_ignore",
     ["`"] = "which_key_ignore",
     ["E"] = "which_key_ignore",
+    ["e"] = "Toggle sidebar",
   },
 })
 -- END WHICH KEY
@@ -41,7 +42,6 @@ vim.keymap.del("n", "<C-l>")
 vim.keymap.del("n", "<leader><space>")
 vim.keymap.del("n", "<leader>E")
 -- <leader>f
-vim.keymap.del("n", "<leader>ff")
 vim.keymap.del("n", "<leader>fF")
 vim.keymap.del("n", "<leader>fb")
 vim.keymap.del("n", "<leader>fc")
@@ -64,7 +64,7 @@ vim.keymap.set("n", "<leader>Ll", "<cmd>Lazy<cr>", { desc = "Lazy dashboard" })
 vim.keymap.set("n", "<leader>Lg", "<cmd>Lazy log<cr>", { desc = "Show Lazy log" })
 
 -- General
-vim.keymap.set("n", "<leader>e", "<esc>:Neotree toggle<cr>", { desc = "Toggle sidebar" })
+vim.keymap.set("n", "<leader>e", "<esc>:Neotree toggle dir=.<cr>", { desc = "Toggle sidebar" })
 vim.keymap.set("n", "<leader>ff", "<esc>:Telescope find_files<cr>", { desc = "Find file in cwd" })
 vim.keymap.set("n", "<leader>fs", "<esc>:Telescope current_buffer_fuzzy_find<cr>", { desc = "Find string in file" })
 vim.keymap.set("n", "<leader>fg", "<esc>:Telescope live_grep<cr>", { desc = "Find string in cwd" })
