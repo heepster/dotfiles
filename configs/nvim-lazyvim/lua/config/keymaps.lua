@@ -8,7 +8,12 @@ local wk = require("which-key")
 wk.register({
   ["<leader>L"] = { name = "+Lazy" },
   ["<leader>l"] = { name = "+line" },
-  ["<leader>s"] = { name = "+save/close" },
+  ["<leader>s"] = {
+    name = "+save/close",
+    s = "which_key_ignore",
+    k = "which_key_ignore",
+    l = "which_key_ignore",
+  },
   ["<leader>f"] = {
     name = "+find",
     b = "which_key_ignore",
@@ -17,7 +22,6 @@ wk.register({
     E = "which_key_ignore",
     F = "which_key_ignore",
     n = "which_key_ignore",
-    r = "which_key_ignore",
     R = "which_key_ignore",
     t = "which_key_ignore",
     T = "which_key_ignore",
@@ -71,18 +75,17 @@ vim.keymap.set("n", "<leader>fg", "<esc>:Telescope live_grep<cr>", { desc = "Fin
 vim.keymap.set("n", "<leader>fr", "<esc>:Telescope resume<cr>", { desc = "Resume last telescope search" })
 
 -- Quitting / Saving
-vim.keymap.set("n", "<leader>sl", "<cmd>wq<cr>", { desc = "Save and close file" })
-vim.keymap.set("n", "<leader>q", "<cmd>q!<cr>", { desc = "Close file without saving" })
+vim.keymap.set("n", "<leader>kl", "<cmd>wq<cr>", { desc = "Save and close file" })
+vim.keymap.set("n", "<leader>kk", "<cmd>w<cr>", { desc = "Save file" })
+vim.keymap.set("n", "<leader>kj", "<cmd>q!<cr>", { desc = "Close file without saving" })
 
 -- Page traversal
-vim.keymap.set("n", "n", "<C-d>", { desc = "Page down" })
-vim.keymap.set("n", "o", "<C-u>", { desc = "Page up" })
+vim.keymap.set({ "n", "v" }, "<C-j>", "10j", { desc = "Page down" })
+vim.keymap.set({ "n", "v" }, "<C-k>", "10k", { desc = "Page up" })
 
 -- Line traversal
-vim.keymap.set("n", "<leader>ll", "$", { desc = "End of line" })
-vim.keymap.set("n", "<leader>lh", "^", { desc = "Beginning of line" })
-vim.keymap.set({ "n", "i", "v" }, "<C-l>", "$", { desc = "Beginning of line" })
-vim.keymap.set({ "n", "i", "v" }, "<C-h>", "^", { desc = "End of line" })
+vim.keymap.set({ "n", "i", "v" }, "<C-l>", "20l", { desc = "Beginning of line" })
+vim.keymap.set({ "n", "i", "v" }, "<C-h>", "20h", { desc = "End of line" })
 
 -- Window traversal
 vim.keymap.set("n", "<leader>wl", "<C-w>l", { desc = "Focus window right" })
@@ -93,5 +96,4 @@ vim.keymap.set("n", "<leader>wv", "<C-w>v", { desc = "Split window vertical" })
 vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split window horizontal" })
 
 -- Escape
-vim.keymap.set({ "i" }, "jk", "<esc>", { desc = "Escape" })
-vim.keymap.set({ "i" }, "kj", "<esc>", { desc = "Escape" })
+vim.keymap.set({ "i", "v" }, "jk", "<esc>", { desc = "Escape" })

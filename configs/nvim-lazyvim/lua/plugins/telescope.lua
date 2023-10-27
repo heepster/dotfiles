@@ -4,6 +4,7 @@ return {
 
     keys = {
       { "<leader>ff", false },
+      { "<leader>fr", false },
     },
 
     -- change some options
