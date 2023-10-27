@@ -21,8 +21,7 @@ if [ "$(uname)" == "Darwin" ]; then
 fi
 
 if [ "$(uname)" == "Linux" ]; then
-  PREFIX=~/.local/bin/
-  COMMAND="$PREFIX$COMMAND"
+  COMMAND="$COMMAND"
 fi
 
 
