@@ -6,14 +6,9 @@ local wk = require("which-key")
 
 -- WHICH KEY
 wk.register({
-  ["<leader>L"] = { name = "+Lazy" },
+  ["<leader>L"] = { name = "Lazy" },
   ["<leader>l"] = { name = "+line" },
-  ["<leader>s"] = {
-    name = "+save/close",
-    s = "which_key_ignore",
-    k = "which_key_ignore",
-    l = "which_key_ignore",
-  },
+  ["<leader>z"] = { name = "+zen mode" },
   ["<leader>f"] = {
     name = "+find",
     b = "which_key_ignore",
@@ -26,7 +21,6 @@ wk.register({
     t = "which_key_ignore",
     T = "which_key_ignore",
   },
-  ["<leader>q"] = { name = "close file without saving" },
   ["<leader>"] = {
     [","] = "which_key_ignore",
     ["-"] = "which_key_ignore",
@@ -34,6 +28,8 @@ wk.register({
     ["`"] = "which_key_ignore",
     ["E"] = "which_key_ignore",
     ["e"] = "Toggle sidebar",
+    ["K"] = "which_key_ignore",
+    ["<space>"] = "which_key_ignore",
   },
 })
 -- END WHICH KEY
@@ -43,7 +39,6 @@ vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
 vim.keymap.del("n", "<C-l>")
-vim.keymap.del("n", "<leader><space>")
 vim.keymap.del("n", "<leader>E")
 -- <leader>f
 vim.keymap.del("n", "<leader>fF")
@@ -62,6 +57,9 @@ vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<c-/>")
 vim.keymap.del("n", "<c-_>")
 -- END UNMAP KEYS
+
+-- Zenmode
+vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>", { desc = "Toggle zenmode" })
 
 -- Lazy
 vim.keymap.set("n", "<leader>Ll", "<cmd>Lazy<cr>", { desc = "Lazy dashboard" })
