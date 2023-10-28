@@ -1,2 +1,3 @@
 # Don't like this package very much, takes too long
 #- src: rvm.ruby
+- name: fubarhouse.golang

@@ -2,3 +2,5 @@ vault-pw
 galaxy
 configs/nvim/plugin/
 
+# ignore external roles
+roles/fubarhouse.golang/

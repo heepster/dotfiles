@@ -1,4 +1,6 @@
 - hosts: all
-  become: yes
+  vars:
+    go_version: 1.21.3
   roles:
-    - { role: nodejs }
+    - { role: nodejs, become: yes }
+    - { role: fubarhouse.golang, become: no }
