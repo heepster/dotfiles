@@ -107,7 +107,6 @@ setopt IGNORE_EOF
 
 export EDITOR=nvim
 
-alias vim="nvim"
 alias gp="git push"
 alias gs="git status"
 alias gd="git diff --staged"
@@ -118,8 +117,10 @@ alias grs="git restore --staged"
 alias gr="git restore"
 alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
+alias vim="nvim"
+alias v="nvim"
+alias c="clear"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
-
 
 # Setup prompt
 if command -v starship &> /dev/null; then

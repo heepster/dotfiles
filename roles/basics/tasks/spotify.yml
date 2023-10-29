@@ -1,10 +1,26 @@
-- name: Install Spotify
-  become: no
-  flatpak:
-    name: com.spotify.Client
+# Linux
+
+- name: Add Spotify GPG key
+  ansible.builtin.apt_key:
+    url: "https://download.spotify.com/debian/pubkey_7A3A762FAFD4A51F.gpg"
     state: present
-    method: user
   when: ansible_facts['os_family'] == 'Debian'
+
+- name: Add Spotify repository to sources.list.d
+  ansible.builtin.apt_repository:
+    repo: "deb http://repository.spotify.com stable non-free"
+    state: present
+  when: ansible_facts['os_family'] == 'Debian'
+
+- name: Update apt cache and install spotify-client
+  ansible.builtin.apt:
+    name: spotify-client
+    update_cache: yes
+    state: present
+  when: ansible_facts['os_family'] == 'Debian'
+
+
+# Mac
 
 - name: Install Spotify
   community.general.homebrew_cask:
