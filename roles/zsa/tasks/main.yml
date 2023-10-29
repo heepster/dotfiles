@@ -1,0 +1,43 @@
+# For ZSA keyboards
+
+- name: Set Udev file for Oryx
+  become: yes
+  file:
+    src: "{{ playbook_dir }}/../configs/oryx-udev.rules"
+    dest: "/etc/udev/rules.d/50-oryx.rules"
+    state: link
+  when: ansible_facts['os_family'] == 'Debian'
+
+# The following steps are not necessary.
+# Configurator can flash firmware from the browser
+# - name: Install libusb
+#   package:
+#     name: libusb-1.0-0-dev
+#     state: present
+#   when: ansible_facts['os_family'] == 'Debian'
+# 
+# - name: Set Udev file for Wally
+#   become: yes
+#   file:
+#     src: "{{ playbook_dir }}/../configs/wally-udev.rules"
+#     dest: "/etc/udev/rules.d/50-wally.rules"
+#     state: link
+#   when: ansible_facts['os_family'] == 'Debian'
+# 
+# - name: Add user to plugdev group
+#   become: no
+#   ansible.builtin.user:
+#     name: "{{ lookup('env', 'USER') }}"
+#     groups: plugdev
+#     append: yes
+#   when: ansible_facts['os_family'] == 'Debian'
+# 
+# - name: Get Wally binary
+#   get_url:
+#     url: https://configure.ergodox-ez.com/wally/linux
+#     dest: "{{ lookup('env', 'HOME') }}/opt/bin/wally"
+# 
+# - name: Make Wally binary executable
+#   ansible.builtin.file:
+#     path: "{{ lookup('env', 'HOME') }}/opt/bin/wally"
+#     mode: '0755'
