@@ -116,12 +116,13 @@ alias gb="git branch"
 alias grs="git restore --staged"
 alias gr="git restore"
 
+alias ll="ls -lrt"
 alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
 
 alias vim="nvim"
 alias v="nvim"
-alias c="clear"
+alias ff="clear"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
 # Setup prompt
