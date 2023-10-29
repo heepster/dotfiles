@@ -115,8 +115,10 @@ alias ga="git add ."
 alias gb="git branch"
 alias grs="git restore --staged"
 alias gr="git restore"
+
 alias tl="tmux list-sessions"
 alias ta="tmux attach -t"
+
 alias vim="nvim"
 alias v="nvim"
 alias c="clear"
