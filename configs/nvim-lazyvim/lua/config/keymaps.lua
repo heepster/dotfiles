@@ -6,8 +6,6 @@ local wk = require("which-key")
 
 -- WHICH KEY
 wk.register({
-  ["<leader>L"] = { name = "Lazy" },
-  ["<leader>l"] = { name = "+line" },
   ["<leader>z"] = { name = "+zen mode" },
   ["<leader>f"] = {
     name = "+find",
@@ -38,7 +36,6 @@ wk.register({
 vim.keymap.del("n", "<C-h>")
 vim.keymap.del("n", "<C-j>")
 vim.keymap.del("n", "<C-k>")
-vim.keymap.del("n", "<C-l>")
 vim.keymap.del("n", "<leader>E")
 -- <leader>f
 vim.keymap.del("n", "<leader>fF")
@@ -50,9 +47,6 @@ vim.keymap.del("n", "<leader>ft")
 vim.keymap.del("n", "<leader>fT")
 vim.keymap.del("n", "<leader>fn")
 vim.keymap.del("n", "<leader>fR")
--- <leader>l/L
-vim.keymap.del("n", "<leader>L")
-vim.keymap.del("n", "<leader>l")
 -- Terminal
 vim.keymap.del("n", "<c-/>")
 vim.keymap.del("n", "<c-_>")
@@ -60,10 +54,6 @@ vim.keymap.del("n", "<c-_>")
 
 -- Zenmode
 vim.keymap.set("n", "<leader>zz", "<cmd>ZenMode<cr>", { desc = "Toggle zenmode" })
-
--- Lazy
-vim.keymap.set("n", "<leader>Ll", "<cmd>Lazy<cr>", { desc = "Lazy dashboard" })
-vim.keymap.set("n", "<leader>Lg", "<cmd>Lazy log<cr>", { desc = "Show Lazy log" })
 
 -- General
 vim.keymap.set("n", "<leader>e", "<esc>:Neotree toggle dir=.<cr>", { desc = "Toggle sidebar" })
