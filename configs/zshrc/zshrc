@@ -123,6 +123,7 @@ alias ta="tmux attach -t"
 alias vim="nvim"
 alias v="nvim"
 alias ff="clear"
+alias c="cd"
 alias s="source ~/.zshrc && echo 'ZSHrc reloaded!'"
 
 # Setup prompt
