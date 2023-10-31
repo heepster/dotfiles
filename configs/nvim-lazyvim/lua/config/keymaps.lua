@@ -90,3 +90,7 @@ vim.keymap.set({ "i", "v" }, "jk", "<esc>", { desc = "Escape" })
 -- Terminal
 vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm direction=vertical<cr>", { desc = "Open terminal to the right" })
 vim.keymap.set("n", "<leader>td", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open terminal to the bottom" })
+local opts = {}
+vim.keymap.set("t", "<esc>", [[<C-\><C-n>]], opts)
+vim.keymap.set("t", "jk", [[<C-\><C-n>]], opts)
+vim.keymap.set("t", "<C-w>", [[<C-\><C-n><C-w>]], opts)
