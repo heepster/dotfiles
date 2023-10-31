@@ -4,5 +4,12 @@ return {
     keys = {
       { "<leader>e", false },
     },
+    opts = {
+      window = {
+        mappings = {
+          ["<esc>"] = "clear_filter",
+        },
+      },
+    },
   },
 }
