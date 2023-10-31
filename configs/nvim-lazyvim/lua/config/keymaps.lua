@@ -64,9 +64,9 @@ vim.keymap.set("n", "<leader>fg", "<esc>:Telescope live_grep<cr>", { desc = "Fin
 vim.keymap.set("n", "<leader>fr", "<esc>:Telescope resume<cr>", { desc = "Resume last telescope search" })
 
 -- Quitting / Saving
-vim.keymap.set("n", "<leader>kl", "<cmd>wq<cr>", { desc = "Save and close file" })
+vim.keymap.set("n", "<leader>kj", "<cmd>wq<cr>", { desc = "Save and close file" })
 vim.keymap.set("n", "<leader>kk", "<cmd>w<cr>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>kj", "<cmd>q!<cr>", { desc = "Close file without saving" })
+vim.keymap.set("n", "<leader>kq", "<cmd>q!<cr>", { desc = "Close file without saving" })
 
 -- Page traversal
 vim.keymap.set({ "n", "v" }, "<C-j>", "10j", { desc = "Page down" })
