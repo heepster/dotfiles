@@ -107,7 +107,8 @@ setopt IGNORE_EOF
 
 export EDITOR=nvim
 
-alias gp="git push"
+alias gpp="git push"
+alias gpl="git push"
 alias gs="git status"
 alias gd="git diff --staged"
 alias gc="git commit -m"

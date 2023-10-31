@@ -6,6 +6,7 @@ local wk = require("which-key")
 
 -- WHICH KEY
 wk.register({
+  ["<leader>t"] = { name = "+terminal" },
   ["<leader>z"] = { name = "+zen mode" },
   ["<leader>f"] = {
     name = "+find",
@@ -85,3 +86,7 @@ vim.keymap.set("n", "<leader>ws", "<C-w>s", { desc = "Split window horizontal" }
 
 -- Escape
 vim.keymap.set({ "i", "v" }, "jk", "<esc>", { desc = "Escape" })
+
+-- Terminal
+vim.keymap.set("n", "<leader>tt", "<cmd>ToggleTerm direction=vertical<cr>", { desc = "Open terminal to the right" })
+vim.keymap.set("n", "<leader>td", "<cmd>ToggleTerm direction=horizontal<cr>", { desc = "Open terminal to the bottom" })
