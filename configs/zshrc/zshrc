@@ -144,6 +144,9 @@ fi
 export PATH="$HOME/.cargo/bin/":$PATH
 
 # Setup Go
+# Add various gopaths to $PATH
+[ -n "$(go env GOBIN)" ] && export PATH="$(go env GOBIN):${PATH}"
+[ -n "$(go env GOPATH)" ] && export PATH="$(go env GOPATH)/bin:${PATH}"
 if [ -d /usr/local/go/ ]; then
   export PATH=/usr/local/go/bin:$PATH
 fi
