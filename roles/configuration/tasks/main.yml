@@ -1,7 +1,7 @@
 - name: Set NeoVim configuration folder
   become: no
   file:
-    src: "{{ playbook_dir}}/../configs/nvim-lazyvim/"
+    src: "{{ playbook_dir}}/../configs/nvim/"
     dest: "{{ lookup('env', 'HOME') }}/.config/nvim"
     state: link
 

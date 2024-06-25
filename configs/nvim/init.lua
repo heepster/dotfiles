@@ -1,8 +1,11 @@
-require('core.util')
-require("core.settings")
-require("core.plugins")
-require("core.theme")
-require("core.key_mappings")
+-- Entrypoint for Neovim Configuration
 
-local lua_config_dir = vim.fn.stdpath('config') .. '/lua'
-source_files_from_dir(lua_config_dir .. '/' .. 'plugin_config')
+if vim.g.vscode then
+  -- If I'm in VSCode, just load keybindings
+  require("keys")
+else
+  -- otherwise, load keybindings and plugins
+  require("keys")
+  require("plugins")
+end
+
