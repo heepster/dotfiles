@@ -6,6 +6,6 @@ if vim.g.vscode then
 else
   -- otherwise, load keybindings and plugins
   require("keys")
-  require("plugins")
+  require("config.lazy")
 end
 
