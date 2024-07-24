@@ -1,6 +1,6 @@
 return {
-    "github/copilot.vim",
-    config = function()
-        vim.cmd('Copilot')
-    end
+	"github/copilot.vim",
+	config = function()
+		vim.cmd("Copilot")
+	end,
 }

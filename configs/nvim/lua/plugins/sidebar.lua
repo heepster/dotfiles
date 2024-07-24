@@ -9,5 +9,6 @@ return {
 	},
 	keys = {
 		{ "<C-e>", "<cmd>Neotree toggle<cr>", desc = "NeoTree" },
-    },
+	},
 }
+
