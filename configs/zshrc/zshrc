@@ -71,6 +71,7 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   zsh-autosuggestions
+  direnv
   #globalias
 )
 
@@ -162,3 +163,4 @@ if [ -f $HOME/.zshrc.local ]; then
 fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
